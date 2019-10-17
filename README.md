@@ -10,9 +10,9 @@
 |-----|---------| ----------|-----------|
 | UC1 | Add new item to inventory | High | Low  |
 | UC2 | Remove a item from inventory | High | Low |
-| UC3 | Update functionalites | High | High |
-| UC4 | Change the identification number of a meal |  High | Medium |
-| UC5 | Produce a management report | High | Medium | UC6 | Addition of a new descriptor | High | High |
+| UC3 | Change the identification number of a meal |  High | Medium |
+| UC4 | Produce a management report | High | Medium | 
+| UC5 | Addition of a new descriptor | High | High |
 
 ----------------------------------------------------
 
@@ -31,10 +31,13 @@
 | CON-3 | First release planned after two months |
 | CON-4 | A POC should be presented within five weeks|
 | CON-5 | Adoption of open-source tecnologies |
-| CON-6 | ------ |
+| CON-6 |  It is intended that the introduction of new ones affects very little, or nothing, other components of the appli
+cation. |
 | CON-7 | UC6 should be completed and tested in less than 0.5 (1 person for two days?) person-day of effort |
 | CON-8 | UC4 shouldn´t affect more than one architeture component |
-| 
+| CON-9 | Change in the generation of this number identification is to be implemented with no side effects in 1 person-day of effort.
+| CON-10| Backup policy of database | High | Low |
+| CON-11 | Use a user direcotry server of school | -- | -- |
 
 | ID | Concern  | Importance |  Difficulty |
 |-----|---------| ----------- | ----------- |
@@ -43,8 +46,7 @@
 | CRN-3 | Authentication | High | -- |
 | CRN-4 | Authorization | High | -- |
 | CRN-5 | Activity Log | High | -- |
-| CRN-6 | Backup policy of database | High | Low |
-| CRN-7 | Use a user direcotry server of school | -- | -- |
+
 
 
 ### Kaban Board
