@@ -53,5 +53,24 @@ cation. |
 
 | Not Addressed | Partially Addressed | Addressed |
 |---------------|---------------------|-----------|
-||||
-
+| UC1 |  | 
+| UC2 |  |
+| UC3 |  |
+| UC4 |  |
+| UC5 |  |
+| CON-1 |  | 
+| CON-2 | |
+| CON-3 | |
+| CON-4 | |
+| CON-5 | |
+| CON-6 | |
+| CON-7 | |
+| CON-8 | |
+| CON-9 | |
+| CON-10 | |
+| CON-11 | |
+| CRN-1 | |
+| CRN-2 | |
+| CRN-3 | |
+| CRN-4 | |
+| CRN-5 | | 
