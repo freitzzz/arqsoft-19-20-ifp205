@@ -38,7 +38,7 @@ The software being developed is a greenfield system, so it is proposed the follo
   - Relate Architectural and Deployment Patterns with choosen Tactics
   - Relate Externally Developed Components with choosen Tactics
 
-### Iteration1
+### Iteration 1
 
 ### Drivers
 
@@ -61,13 +61,12 @@ The software being developed is a greenfield system, so it is proposed the follo
 | CON-3 | First release planned after two months |
 | CON-4 | A PoC should be presented within five weeks|
 | CON-5 | Adoption of open-source tecnologies |
-| CON-6 |  It is intended that the introduction of new ones affects very little, or nothing, other components of the appli
-cation. |
+| CON-6 | It is intended that the introduction of new ones affects very little, or nothing, other components of the application. |
 | CON-7 | UC6 should be completed and tested in less than 0.5 (1 person for two days?) person-day of effort |
 | CON-8 | UC4 shouldn´t affect more than one architeture component |
 | CON-9 | Change in the generation of this number identification is to be implemented with no side effects in 1 person-day of effort.
-| CON-10|  The school has a database server with a backup policy implemented and it is to be used by the application to be developed | High | Low |
-| CON-11 | user directory server used byother applications in the school and the new application is also to use it | -- | -- |
+| CON-10|  The school has a database server with a backup policy implemented and it is to be used by the application to be developed |
+| CON-11 | user directory server used byother applications in the school and the new application is also to use it |
 | CON-12 | Administrator should be able to query user logs and see their activities, all of them, or performed between dates or only some type of activies |
 
 **Concerns**
@@ -84,9 +83,8 @@ cation. |
 
 | ID | Quality Attribute | Scenario | Associated Use Case |
 | QA-1| Portability | The application must be accessible from all devices that provide a web browser | All |
-| QA-2 |||
-| QA-1 |Auditability|--|
-| QA-2 |||
+| QA-2 | Localizability | Multilanguage support is desirable as the school accepts foreign students on a regular base, as well as it can attract tourists | All |
+| QA-3 | Auditability | The application should be able to provide management reports in more than one language. Activity logging is also considered | All |
 
 
 
