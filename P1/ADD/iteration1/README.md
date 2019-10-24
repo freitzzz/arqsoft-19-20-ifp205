@@ -100,3 +100,44 @@ The software being developed is a greenfield system, so it is proposed the follo
 |Have primary functionality and quality attribute scenarios been prioritized (ideally by the most important project stakeholders)?|---|
 |Are initial architectural concerns defined?|Yes|
 
+**Step 2**
+
+- Goal: Establish iteration goal by selection drivers
+
+#### Kanban Board
+
+| Not Addressed | Partially Addressed | Addressed |
+|---------------|---------------------|-----------|
+| UC1 |||
+| UC2 |||
+| UC3 |||
+| UC4 |||
+| UC5 |||
+| CON-1 ||| 
+| CON-2 |||
+| CON-3 |||
+| CON-4 |||
+| CON-5 |||
+| CON-6 |||
+| CON-7 |||
+| CON-8 |||
+| CON-9 |||
+| CON-10 |||
+| CON-11 |||
+| CRN-1 |||
+| CRN-2 |||
+| CRN-3 |||
+| CRN-4 |||
+| CRN-5 |||
+
+**Step 3**
+
+- Goal: Choose elements of the system to refine
+
+As this is the first iteration of a greenfield system, it is necessary to define the first element of the system which is the system itself. The system is composed by four components, which are:
+
+- GFAW (Gorgeous Food Application Web), which is the frontend of GFA, producing a graphic interface that will be consumed by the users. This element represents a SPA (Single Page Application), which consumes GFAB produced functionalities
+- GFAB (Gorgeous Food Application Business), which is the backend of GFA, producing an interface that allows the consume of business logic functionalities.
+- GFAAT (Gorgeous Food Application Auditing), which has the responbility to store and manage all logs that have been produced by GFAB
+- Database, which produces an interface that allows the store of information
+- User Directory Server, which produces an interface that allows the fetch of users information
