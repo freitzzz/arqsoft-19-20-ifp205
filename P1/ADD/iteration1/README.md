@@ -162,3 +162,17 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
   - React.JS will allow the build of GFAW
   - .NET Core + Entity Framework will allow the build of GFAB
   - TBD
+
+**Step 5**
+
+- Goal: Instantiate architectural elements, allocate responsibilities and define interfaces
+
+To satisfy the structure of the chosen design concepts, the following elements are proposed to be created:
+
+- Create component-and-connector structures to represent system elements integrations
+- Create allocation structures diagram to represent system elements allocations
+- Domain Model ?
+
+**Step 6**
+
+- Goal: Sketch views and record design decisions
