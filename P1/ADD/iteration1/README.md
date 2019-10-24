@@ -141,3 +141,24 @@ As this is the first iteration of a greenfield system, it is necessary to define
 - GFAAT (Gorgeous Food Application Auditing), which has the responbility to store and manage all logs that have been produced by GFAB
 - Database, which produces an interface that allows the store of information
 - User Directory Server, which produces an interface that allows the fetch of users information
+
+**Step 4**
+
+- Goal: Choose one or more design concepts that satisfy the selected drivers
+
+Given the iteration goal selected drivers in Step 2, it is necessary to define which design concepts will be taken in account to realize the elements to refine selected in Step 3. The design concents proposed are the following:
+
+- Reference Architectures:
+  - TBD
+- Deployment Patterns:
+  - 4 Tier Deployment Pattern fits perfectly the requirements for the selected elements to refine
+- Architectural Patterns:
+  - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
+  - MVP|MVVM for GFAW TBD
+- Architectural Styles:
+  - REST (Representational State Transfer) architectural style will allow the structure of GFAB API by defining collections. Each of these collections represent a domain responsibility and hold resources which are entities of that domain.
+  - TBD
+- Technologies and Frameworks:
+  - React.JS will allow the build of GFAW
+  - .NET Core + Entity Framework will allow the build of GFAB
+  - TBD
