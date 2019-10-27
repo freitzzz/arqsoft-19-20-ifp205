@@ -176,3 +176,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 **Step 6**
 
 - Goal: Sketch views and record design decisions
+
+- Deployment Diagram : 
+  
+   ![DeploymentDiagram](diagrams/deploy1.png)
