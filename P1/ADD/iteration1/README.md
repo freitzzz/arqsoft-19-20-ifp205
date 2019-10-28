@@ -186,6 +186,10 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Goal: Sketch views and record design decisions
 
+- Component-and-connector View : 
+  
+   ![ComponentDiagram](diagrams/ComponentDiagram.png)
+
 - Allocation View : 
   
    ![DeploymentDiagram](diagrams/deploy1.png)
