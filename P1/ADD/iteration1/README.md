@@ -54,12 +54,12 @@ The software being developed is a greenfield system, so it is proposed the follo
 | ID | Constraint |
 |----|------------|
 | CON-1 | Application accessible from a variety of platforms via web browser |
-| CON-2 | Application must be developed by the schoolÂ´s techincal staff |
+| CON-2 | Application must be developed by the school´s techincal staff |
 | CON-3 | First release planned after two months |
 | CON-4 | A PoC should be presented within five weeks|
 | CON-5 | Adoption of open-source tecnologies |
 | CON-6 | It is intended that the introduction of new  meal descriptors affects very little, or nothing, other components of the application. |
-| CON-7 | A change in the meal identification number shouldnÂ´t affect more than one architeture component |
+| CON-7 | A change in the meal identification number shouldn´t affect more than one architeture component |
 | CON-8 | Change in the generation of this number identification is to be implemented and tested with no side effects in 1 person-day of effort.|
 | CON-9|  The school has a database server with a backup policy implemented and it is to be used by the application to be developed |
 | CON-10 | user directory server used byother applications in the school and the new application is also to use it |
@@ -177,6 +177,6 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Goal: Sketch views and record design decisions
 
-- Deployment Diagram : 
+- Allocation View : 
   
    ![DeploymentDiagram](diagrams/deploy1.png)
