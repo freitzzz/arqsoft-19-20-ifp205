@@ -44,18 +44,19 @@ The software being developed is a greenfield system, so it is proposed the follo
 
 | ID | Use Case | Description | Priority | Difficulty |
 |-----|---------| ----------- | -------- | ---------- | 
-| UC1 | Purchase Item | Without taking payment into account, a meal's purchase has to be registered in order to maintain an updated inventory of the available meals | High | Low  |
-| UC2 | Register Unserved Meal to Inventory | The meal is labeled with designation, identification number, production and expiration dates, with its quantity specified | High | Low |
-| UC3 | Create new Meal Descriptor | Every meal can have descriptors (ex: 2g of Vitamin D for every 100g or 300 calories for every 100g), but must be extensible | High | Medium | 
-| UC4 | View Meal Details | View a characterization regarding the meal's designation, type, nutritional data, ingredients and alergens | High | High |
-| UC5 | Create Meal | Create new meal with type, description, ingredients and allergens | High | High |
-| UC6 | Generate Management Reports | Should provide reports such as the number of meals, grouped by type, sold between a period of time in a day (ex: 2pm to 9pm) or days of the week | High | High |
-| UC7 | View User Logs/Activities | The administrator can see every executed operation and can be filtered by date or type of operation | High | High |
-| UC8 | Edit Meal | The kitchen workers can update any information at any given time of a meal | High | High |
-| UC9 | Edit Item Quantity | The kitchen workers can correct the available quantity in inventory of an item at any given time | High | High |
-| UC10 | Add Allergens | The kitchen workers can insert allergens | High | High |
-| UC11 | Add Meal Types | The kitchen workers can insert meal types | High | High |
-| UC12 | Add Ingredients | The kitchen workers can insert ingredients | High | High |
+| UC1 | Purchase Item | Without taking payment into account, a meal's purchase has to be registered in order to maintain an updated inventory of the available meals | Low | High  |
+| UC2 | Register Item to Inventory | The unserved meal (item) is labeled with designation, identification number, production and expiration dates, with its quantity specified | High | High |
+| UC3 | Remove Existing Item from Inventory | It should be possible to remove an existing unserved meal (item) from the inventory | High | Medium |
+| UC4 | Create new Meal Descriptor | Every meal can have descriptors (ex: 2g of Vitamin D for every 100g or 300 calories for every 100g), but must be extensible | Low | High | 
+| UC5 | View Meal Details | View a characterization regarding the meal's designation, type, nutritional data, ingredients and alergens | Medium | Low |
+| UC6 | Create Meal | Create new meal with type, description, ingredients and allergens | High | High |
+| UC7 | Generate Management Reports | Should provide reports such as the number of meals, grouped by type, sold between a period of time in a day (ex: 2pm to 9pm) or days of the week | Low | High |
+| UC8 | View User Logs/Activities | The administrator can see every executed operation and can be filtered by date or type of operation | Low | High |
+| UC9 | Edit Meal | The kitchen workers can update any information at any given time of a meal | Medium | Medium |
+| UC10 | Edit Item Quantity | The kitchen workers can correct the available quantity in inventory of an item at any given time | High | Medium |
+| UC11 | Add Allergens | The kitchen workers can insert allergens | Medium | High |
+| UC12 | Add Meal Types | The kitchen workers can insert meal types | Medium | High |
+| UC13 | Add Ingredients | The kitchen workers can insert ingredients | Medium | High |
 
 **Constraints**
 
@@ -70,7 +71,7 @@ The software being developed is a greenfield system, so it is proposed the follo
 | CON-7 | A change in the meal identification number should not affect more than one architeture component |
 | CON-8 | Change in the generation of this number identification is to be implemented and tested with no side effects in 1 person-day of effort.|
 | CON-9|  The school has a database server with a backup policy implemented and it is to be used by the application to be developed |
-| CON-10 | user directory server used byother applications in the school and the new application is also to use it |
+| CON-10 | User directory server used by other applications in the school and the new application is also to use it |
 | CON-11 | Administrator should be able to query user logs and see their activities, all of them, or performed between dates or only some type of activies |
 | CON-12 | It should be possible to generate reports in more than one language|
 
@@ -78,11 +79,11 @@ The software being developed is a greenfield system, so it is proposed the follo
 
 | ID | Concern  | Importance |  Difficulty |
 |-----|---------| ----------- | ----------- |
-| CRN-1 | Multilanguage support | Medium | Low |
-| CRN-2 | Authentication | High | -- |
-| CRN-3 | Authorization | High | -- |
-| CRN-4 | Activity Log | High | -- |
-| CRN-5 | Team difficulty with the implementation of Update functionalities (M/H) | Medium | -- |
+| CRN-1 | Multilanguage support | Medium | Medium |
+| CRN-2 | Authentication | Medium | High |
+| CRN-3 | Authorization | Medium | High |
+| CRN-4 | Activity Log | High | Medium |
+| CRN-5 | Team difficulty with the implementation of Update functionalities | Medium | High |
 
 **Quality Attributes**
 
