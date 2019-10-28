@@ -42,24 +42,32 @@ The software being developed is a greenfield system, so it is proposed the follo
 
 **Use Cases**
 
-| ID | Use Case | Priority | Difficulty |
-|-----|---------| ----------|-----------|
-| UC1 | Add new item to inventory | High | Low  |
-| UC2 | Remove an item from inventory | High | Low |
-| UC3 | Produce a management report | High | Medium | 
-| UC4 | Add a new meal descriptor | High | High |
+| ID | Use Case | Description | Priority | Difficulty |
+|-----|---------| ----------- | -------- | ---------- | 
+| UC1 | Purchase Item | Without taking payment into account, a meal's purchase has to be registered in order to maintain an updated inventory of the available meals | High | Low  |
+| UC2 | Register Unserved Meal to Inventory | The meal is labeled with designation, identification number, production and expiration dates, with its quantity specified | High | Low |
+| UC3 | Create new Meal Descriptor | Every meal can have descriptors (ex: 2g of Vitamin D for every 100g or 300 calories for every 100g), but must be extensible | High | Medium | 
+| UC4 | View Meal Details | View a characterization regarding the meal's designation, type, nutritional data, ingredients and alergens | High | High |
+| UC5 | Create Meal | Create new meal with type, description, ingredients and allergens | High | High |
+| UC6 | Generate Management Reports | Should provide reports such as the number of meals, grouped by type, sold between a period of time in a day (ex: 2pm to 9pm) or days of the week | High | High |
+| UC7 | View User Logs/Activities | The administrator can see every executed operation and can be filtered by date or type of operation | High | High |
+| UC8 | Edit Meal | The kitchen workers can update any information at any given time of a meal | High | High |
+| UC9 | Edit Item Quantity | The kitchen workers can correct the available quantity in inventory of an item at any given time | High | High |
+| UC10 | Add Allergens | The kitchen workers can insert allergens | High | High |
+| UC11 | Add Meal Types | The kitchen workers can insert meal types | High | High |
+| UC12 | Add Ingredients | The kitchen workers can insert ingredients | High | High |
 
 **Constraints**
 
 | ID | Constraint |
 |----|------------|
 | CON-1 | Application accessible from a variety of platforms via web browser |
-| CON-2 | Application must be developed by the school´s techincal staff |
+| CON-2 | Application must be developed by the schools techincal staff |
 | CON-3 | First release planned after two months |
 | CON-4 | A PoC should be presented within five weeks|
 | CON-5 | Adoption of open-source tecnologies |
 | CON-6 | It is intended that the introduction of new  meal descriptors affects very little, or nothing, other components of the application. |
-| CON-7 | A change in the meal identification number shouldn´t affect more than one architeture component |
+| CON-7 | A change in the meal identification number should not affect more than one architeture component |
 | CON-8 | Change in the generation of this number identification is to be implemented and tested with no side effects in 1 person-day of effort.|
 | CON-9|  The school has a database server with a backup policy implemented and it is to be used by the application to be developed |
 | CON-10 | user directory server used byother applications in the school and the new application is also to use it |
@@ -74,6 +82,7 @@ The software being developed is a greenfield system, so it is proposed the follo
 | CRN-2 | Authentication | High | -- |
 | CRN-3 | Authorization | High | -- |
 | CRN-4 | Activity Log | High | -- |
+| CRN-5 | Team difficulty with the implementation of Update functionalities (M/H) | Medium | -- |
 
 **Quality Attributes**
 
@@ -138,7 +147,6 @@ As this is the first iteration of a greenfield system, it is necessary to define
 
 - GFAW (Gorgeous Food Application Web), which is the frontend of GFA, producing a graphic interface that will be consumed by the users. This element represents a SPA (Single Page Application), which consumes GFAB produced functionalities
 - GFAB (Gorgeous Food Application Business), which is the backend of GFA, producing an interface that allows the consume of business logic functionalities.
-- GFAAT (Gorgeous Food Application Auditing), which has the responbility to store and manage all logs that have been produced by GFAB
 - Database, which produces an interface that allows the store of information
 - User Directory Server, which produces an interface that allows the fetch of users information
 
