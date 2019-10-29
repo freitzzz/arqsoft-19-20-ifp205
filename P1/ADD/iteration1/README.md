@@ -149,10 +149,10 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 - Reference Architectures:
    - Three Layer Application
 - Deployment Patterns:
-  - 4 Tier Deployment Pattern fits perfectly the requirements for the selected elements to refine
+   - 4 Tier Deployment Pattern fits perfectly the requirements for the selected elements to refine
 - Architectural Patterns:
-  - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
-  - MVVM (ModelView ViewModel) architectural pattern as React application implies an active view and the view needs to change its state over the time, using databidings and computed properties
+   - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
+   - MVVM (ModelView ViewModel) architectural pattern as React.js implies an active view in which the view needs to change its state over the time, using data bindings and computed properties
 - Architectural Styles:
   - REST (Representational State Transfer) architectural style will allow the structure of GFAB API by defining collections. Each of these collections represent a domain responsibility and hold resources which are entities of that domain.
   - Client Server as GFAB produces an API ready to be consumed by external clients
@@ -177,9 +177,17 @@ To satisfy the structure of the chosen design concepts, the following elements a
 - Goal: Sketch views and record design decisions
 
 - Component-and-connector View : 
-  
-   ![ComponentDiagram](diagrams/ComponentDiagram.png)
 
-- Allocation View : 
-  
-   ![DeploymentDiagram](diagrams/deploy1.png)
+   **Component Diagram**
+
+   With a component diagram its possible to visualize all components of the system integrations, by representing the interfaces that these produce as well as the consume of these interfaces. GFAB was designed to produce an interface that is represented by a REST API which will allow the consume of the business logic functionalities by GFAW and other components. GFAW also produces an interfaces that allows the consume of HTML/Javascript/CSS as this a web application. Database and User Directory were designed to produce a SQL and LDAP interface respectively, although these API definitions still need to be refined with the feedback of the stakeholders.
+
+   ![ComponentDiagram](diagrams/component_diagram_coarse_granularity.png)
+
+- Allocation View :
+
+   **Deployment Diagram**
+
+   With a deployment diagram its possible to visualize the allocation of the system in each tier. For an initial iteration it was decided that HTTP is used over HTTPS as the goal is to create a prototype to demonstrate a set of functionalities to the stakeholders. GFAW component was designed to be deployed on the cloud using [Heroku](https://www.heroku.com) services. GFAB was also designed to be deployed on the cloud using Azure services.
+
+   ![DeploymentDiagram](diagrams/deployment_diagram_coarse_granularity.png)
