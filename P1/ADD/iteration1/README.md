@@ -16,7 +16,7 @@
 
 **Step 2**
 
-- Goal: Establish iteration goal by selection drivers
+- Goal: Establish iteration goal by selecting drivers
 
 #### Kanban Board
 
@@ -53,7 +53,7 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 - Reference Architectures:
    - Three Layer Application
 - Deployment Patterns:
-   - 4 Tier Deployment Pattern fits perfectly the requirements for the selected elements to refine
+   - 4 Tier Deployment Pattern fits the needs of the requirements for the selected elements to refine
 - Architectural Patterns:
    - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
    - MVVM (ModelView ViewModel) architectural pattern as React.js implies an active view in which the view needs to change its state over the time, using data bindings and computed properties
@@ -64,8 +64,8 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
   - Layer-Architecture
   - SOA (Service Oriented Architecture)
 - Technologies and Frameworks:
-  - React.JS will allow the build of GFAW
-  - .NET Core + Entity Framework will allow the build of GFAB
+  - React.JS will allow the build of GFAW (Satisfies CON-1, CON-5 and QA-1)
+  - .NET Core + Entity Framework will allow the build of GFAB (Satisfies CON-5)
 
 **Step 5**
 
