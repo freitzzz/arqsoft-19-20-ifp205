@@ -63,7 +63,7 @@ The software being developed is a greenfield system, so it is proposed the follo
 | ID | Constraint |
 |----|------------|
 | CON-1 | Application accessible from a variety of platforms via web browser |
-| CON-2 | Application must be developed by the schools techincal staff |
+| CON-2 | Application must be developed by the schools technical staff |
 | CON-3 | First release planned after two months |
 | CON-4 | A PoC should be presented within five weeks|
 | CON-5 | Adoption of open-source tecnologies |
@@ -180,7 +180,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
    **Component Diagram**
 
-   With a component diagram its possible to visualize all components of the system integrations, by representing the interfaces that these produce as well as the consume of these interfaces. GFAB was designed to produce an interface that is represented by a REST API which will allow the consume of the business logic functionalities by GFAW and other components. GFAW also produces an interfaces that allows the consume of HTML/Javascript/CSS as this a web application. Database and User Directory were designed to produce a SQL and LDAP interface respectively, although these API definitions still need to be refined with the feedback of the stakeholders.
+   With a component diagram its possible to visualize all components of the system integrations, by representing the interfaces that these produce as well as the consume of these interfaces. GFAB was designed to produce an interface that is represented by a REST API which will allow the consume of the business logic functionalities by GFAW and other components. GFAW also produces an interface that allows the consume of HTML/Javascript/CSS as this a web application. Database and User Directory were designed to produce a SQL and LDAP interface respectively, although these API definitions still need to be refined with the feedback of the stakeholders.
 
    ![ComponentDiagram](diagrams/component_diagram_coarse_granularity.png)
 
@@ -191,3 +191,24 @@ To satisfy the structure of the chosen design concepts, the following elements a
    With a deployment diagram its possible to visualize the allocation of the system in each tier. For an initial iteration it was decided that HTTP is used over HTTPS as the goal is to create a prototype to demonstrate a set of functionalities to the stakeholders. GFAW component was designed to be deployed on the cloud using [Heroku](https://www.heroku.com) services. GFAB was also designed to be deployed on the cloud using Azure services.
 
    ![DeploymentDiagram](diagrams/deployment_diagram_coarse_granularity.png)
+
+**Step 7**
+
+- Goal: Perform analysis of current design and review iteration goal and achivements of design purposes
+
+In this iteration GFA was designed architecturally in a coarse view, which allowed the team to understand the integration of each system component. It was concluded that there are four components, in which two of these need to be developed by the team (GFAW and GFAB). These two components represent the web application which the users will be able to consume the user interface and the business logic functionalities which are consumed by the web application, and will be deployed on the cloud. A set of design concepts were also realized which will architecture these components.
+
+The following table represents the update of the kanban board after the iteration:
+
+| Not Addressed | Partially Addressed | Addressed |
+|---------------|---------------------|-----------|
+| UC2 |||
+| UC3 |||
+| UC6 |||
+| UC10 |||
+||| CON-1 | 
+|| CON-4 ||
+||| CON-5 |
+| CRN-4 |||
+||| QA-1 |
+| QA-3 |||
