@@ -77,8 +77,8 @@ The software being developed is a greenfield system, so it is proposed the follo
 
 **Concerns**
 
-| ID | Concern  | Importance |  Difficulty |
-|-----|---------| ----------- | ----------- |
+| ID | Concern | Importance | Difficulty | Appeared in | Addressed in |
+|--- | ------- | ---------- | ---------- | ----------- | ------------ |
 | CRN-1 | Multilanguage support | Medium | Medium |Stakeholder Feedback (Pre-iteration 1)|--|
 | CRN-2 | Authentication | Medium | High |Stakeholder Feedback (Pre-iteration 1)|--|
 | CRN-3 | Authorization | Medium | High |Stakeholder Feedback (Pre-iteration 1)|--|
