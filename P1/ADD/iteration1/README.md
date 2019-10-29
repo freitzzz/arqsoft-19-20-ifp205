@@ -147,19 +147,21 @@ As this is the first iteration of a greenfield system, it is necessary to define
 Given the iteration goal selected drivers in Step 2, it is necessary to define which design concepts will be taken in account to realize the elements to refine selected in Step 3. The design concents proposed are the following:
 
 - Reference Architectures:
-  - TBD
+   - Three Layer Application
 - Deployment Patterns:
   - 4 Tier Deployment Pattern fits perfectly the requirements for the selected elements to refine
 - Architectural Patterns:
   - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
-  - MVP|MVVM for GFAW TBD
+  - MVVM (ModelView ViewModel) architectural pattern as React application implies an active view and the view needs to change its state over the time, using databidings and computed properties
 - Architectural Styles:
   - REST (Representational State Transfer) architectural style will allow the structure of GFAB API by defining collections. Each of these collections represent a domain responsibility and hold resources which are entities of that domain.
-  - TBD
+  - Client Server as GFAB produces an API ready to be consumed by external clients
+  - Component-Based
+  - Layer-Architecture
+  - SOA (Service Oriented Architecture)
 - Technologies and Frameworks:
   - React.JS will allow the build of GFAW
   - .NET Core + Entity Framework will allow the build of GFAB
-  - TBD
 
 **Step 5**
 
@@ -169,7 +171,6 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Create component-and-connector structures to represent system elements integrations
 - Create allocation structures diagram to represent system elements allocations
-- Domain Model ?
 
 **Step 6**
 
