@@ -39,6 +39,10 @@
 
 - Goal: Choose elements of the system to refine
 
+The goal of this iteration is to support the primary functionalities of GFA, by designing architecturally the software in a fine grain view. In order to realize this design it is necessary to refine the following elements:
+
+- GFAW (Gorgeous Food Application Web)
+- GFAB (Gorgeous Food Application Business)
 
 **Step 4**
 
