@@ -50,6 +50,13 @@ The goal of this iteration is to support the primary functionalities of GFA, by 
 
 Given the iteration goal selected drivers in Step 2, it is necessary to define which design concepts will be taken in account to realize the elements to refine selected in Step 3. The design concents proposed are the following:
 
+- Aggregates
+- Entities
+- Value Objects
+- Repositories 
+- Services
+- Factories
+
 **Step 5**
 
 - Goal: Instantiate architectural elements, allocate responsibilities and define interfaces
