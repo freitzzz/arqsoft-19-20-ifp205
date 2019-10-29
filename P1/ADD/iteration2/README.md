@@ -16,7 +16,7 @@
 
 **Step 2**
 
-- Goal: Establish iteration goal by selection drivers
+- Goal: Establish iteration goal by selecting drivers
 
 #### Kanban Board
 
@@ -24,13 +24,15 @@
 |---------------|---------------------|-----------|
 | UC2 |||
 | UC3 |||
+| UC5 |||
 | UC6 |||
+| UC9 |||
+| UC11 |||
+| UC12 |||
+| UC13 |||
 | UC10 |||
-| CON-1 ||| 
 | CON-4 |||
-| CON-5 |||
 | CRN-4 |||
-| QA-1 |||
 | QA-3 |||
 
 **Step 3**
