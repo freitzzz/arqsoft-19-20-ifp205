@@ -67,6 +67,9 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Goal: Sketch views and record design decisions
 
+Use Cases chosen to implement given the selected drivers:
+
+![UseCaseDiagram](artefacts/UsesCaseDiagram.png)
 
 **Step 7**
 
