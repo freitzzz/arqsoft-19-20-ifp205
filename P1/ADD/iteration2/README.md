@@ -54,7 +54,7 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 - Entities
 - Value Objects
 - Repositories 
-- Services
+- Services beucase in iteration 1 SOA (Service Oriented Architecture)was defined as a architeture style
 - Factories
 
 **Step 5**
