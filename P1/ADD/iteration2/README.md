@@ -69,6 +69,16 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 
 To satisfy the structure of the chosen design concepts, the following elements are proposed to be created:
 
+- Domain Model
+- Use Case Diagram
+- Models Objects Class Diagram
+- Aggregate Roots Diagram
+- Package Diagram of each GFAB sub-component
+- End-To-End Sequence Diagram of a functionality in GFAB component
+- Fine-Grain GFAB Components Diagram
+- Fine-Grain GFAW Components Diagram
+- GFAB REST API Specification
+
 **Step 6**
 
 - Goal: Sketch views and record design decisions
