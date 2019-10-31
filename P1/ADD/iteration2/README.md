@@ -60,7 +60,7 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
     - Value Objects for concepts that add value to domain
     - Repositories for aggregate roots
     - Services in order to hide complex domain logic
-- Design Patterns:
+- Other Design Patterns:
     - Factories (Creational Pattern)
 
 **Step 5**
@@ -82,6 +82,20 @@ To satisfy the structure of the chosen design concepts, the following elements a
 **Step 6**
 
 - Goal: Sketch views and record design decisions
+
+- Module View:
+
+  **Domain Model**
+
+  **Model Objects Class Diagram**
+
+  **Aggregate Roots Diagram**
+
+- Component & Connector View :
+
+- Allocation View :
+
+  **Use Case Diagram**
 
 Use Cases chosen to implement given the selected drivers:
 
