@@ -99,7 +99,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 Use Cases chosen to implement given the selected drivers:
 
-![UseCaseDiagram](artefacts/UsesCaseDiagram.png)
+![UseCaseDiagram](diagrams/UsesCaseDiagram.png)
 
 **Step 7**
 
