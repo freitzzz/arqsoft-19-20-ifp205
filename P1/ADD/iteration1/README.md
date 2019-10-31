@@ -54,9 +54,6 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
    - Three Layer Application
 - Deployment Patterns:
    - 4 Tier Deployment Pattern fits the needs of the requirements for the selected elements to refine
-- Architectural Patterns:
-   - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
-   - MVVM (ModelView ViewModel) architectural pattern as React.js implies an active view in which the view needs to change its state over the time, using data bindings and computed properties
 - Architectural Styles:
   - REST (Representational State Transfer) architectural style will allow the structure of GFAB API by defining collections. Each of these collections represent a domain responsibility and hold resources which are entities of that domain.
   - Client Server as GFAB produces an API ready to be consumed by external clients
