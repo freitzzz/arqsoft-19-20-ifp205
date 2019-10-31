@@ -50,12 +50,18 @@ The goal of this iteration is to support the primary functionalities of GFA, by 
 
 Given the iteration goal selected drivers in Step 2, it is necessary to define which design concepts will be taken in account to realize the elements to refine selected in Step 3. The design concents proposed are the following:
 
-- Aggregates
-- Entities
-- Value Objects
-- Repositories 
-- Services beucase in iteration 1 SOA (Service Oriented Architecture)was defined as a architeture style
-- Factories
+- Architectural Patterns:
+    - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
+    - MVVM (ModelView ViewModel) architectural pattern for GFAW component, as React.JS implies an active view in which the view needs to change its state over the time, using data bindings and computed properties.
+
+- Adoption of **DDD** in GFAB component, by defining:
+    - Aggregate Roots for entities
+    - Entities for models that have identity
+    - Value Objects for concepts that add value to domain
+    - Repositories for aggregate roots
+    - Services in order to hide complex domain logic
+- Design Patterns:
+    - Factories (Creational Pattern)
 
 **Step 5**
 
