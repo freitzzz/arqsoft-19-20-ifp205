@@ -44,7 +44,7 @@ The software being developed is a greenfield system, so it is proposed the follo
 
 | ID | Use Case | Description | Priority | Difficulty | Appeared in | Addressed in |
 |-----|---------| ----------- | -------- | ---------- | ----------- | ------------ |
-| UC1 | Purchase Item | Without taking payment into account, a meal's purchase has to be registered in order to maintain an updated inventory of the available meals | Low | High |Stakeholder Feedback (Pre-iteration 1)| -- |
+| UC1 | Register Item Purchase | Without taking payment into account, a meal's purchase has to be registered in order to maintain an updated inventory of the available meals | Low | High |Stakeholder Feedback (Pre-iteration 1)| -- |
 | UC2 | Register Item to Inventory | The unserved meal (item) is labeled with designation, identification number, production and expiration dates, with its quantity specified | High | High |Stakeholder Feedback (Pre-iteration 1)|--|
 | UC3 | Remove Existing Item from Inventory | It should be possible to remove an existing unserved meal (item) from the inventory | High | Medium |Stakeholder Feedback (Pre-iteration 1)|--|
 | UC4 | Create new Meal Descriptor | Every meal can have descriptors (ex: 2g of Vitamin D for every 100g or 300 calories for every 100g), but must be extensible | Low | High |Stakeholder Feedback (Pre-iteration 1)|--|
