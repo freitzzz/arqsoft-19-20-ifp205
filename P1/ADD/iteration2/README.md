@@ -99,6 +99,10 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Component & Connector View :
 
+ **GFAB_Components**
+
+ ![GFAB_Components](diagrams/GFAB_WebApi.png)
+
 - Allocation View :
 
   **Use Case Diagram**
