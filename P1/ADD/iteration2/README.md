@@ -87,9 +87,15 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
   **Domain Model**
 
+  ![DomainModel](diagrams/DomainModel.png)
+
   **Model Objects Class Diagram**
 
+  ![ModelObjectsDiagram](diagrams/ModelObjectsDiagram.png)
+
   **Aggregate Roots Diagram**
+
+  ![AggregateRoots](diagrams/AggregateRoots.png)
 
 - Component & Connector View :
 
