@@ -12,10 +12,10 @@ Produced functionalities can be found in the table below. Consumers can only int
 |Verb|URI|Description|
 |----|---|-----------|
 |GET|[/meals](meals/available_meals.md)|Retrieves available meals|
-|GET|[/meals/:id](meals/meal_by_resource_id.md)|Retrieves a meal by its resource id|
+|GET|[/meals/:id](meals/detailed_meal_information.md)|Retrieves detailed information of a meal|
 |POST|[/meals](meals/create_meal.md)|Creates a meal|
-|POST|[/items](items/add_item.md)|Adds a item to inventory|
-|DELETE| [/items/:id](items/remove_item.md)|Removes a chosen item from the inventory|
+|POST|[/items](items/add_item.md)|Add item to inventory|
+|DELETE|[/items/:id](items/remove_item.md)|Remove item from inventory|
 
 ## CRUD operations diagrams
 
