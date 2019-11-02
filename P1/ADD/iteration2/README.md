@@ -48,8 +48,7 @@ The goal of this iteration is to support the primary functionalities of GFA, by 
 Given the iteration goal selected drivers in Step 2, it is necessary to define which design concepts will be taken in account to realize the elements to refine selected in Step 3. The design concents proposed are the following:
 
 - Architectural Patterns:
-    - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data.
-    - MVVM (ModelView ViewModel) architectural pattern for GFAW component, as React.JS implies an active view in which the view needs to change its state over the time, using data bindings and computed properties.
+    - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB and GFAW components. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data. In GFAW the controller handles events that are emitted from the view, and the model are model definitions that are consumed of GFAB component.
 
 - Adoption of **DDD** in GFAB component, by defining:
     - Aggregate Roots for entities
@@ -71,7 +70,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 - Models Objects Class Diagram
 - Aggregate Roots Diagram
 - Package Diagram of each GFAB sub-component
-- End-To-End Sequence Diagram of a functionality in GFAB component
+- End-To-End Generic Sequence Diagram of a functionality in GFAB component
 - Fine-Grain GFAB Components Diagram
 - Fine-Grain GFAW Components Diagram
 - GFAB REST API Specification
@@ -98,11 +97,11 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
  **GFAB Components Diagram Fine-Grain View**
 
- ![GFAB_Components](diagrams/GFAB_WebApi.png)
+ ![GFAB_Components](diagrams/GFABComponentsDiagramFineGrainView.png)
 
  **GBAW Components Diagram Fine-Grain View**
  
- ![GFAWComponentDiagram](diagrams/GFAWComponentDiagram.png)
+ ![GFAWComponentDiagram](diagrams/GFAWComponentsDiagramFineGrainView.png)
 
 
 - Allocation View :
