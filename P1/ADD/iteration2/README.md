@@ -22,15 +22,12 @@
 
 | Not Addressed | Partially Addressed | Addressed |
 |---------------|---------------------|-----------|
+| UC1 |||
 | UC2 |||
 | UC3 |||
 | UC5 |||
 | UC6 |||
 | UC9 |||
-| UC11 |||
-| UC12 |||
-| UC13 |||
-| UC10 |||
 | CON-4 |||
 | CRN-4 |||
 | QA-3 |||
@@ -99,13 +96,13 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Component & Connector View :
 
- **GFAB_Components**
+ **GFAB Components Diagram Fine-Grain View**
 
  ![GFAB_Components](diagrams/GFAB_WebApi.png)
 
- **GBAW Components**
+ **GBAW Components Diagram Fine-Grain View**
  
-  ![GFAWComponentDiagram](diagrams/GFAWComponentDiagram.png)
+ ![GFAWComponentDiagram](diagrams/GFAWComponentDiagram.png)
 
 
 - Allocation View :
