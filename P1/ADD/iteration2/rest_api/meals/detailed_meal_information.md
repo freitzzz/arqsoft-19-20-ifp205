@@ -20,43 +20,35 @@ Example:
     "type":"soup",
     "allergens":[
         {
-          "id":1,
           "name":"Celery"
         },
         {
-          "id":2,
           "name":"Nuts"
         }
     ],
     "ingredients":[
         {
-          "id":1,
           "name":"Olive Oil"
         },
         {
-          "id":2,
           "name":"Red Lentils"
         },
         {
-          "id":3,
           "name":"Milk"
         }
     ],
     "descriptors":[
         {
-          "id":1,
           "name":"Salt",
           "quantity":0.25,
           "quantityUnit":"g"
         },
         {
-          "id":2,
           "name":"Fibre",
           "quantity":5.0,
           "quantityUnit":"g"
         },
         {
-          "id":3,
           "name":"Fat",
           "quantity":7.0,
           "quantityUnit":"g"
