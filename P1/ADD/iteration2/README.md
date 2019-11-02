@@ -103,6 +103,11 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
  ![GFAB_Components](diagrams/GFAB_WebApi.png)
 
+ **GBAW Components**
+ 
+  ![GFAWComponentDiagram](diagrams/GFAWComponentDiagram.png)
+
+
 - Allocation View :
 
   **Use Case Diagram**
