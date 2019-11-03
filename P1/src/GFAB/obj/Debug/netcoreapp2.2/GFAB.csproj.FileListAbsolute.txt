@@ -1,0 +1,14 @@
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\bin\Debug\netcoreapp2.2\GFAB.deps.json
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\bin\Debug\netcoreapp2.2\GFAB.runtimeconfig.json
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\bin\Debug\netcoreapp2.2\GFAB.runtimeconfig.dev.json
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\bin\Debug\netcoreapp2.2\GFAB.dll
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\bin\Debug\netcoreapp2.2\GFAB.pdb
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.csprojAssemblyReference.cache
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.csproj.CoreCompileInputs.cache
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.RazorAssemblyInfo.cache
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.RazorAssemblyInfo.cs
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.AssemblyInfoInputs.cache
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.AssemblyInfo.cs
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.RazorTargetAssemblyInfo.cache
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.dll
+D:\isep\mestrado\ARQSOFT\git\arqsoft-19-20-ifp205\P1\src\GFAB\obj\Debug\netcoreapp2.2\GFAB.pdb
