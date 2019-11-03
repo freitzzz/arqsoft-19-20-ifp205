@@ -17,40 +17,16 @@ Produced functionalities can be found in the table below. Consumers can only int
 |POST|[/items](items/add_item.md)|Add item to inventory|
 |DELETE|[/items/:id](items/remove_item.md)|Remove item from inventory|
 
-## CRUD operations diagrams
+## Generic CRUD behaviour within the GFAB component
 
-### Item
+**Get**
 
-**Get Item**
+  ![GetGFAB](diagrams/Get_GFAB.png)
 
-  ![GetItem](diagrams/GetItem.png)
+**Post**
 
-**Post Item**
+  ![PostGFAB](diagrams/Post_GFAB.png)
 
-  ![PostItem](diagrams/PostItem.png)
+**Delete**
 
-**Update Item**
-
-  ![UpdateItem](diagrams/UpdateItem.png)
-
-**Delete Item**
-
-  ![DeleteItem](diagrams/DeleteItem.png)
-
-### Meal
-
-**Get Meal**
-
-  ![GetMeal](diagrams/GetMeal.png)
-
-**Post Meal**
-
-  ![PostMeal](diagrams/PostMeal.png)
-
-**Update Meal**
-
-  ![UpdateMeal](diagrams/UpdateMeal.png)
-
-**Delete Meal**
-
-  ![DeleteMeal](diagrams/DeleteMeal.png)
+  ![DeleteGFAB](diagrams/Delete_GFAB.png)
