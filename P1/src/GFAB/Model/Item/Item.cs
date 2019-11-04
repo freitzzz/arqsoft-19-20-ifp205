@@ -5,6 +5,13 @@ namespace GFAB.Model.Item {
     //Entity that represents an item within the inventory
     //Also the root of the aggregate Item --> represented in our aggregate/root diagram aswell
     public class Item {
+        // For the ORM
+        protected Item() {
+        }
+        ///<summary>
+        /// Represents the id that represents a item in the database
+        ///</summary>
+        public int Id{get; set;}
 
         ///<summary>
         /// Identifies a certain item in inventory. This is unique for each item
