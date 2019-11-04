@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace GFAB.Model {
 
@@ -13,6 +14,7 @@ namespace GFAB.Model {
         ///<summary>
         ///Represents the entity id in the database
         ///</summary>
+        [Key]
         public int Id{get;set ;}
         ///<summary>
         /// Represents the list of items which the inventory will manage

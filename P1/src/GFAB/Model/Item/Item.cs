@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace GFAB.Model {
 
@@ -8,14 +9,11 @@ namespace GFAB.Model {
         // For the ORM
         protected Item() {
         }
-        ///<summary>
-        /// Represents the id that represents a item in the database
-        ///</summary>
-        public int Id{get; set;}
 
         ///<summary>
         /// Identifies a certain item in inventory. This is unique for each item
         ///</summary>
+        [Key]
         public ItemID id {get; set;} 
         ///<summary>
         /// Represents the current location within the kitchen for a single item
