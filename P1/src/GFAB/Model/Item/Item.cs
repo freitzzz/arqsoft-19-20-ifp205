@@ -1,6 +1,6 @@
 using System;
 
-namespace GFAB.Model.Item {
+namespace GFAB.Model {
 
     //Entity that represents an item within the inventory
     //Also the root of the aggregate Item --> represented in our aggregate/root diagram aswell
