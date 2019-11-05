@@ -12,8 +12,7 @@ namespace GFAB.Model
     /// Name indicates the location name
     /// </summary>
     /// <value></value>
-    // TODO: @Pedro Coelho remove set usage in order to comply with Value Object pattern
-    public string Name { get; set; }
+    public string Name { get;}
 
     /// <summary>
     /// Creates a Location based on a specified string
@@ -34,23 +33,23 @@ namespace GFAB.Model
     private Location(string name)
     {
 
-      grantNameCannotBeNull(name);
+      GrantNameCannotBeNull(name);
 
-      grantNameHasAtLeastThreeCharacters(name);
+      GrantNameHasAtLeastThreeCharacters(name);
 
       this.Name = name;
     }
 
-    // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void grantNameHasAtLeastThreeCharacters(string name)
+    private void GrantNameHasAtLeastThreeCharacters(string name)
     {
-      throw new NotImplementedException();
+      if(name.Length < 3) 
+        throw new ArgumentException("name must have more than 3 characters");
     }
 
-    // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void grantNameCannotBeNull(string name)
+    private void GrantNameCannotBeNull(string name)
     {
-      throw new NotImplementedException();
+      if(String.IsNullOrEmpty(name)) 
+        throw new ArgumentException("name cannot be empty");
     }
   }
 }
