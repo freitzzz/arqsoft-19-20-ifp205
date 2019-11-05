@@ -12,16 +12,14 @@ namespace GFAB.Model
     /// <summary>
     /// Start date time indicates the time in which the period starts
     /// </summary>
-    /// <value</value>
-    // TODO: @PedroCoelho remove set usage to comply with Value Object pattern
-    public DateTime StartDateTime { get; set; }
+    /// <value></value>
+    public DateTime StartDateTime { get; }
 
     /// <summary>
     /// End date time indicates the time in which the period ends
     /// </summary>
     /// <value></value>
-    // TODO: @PedroCoelho remove set usage to comply with Value Object pattern
-    public DateTime EndDateTime { get; set; }
+    public DateTime EndDateTime { get; }
 
     /// <summary>
     /// Creates a TimePeriod based on its start and end date time period
@@ -29,7 +27,7 @@ namespace GFAB.Model
     /// <param name="startDateTime">The date time in which the time period starts</param>
     /// <param name="endDateTime">The date time in which the time period ends</param>
     /// <returns>TimePeriod for the desired period of time</returns>
-    // TODO: Unit test this function
+    // TODO?: Unit test this function
     public static TimePeriod ValueOf(DateTime startDateTime, DateTime endDateTime)
     {
       return new TimePeriod(startDateTime, endDateTime);
@@ -41,36 +39,37 @@ namespace GFAB.Model
     /// </summary>
     /// <param name="startDateTime">The date time in which the time period starts</param>
     /// <param name="endDateTime">The date time in which the time period ends</param>
-    // TODO: Unit test this constructor
     private TimePeriod(DateTime startDateTime, DateTime endDateTime)
     {
-      grantStartDateTimeCannotBeNull(startDateTime);
+      GrantStartDateTimeCannotBeNull(startDateTime);
 
-      grantEndDateTimeCannotBeNull(endDateTime);
+      GrantEndDateTimeCannotBeNull(endDateTime);
 
-      grantStartDateTimeIsBeforeEndDateTime(startDateTime, endDateTime);
+      GrantStartDateTimeIsBeforeEndDateTime(startDateTime, endDateTime);
 
       this.StartDateTime = startDateTime;
 
       this.EndDateTime = endDateTime;
     }
 
-    // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void grantStartDateTimeIsBeforeEndDateTime(DateTime startDateTime, DateTime endDateTime)
+    ///<summary>
+    ///Verifies if startDateTime is before endDateTime
+    ///<summary> 
+    private void GrantStartDateTimeIsBeforeEndDateTime(DateTime startDateTime, DateTime endDateTime)
     {
-      throw new NotImplementedException();
+      if(startDateTime >= endDateTime) {
+        throw new ArgumentException("startDateTime can´t be after endDateTime");
+      }
     }
-
-    // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void grantEndDateTimeCannotBeNull(DateTime endDateTime)
+    private void GrantEndDateTimeCannotBeNull(DateTime endDateTime)
     {
-      throw new NotImplementedException();
+      if(endDateTime == null)
+        throw new ArgumentNullException("endDateTime can´t be null");
     }
-
-    // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void grantStartDateTimeCannotBeNull(DateTime startDateTime)
+    private void GrantStartDateTimeCannotBeNull(DateTime startDateTime)
     {
-      throw new NotImplementedException();
+      if(startDateTime == null)
+        throw new ArgumentNullException("startDateTime can´t be null");
     }
   }
 }
