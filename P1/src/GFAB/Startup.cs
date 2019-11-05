@@ -43,13 +43,14 @@ namespace GFAB
 
             app.UseRouting();
             app.UseAuthorization();
-            
-            app.UseEndpoints(endpoints => {
+
+            app.UseEndpoints(endpoints =>
+            {
                 endpoints.MapRazorPages();
             });
 
             app.UseHttpsRedirection();
-     
+
         }
     }
 }

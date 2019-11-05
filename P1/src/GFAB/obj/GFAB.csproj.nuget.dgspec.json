@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\isep\\mestrado\\ARQSOFT\\git\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj": {}
+    "D:\\isep\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj": {}
   },
   "projects": {
-    "D:\\isep\\mestrado\\ARQSOFT\\git\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj": {
+    "D:\\isep\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\isep\\mestrado\\ARQSOFT\\git\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj",
+        "projectUniqueName": "D:\\isep\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj",
         "projectName": "GFAB",
-        "projectPath": "D:\\isep\\mestrado\\ARQSOFT\\git\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj",
-        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "D:\\isep\\mestrado\\ARQSOFT\\git\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\obj\\",
+        "projectPath": "D:\\isep\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\GFAB.csproj",
+        "packagesPath": "C:\\Users\\pedro.coelho\\.nuget\\packages\\",
+        "outputPath": "D:\\isep\\arqsoft-19-20-ifp205\\P1\\src\\GFAB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pedro.coelho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
