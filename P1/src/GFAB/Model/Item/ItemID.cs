@@ -1,7 +1,7 @@
 namespace GFAB.Model {
 
     //Value Object
-    public class ItemID{
+    public class ItemID : ValueObject{
 
         public string id{get; set;}
     }
