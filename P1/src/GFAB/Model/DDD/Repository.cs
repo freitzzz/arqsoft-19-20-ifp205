@@ -5,7 +5,7 @@ namespace GFAB.Model
   /// An interface for marking repositories
   /// </summary>
   /// <typeparam name="AR">Type of the aggregate root which repository is of</typeparam>
-  public interface Repository<AR> where AR : AggregateRoot<Entity<Identifiable<object>>>
+  public interface Repository<AR, BID> where AR : AggregateRoot<BID>
   {
 
     /// <summary>
@@ -32,9 +32,9 @@ namespace GFAB.Model
     /// Throws an ArgumentException if no aggregate root was found to be identifiable 
     /// by the identifier
     /// </summary>
-    /// <param name="rootIdentifier">Identifiable of the AR</param>
-    /// <returns>Instance of the AR which is identifiable by AR identifier</returns>
-    AR Find(Identifiable<object> rootIdentifier);
+    /// <param name="rootIdentifier">Business Identifier of the AR</param>
+    /// <returns>Instance of the AR which is identifiable by the business identifier</returns>
+    AR Find(BID rootIdentifier);
 
     /// <summary>
     /// Allows the deletion of an existent aggregate root
