@@ -27,7 +27,7 @@ namespace GFAB.Model
     /// <param name="startDateTime">The date time in which the time period starts</param>
     /// <param name="endDateTime">The date time in which the time period ends</param>
     /// <returns>TimePeriod for the desired period of time</returns>
-    // TODO?: Unit test this function
+    // TODO: Unit test this function
     public static TimePeriod ValueOf(DateTime startDateTime, DateTime endDateTime)
     {
       return new TimePeriod(startDateTime, endDateTime);
@@ -61,11 +61,15 @@ namespace GFAB.Model
         throw new ArgumentException("startDateTime can´t be after endDateTime");
       }
     }
+
+    //DateTime can´t be null by default
     private void GrantEndDateTimeCannotBeNull(DateTime endDateTime)
     {
       if(endDateTime == null)
         throw new ArgumentNullException("endDateTime can´t be null");
     }
+
+    //DateTime can´t be null by default
     private void GrantStartDateTimeCannotBeNull(DateTime startDateTime)
     {
       if(startDateTime == null)

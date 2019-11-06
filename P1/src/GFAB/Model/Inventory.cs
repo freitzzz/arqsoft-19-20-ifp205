@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GFAB.Model {
 
     //Entity which represents the inventory
-    public class Inventory {
+    public class Inventory{
 
         //FOR ORM 
         protected Inventory() {

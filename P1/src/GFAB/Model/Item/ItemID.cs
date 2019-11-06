@@ -13,8 +13,7 @@ namespace GFAB.Model
     /// Id identifies the item business identifier
     /// </summary>
     /// <value></value>
-    // TODO: @Pedro Coelho remove set usage in order to comply with Value Object pattern
-    public string Id { get; set; }
+    public string Id { get; }
 
     /// <summary>
     /// Creates an ItemID based on the item label specifications
@@ -24,17 +23,21 @@ namespace GFAB.Model
     /// <param name="productionDate">The date in which the item was produced</param>
     /// <param name="expirationDate">The date in which the item expires</param>
     /// <returns>ItemID generated with the item label specifications</returns>
+    /// TODO : Unit Test this function
     public static ItemID ValueOf(string mealDesignation, int itemIdentificationNumber, DateTime productionDate, DateTime expirationDate){
 
-      string generatedId = generateId(mealDesignation, itemIdentificationNumber, productionDate, expirationDate);
+      string generatedId = GenerateId(mealDesignation, itemIdentificationNumber, productionDate, expirationDate);
 
       return new ItemID(generatedId);
     }
 
     // TODO: @Pedro Coelho implement this function
-    private static string generateId(string mealDesignation, int itemIdentificationNumber, DateTime productionDate, DateTime expirationDate)
+    ///<summary>
+    /// Identification generation algorithm
+    ///</summary>
+    private static string GenerateId(string mealDesignation, int itemIdentificationNumber, DateTime productionDate, DateTime expirationDate)
     {
-      throw new NotImplementedException();
+      return mealDesignation + ":" + itemIdentificationNumber.ToString() + "\n" + productionDate.ToShortDateString() + "-" + expirationDate.ToShortDateString();
     }
 
     /// <summary>
@@ -45,24 +48,24 @@ namespace GFAB.Model
     private ItemID(string id)
     {
 
-      grantIdCannotBeNull(id);
+      GrantIdCannotBeNull(id);
 
-      grantIdCompliesWithGenerationRule(id);
+      GrantIdCompliesWithGenerationRule(id);
 
       this.Id = id;
 
     }
 
     // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void grantIdCompliesWithGenerationRule(string id)
+    private void GrantIdCompliesWithGenerationRule(string id)
     {
       throw new NotImplementedException();
     }
 
-    // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void grantIdCannotBeNull(string id)
+    private void GrantIdCannotBeNull(string id)
     {
-      throw new NotImplementedException();
+      if(String.IsNullOrEmpty(id))
+        throw new ArgumentNullException("item identification cant be empty");
     }
   }
 }
