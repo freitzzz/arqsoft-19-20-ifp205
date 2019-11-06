@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GFAB.Model
@@ -39,47 +40,10 @@ namespace GFAB.Model
 
       grantNameCannotBeNull(name);
 
-      grantNameCannotBePrecededBySpaces(name);
-
-      grantNameCanOnlyContainLetters(name);
-
-      grantNameIsAtLeastFourCharactersLong(name);
+      grantNameExists(name);
 
       this.Name = name;
 
-    }
-
-    // Verifies if the name is at least four characters long
-    // If this verification fails an ArgumentException is thrown
-    // TODO: @Freitas Unit test
-    private void grantNameIsAtLeastFourCharactersLong(string name)
-    {
-      if (name.Length < 4)
-      {
-        throw new ArgumentException("ingredient name must be at least four characters long");
-      }
-    }
-
-    // Verifies if the name contains only letters ([a-Z])
-    // If this verification fails an ArgumentException is thrown
-    // TODO: @Freitas Unit test
-    private void grantNameCanOnlyContainLetters(string name)
-    {
-      if (name.All(Char.IsLetter))
-      {
-        throw new ArgumentException("ingredient name can only contain letters");
-      }
-    }
-
-    // Verifies if the name is not preceded by spaces
-    // If this verification fails an ArgumentException is thrown
-    // TODO: @Freitas Unit test
-    private void grantNameCannotBePrecededBySpaces(string name)
-    {
-      if (name.StartsWith(" "))
-      {
-        throw new ArgumentException("ingredient name cannot preceded by spaces");
-      }
     }
 
     // Verifies if the name is not null
@@ -91,6 +55,28 @@ namespace GFAB.Model
       {
         throw new ArgumentNullException("ingredient name cannot be null");
       }
+    }
+
+    // Verifies if the name matches the existent ingredient names that are considered
+    // as valid
+    // TODO: @Freitas Unit Test
+    private void grantNameExists(string name)
+    {
+      IEnumerable<string> names = existingNames();
+
+      bool exists = names.Where((_name) => _name.Equals(name)) != null;
+
+      if (!exists)
+      {
+        throw new ArgumentException("ingredient name does not match the existent names");
+      }
+    }
+
+	// Retrieves the existent names that are considered as valid names for an ingredient
+    // TODO: @Freitas Unit Test
+    private IEnumerable<string> existingNames()
+    {
+      throw new NotImplementedException();
     }
   }
 

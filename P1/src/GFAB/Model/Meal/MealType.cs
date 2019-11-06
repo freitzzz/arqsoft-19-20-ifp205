@@ -1,16 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace GFAB.Model
 {
 
   /// <summary>
-  /// An enumerator for the existing meal types
+  /// MealType is a model that represents the type of a meal
   /// </summary>
-  public enum MealType
+  public class MealType : ValueObject
   {
 
-    SOUP,
-    MAIN_COURSE,
+    /// <summary>
+    /// Name identifies the meal type
+    /// </summary>
+    public string Name { get; protected set; }
 
-    DESSERT
+    /// <summary>
+    /// Creates a MealType based on its name
+    /// </summary>
+    /// <param name="name">A string that identifies the meal type</param>
+    /// <returns>MealType for the specified name</returns>
+    // TODO: @Freitas Unit test
+    public static MealType ValueOf(string name)
+    {
 
+      return new MealType(name);
+
+    }
+
+    /// <summary>
+    /// Private and only constructor allowed for MealType
+    /// Object construction modifications should be done via ValueOf function variations
+    /// </summary>
+    /// <param name="name">The name that identifies the meal type</param>
+    // TODO: @Freitas Unit test
+    private MealType(string name)
+    {
+
+      grantNameCannotBeNull(name);
+
+      grantNameExists(name);
+
+      this.Name = name;
+
+    }
+
+    // Verifies if the name is not null
+    // If this verification fails an ArgumentNullException is thrown
+    // TODO: @Freitas Unit test
+    private void grantNameCannotBeNull(string name)
+    {
+      if (name == null)
+      {
+        throw new ArgumentNullException("mealtype name cannot be null");
+      }
+    }
+
+    // Verifies if the name matches the existent meal type names that are considered
+    // as valid
+    // TODO: @Freitas Unit Test
+    private void grantNameExists(string name)
+    {
+      IEnumerable<string> names = existingNames();
+
+      bool exists = names.Where((_name) => _name.Equals(name)) != null;
+
+      if (!exists)
+      {
+        throw new ArgumentException("mealtype name does not match the existent names");
+      }
+    }
+
+    // Retrieves the existent names that are considered as valid names for a meal type
+    // TODO: @Freitas Unit Test
+    private IEnumerable<string> existingNames()
+    {
+      throw new NotImplementedException();
+    }
   }
 }

@@ -124,7 +124,7 @@ namespace GFAB.Model
 
       if (!exists)
       {
-        throw new ArgumentException("descriptor name match the existent names");
+        throw new ArgumentException("descriptor name does not match the existent names");
       }
     }
 
