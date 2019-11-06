@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GFAB.Model
@@ -39,46 +40,24 @@ namespace GFAB.Model
 
       grantNameCannotBeNull(name);
 
-      grantNameCannotBePrecededBySpaces(name);
-
-      grantNameCanOnlyContainLetters(name);
-
-      grantNameIsAtLeastThreeCharactersLong(name);
+      grantNameExists(name);
 
       this.Name = name;
 
     }
 
-    // Verifies if the name is at least three characters long
-    // If this verification fails an ArgumentException is thrown
-    // TODO: @Freitas Unit test
-    private void grantNameIsAtLeastThreeCharactersLong(string name)
+    // Verifies if the name matches the existent allergen names that are considered
+    // as valid
+    // TODO: @Freitas Unit Test
+    private void grantNameExists(string name)
     {
-      if (name.Length < 3)
-      {
-        throw new ArgumentException("allergen name must be at least three characters long");
-      }
-    }
+      IEnumerable<string> names = existingNames();
 
-    // Verifies if the name contains only letters ([a-Z])
-    // If this verification fails an ArgumentException is thrown
-    // TODO: @Freitas Unit test
-    private void grantNameCanOnlyContainLetters(string name)
-    {
-      if (name.All(Char.IsLetter))
-      {
-        throw new ArgumentException("allergen name can only contain letters");
-      }
-    }
+      bool exists = names.Where((_name) => _name.Equals(name)) != null;
 
-    // Verifies if the name is not preceded by spaces
-    // If this verification fails an ArgumentException is thrown
-    // TODO: @Freitas Unit test
-    private void grantNameCannotBePrecededBySpaces(string name)
-    {
-      if (name.StartsWith(" "))
+      if (!exists)
       {
-        throw new ArgumentException("allergen name cannot preceded by spaces");
+        throw new ArgumentException("allergen name does not match the existent names");
       }
     }
 
@@ -91,6 +70,13 @@ namespace GFAB.Model
       {
         throw new ArgumentNullException("allergen name cannot be null");
       }
+    }
+
+    // Retrieves the existent names that are considered as valid names for an allergen
+    // TODO: @Freitas Unit Test
+    private IEnumerable<string> existingNames()
+    {
+      throw new NotImplementedException();
     }
   }
 
