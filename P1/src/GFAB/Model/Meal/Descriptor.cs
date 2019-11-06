@@ -61,8 +61,6 @@ namespace GFAB.Model
 
       grantQuantityUnitCannotBeNull(quantityUnit);
 
-      grantQuantityUnitExists(quantityUnit);
-
 
       grantNameAndQuantityUnitMatch(name, quantityUnit);
 
@@ -98,7 +96,7 @@ namespace GFAB.Model
 
       if (!exists)
       {
-        throw new ArgumentException("descriptor quantity unit does not match with the name");
+        throw new ArgumentException("descriptor quantity unit does not match with the descriptor name");
       }
     }
 
@@ -165,21 +163,6 @@ namespace GFAB.Model
       }
     }
 
-    // Verifies if the quantity unit matches the existing descriptor names that are considered as valid
-    // If this verification fails an ArgumentException is thrown
-    // TODO: @Freitas Unit test
-    private void grantQuantityUnitExists(string quantityUnit)
-    {
-      IEnumerable<string> quantityUnits = existingQuantityUnits();
-
-      bool exists = quantityUnits.Where((string unit) => unit.Equals(quantityUnit)) != null;
-
-      if (!exists)
-      {
-        throw new ArgumentException("descriptor quantity unit does not match the existent quantity units");
-      }
-    }
-
     // Verifies that the quantity unit is not null
     // If this verification fails an ArgumentNullException is thrown
     // TODO: @Freitas Unit test
@@ -195,22 +178,14 @@ namespace GFAB.Model
     private IEnumerable<string> existingNames()
     {
       //TODO: Freitas Implement method
-      throw new NotImplementedException();
-    }
-
-    // Allows the retrieval of the existing quantity units which are considered as valid
-    private IEnumerable<string> existingQuantityUnits()
-    {
-      //TODO: Freitas Implement method
-      throw new NotImplementedException();
+      return ExistingDescriptorsService.ExistingDescriptors.Keys;
     }
 
     // Allows the retrieval of the existing quantity units which are considered as valid
     // for a specified descriptor name
     private IEnumerable<string> existingQuantityUnits(string name)
     {
-      //TODO: Freitas Implement method
-      throw new NotImplementedException();
+      return ExistingDescriptorsService.ExistingDescriptors.GetValueOrDefault(name);
     }
 
     // Allows the conversion of a specified quantity and quantity unit to grams
