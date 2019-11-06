@@ -191,8 +191,7 @@ namespace GFAB.Model
     // Allows the conversion of a specified quantity and quantity unit to grams
     private double convertQuantityToGrams(double quantity, string quantityUnit)
     {
-      //TODO: Freitas Implement method
-      throw new NotImplementedException();
+      return DescriptorQuantityUnitConversionService.ConvertToGrams(quantity, quantityUnit);
     }
 
   }
