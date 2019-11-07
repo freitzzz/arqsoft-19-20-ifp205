@@ -30,12 +30,6 @@ const useStyles = makeStyles(theme => ({
  },
 }));
 
-//Merely a demo function
-function getItemQuantity() {
- //TODO: Retrieve an Item's quantity from the Inventory
- return Math.floor(Math.random() * 100);
-}
-
 export default function ItemList() {
  const classes = useStyles();
 
@@ -102,7 +96,6 @@ export default function ItemList() {
       <TableCell>Remaining Available Time</TableCell>
       <TableCell>Production Date</TableCell>
       <TableCell>Expiration Date</TableCell>
-      <TableCell>Quantity</TableCell>
       <TableCell align="center">Actions</TableCell>
      </TableRow>
     </TableHead>
@@ -115,7 +108,6 @@ export default function ItemList() {
        <TableCell>{row.timePeriod}</TableCell>
        <TableCell>{row.productionDate}</TableCell>
        <TableCell>{row.expirationDate}</TableCell>
-       <TableCell>{getItemQuantity()}</TableCell>
        <TableCell align="center">
         <IconButton aria-label="delete" className={classes.margin} onClick={function (event) { handleOpenRemoveItem(row.id) }}>
          <DeleteIcon fontSize="small" />
