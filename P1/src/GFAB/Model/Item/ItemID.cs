@@ -31,7 +31,6 @@ namespace GFAB.Model
       return new ItemID(generatedId);
     }
 
-    // TODO: @Pedro Coelho implement this function
     ///<summary>
     /// Identification generation algorithm
     ///</summary>
