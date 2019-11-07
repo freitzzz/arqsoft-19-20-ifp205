@@ -10,5 +10,9 @@ namespace GFAB.View {
         /// </summary>
         /// <value></value>
         public string message {get; set;}
+
+        public ErrorModelView(string message) {
+            this.message = message;
+        }
     }
 }

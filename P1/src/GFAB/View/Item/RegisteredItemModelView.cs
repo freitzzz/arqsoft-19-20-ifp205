@@ -46,5 +46,17 @@ namespace GFAB.View.Item {
         /// </summary>
         /// <value></value>
         public string expirationDate {get; set;}
+
+        public RegisterItemModelView (int id, int mealId, string label, string location, 
+            string availableToServeUntil, string productionDate, string expirationDate) {
+
+            this.id = id;
+            this.mealId = mealId;
+            this.label = label;
+            this.location = location;
+            this.availableToServeUntil = availableToServeUntil;
+            this.productionDate = productionDate;
+            this.expirationDate = expirationDate;
+        }
     }
 }

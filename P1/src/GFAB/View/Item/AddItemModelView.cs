@@ -30,5 +30,11 @@ namespace GFAB.View.Item {
         /// <value></value>
         public string expirationDate {get; set;}
 
+        public AddItemModelView (int mealId, string location, string productionDate, string expirationDate) {
+            this.mealId = mealId;
+            this.location = location;
+            this.productionDate = productionDate;
+            this.expirationDate = expirationDate;
+        }
     }
 }
