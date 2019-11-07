@@ -21,18 +21,43 @@ namespace GFAB.Model {
         ///</summary>
         public List<Item> items{get;set;}
 
+        /// <summary>
+        /// Stores a item in the inventory
+        /// </summary>
+        /// <param name="item"></param>
         public void storeItem (Item item) {
-            //TODO : call ItemService to add a new item to the inventory
+            this.items.Add(item);
         }
 
+        /// <summary>
+        /// Removes item that exists on the inventory
+        /// </summary>
+        /// <param name="item"></param>
         public void deleteItem (Item item) {
-            //TODO : call ItemService to remove a new item in the inventory
+            this.items.Remove(item);
         }
 
-        public Item findItem(int itemId) {
-            //TODO : call ItemService to find the item which holds the id that is a parameter to this function
+        /// <summary>
+        /// Finds a specific item by its identification
+        /// </summary>
+        /// <param name="itemId"></param>
+        /// <returns></returns>
+        public Item findItem(ItemID itemId) {
             
-            return null;
+            bool found = false;
+
+            int i = 0;
+
+            Item foundItem = null;
+
+            while(!found && i < this.items.Count) {
+                if(this.items[i].Id().Equals(itemId)) {
+                    found = true;
+                    foundItem = this.items[i];
+                }
+            }
+
+            return foundItem;
         }
 
         public void registerItemPurchase(UserType userType, int Itemid) {
