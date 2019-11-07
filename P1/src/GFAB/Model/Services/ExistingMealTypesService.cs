@@ -40,7 +40,7 @@ namespace GFAB.Model
       }
 
 
-      List<string> mealTypesList = new List<string>(mealTypes);
+      List<string> mealTypesList = mealTypes.Select((mealType) => mealType.ToLower()).ToList();
 
       HashSet<string> mealTypeListAsSet = mealTypesList.ToHashSet();
 
@@ -51,7 +51,7 @@ namespace GFAB.Model
         throw new ArgumentException("cannot inject meal types list with duplicated elements");
       }
 
-      MealTypes = mealTypesList;
+      MealTypes = new List<string>(mealTypes);
     }
 
     /// <summary>
