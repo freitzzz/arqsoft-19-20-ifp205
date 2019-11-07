@@ -76,7 +76,7 @@ namespace GFAB.Model
     // TODO: @Freitas Unit Test
     private IEnumerable<string> existingNames()
     {
-      throw new NotImplementedException();
+      return ExistingIngredientsService.ExistingIngredients;
     }
   }
 

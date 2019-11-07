@@ -83,6 +83,14 @@ namespace GFAB.Model
       grantDescriptorsCannotBeDuplicated(descriptors);
 
       grantDescriptorsQuantitySumCannotBeGreaterThanOneHundredGrams(descriptors);
+
+      Designation = id;
+
+      Type = type;
+
+      Ingredients = new List<Ingredient>(ingredients);
+
+      Descriptors = new List<Descriptor>(descriptors);
     }
 
     /// <summary>
