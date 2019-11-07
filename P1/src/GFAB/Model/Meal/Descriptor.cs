@@ -92,7 +92,7 @@ namespace GFAB.Model
     {
       IEnumerable<string> nameUnits = existingQuantityUnits(name);
 
-      bool exists = nameUnits.Where((unit) => unit.Equals(quantityUnit)) != null;
+      bool exists = nameUnits.Where((unit) => unit.Equals(quantityUnit)).Count() != 0;
 
       if (!exists)
       {
@@ -118,7 +118,7 @@ namespace GFAB.Model
     {
       IEnumerable<string> names = existingNames();
 
-      bool exists = names.Where((_name) => _name.Equals(name)) != null;
+      bool exists = names.Where((_name) => _name.Equals(name)).Count() != 0;
 
       if (!exists)
       {
@@ -133,7 +133,7 @@ namespace GFAB.Model
     {
       double quantityInGrams = convertQuantityToGrams(quantity, quantityUnit);
 
-      if (quantityInGrams >= 100)
+      if (quantityInGrams > 100)
       {
 
         throw new ArgumentException("descriptor quantity in grams cannot be higher than one hundred grams");
