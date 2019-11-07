@@ -12,6 +12,11 @@ namespace GFAB.Model
   public class Meal : AggregateRoot<MealID>
   {
     /// <summary>
+    /// Internal identifier (database)
+    /// </summary>
+    public long ID { get; protected set; }
+
+    /// <summary>
     /// Designation identifies the meal as unique in the business
     /// </summary>
     public MealID Designation { get; protected set; }
@@ -31,7 +36,7 @@ namespace GFAB.Model
 
     // Private instance of ingredients
     private List<Ingredient> ingredients;
-    
+
     /// <summary>
     /// Ingredients identifies the ingredients which the meal is composed by
     /// </summary>
@@ -46,7 +51,7 @@ namespace GFAB.Model
     /// Type identifies the meal type
     /// </summary>
     public MealType Type { get; protected set; }
-    
+
     // Private instance of descriptors
     private List<Descriptor> descriptors;
 
