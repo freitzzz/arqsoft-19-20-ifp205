@@ -138,8 +138,6 @@ export default function Dashboard() {
     toggledMenu('ITEMS');
   };
 
-
-
   return (
     <div className={classes.root}>
       <CssBaseline />
