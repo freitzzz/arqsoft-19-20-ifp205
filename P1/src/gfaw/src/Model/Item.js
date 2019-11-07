@@ -1,4 +1,4 @@
 
-export function createItem(id, indentificationNumber, label, location, timePeriod, productionDate, expirationDate) {
- return { id, indentificationNumber, label, location, timePeriod, productionDate, expirationDate };
+export function createItem(id, identificationNumber, label, location, timePeriod, productionDate, expirationDate) {
+ return { id, identificationNumber, label, location, timePeriod, productionDate, expirationDate };
 }
