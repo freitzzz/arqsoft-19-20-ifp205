@@ -61,6 +61,74 @@ namespace GFAB.Tests{
 			Assert.Equal(name, ingredientName);
 		}
 
+    [Fact]
+    public void TestIngredientDoesNotProveEqualityToDifferentClassObject(){
+
+      string name = ExistingIngredientsService.ExistingIngredients[0];
+
+			Ingredient ingredient = Ingredient.ValueOf(name);
+
+      object differentClassObject = "";
+
+      Assert.NotEqual(ingredient, differentClassObject);
+    }
+
+    [Fact]
+    public void TestIngredientProvesEqualityToIngredientWithEqualName(){
+
+      string name = ExistingIngredientsService.ExistingIngredients[0];
+
+			Ingredient ingredient = Ingredient.ValueOf(name);
+
+      Ingredient equalIngredient = Ingredient.ValueOf(name);
+
+      Assert.Equal(ingredient, equalIngredient);
+    }
+
+    [Fact]
+    public void TestIngredientDoesNotProveEqualityToIngredientWithDifferentName(){
+
+      string name = ExistingIngredientsService.ExistingIngredients[0];
+
+			Ingredient ingredient = Ingredient.ValueOf(name);
+
+      Ingredient differentIngredient = Ingredient.ValueOf(ExistingIngredientsService.ExistingIngredients[1]);
+
+      Assert.NotEqual(ingredient, differentIngredient);
+    }
+
+    [Fact]
+    public void TestIngredientHasSameHashCodeAsIngredientWithEqualName(){
+
+      string name = ExistingIngredientsService.ExistingIngredients[0];
+
+			Ingredient ingredient = Ingredient.ValueOf(name);
+
+      Ingredient equalIngredient = Ingredient.ValueOf(name);
+
+      int ingredientHashCode = ingredient.GetHashCode();
+
+      int equalIngredientHashCode = equalIngredient.GetHashCode();
+
+      Assert.Equal(ingredientHashCode, equalIngredientHashCode);
+    }
+
+    [Fact]
+    public void TestIngredientHasDifferentHashCodeAsIngredientWithEqualName(){
+
+      string name = ExistingIngredientsService.ExistingIngredients[0];
+
+			Ingredient ingredient = Ingredient.ValueOf(name);
+
+      Ingredient differentIngredient = Ingredient.ValueOf(ExistingIngredientsService.ExistingIngredients[1]);
+
+      int ingredientHashCode = ingredient.GetHashCode();
+
+      int differentIngredientHashCode = differentIngredient.GetHashCode();
+
+      Assert.NotEqual(ingredientHashCode, differentIngredientHashCode);
+    }
+
 	}
 
 }

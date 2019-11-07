@@ -61,6 +61,74 @@ namespace GFAB.Tests{
 			Assert.Equal(name, mealTypeName);
 		}
 
+    [Fact]
+    public void TestMealTypeDoesNotProveEqualityToDifferentClassObject(){
+
+      string name = ExistingMealTypesService.ExistingMealTypes[0];
+
+			MealType mealType = MealType.ValueOf(name);
+
+      object differentClassObject = "";
+
+      Assert.NotEqual(mealType, differentClassObject);
+    }
+
+    [Fact]
+    public void TestMealTypeProvesEqualityToMealTypeWithEqualName(){
+
+      string name = ExistingMealTypesService.ExistingMealTypes[0];
+
+			MealType mealType = MealType.ValueOf(name);
+
+      MealType equalMealType = MealType.ValueOf(name);
+
+      Assert.Equal(mealType, equalMealType);
+    }
+
+    [Fact]
+    public void TestMealTypeDoesNotProveEqualityToMealTypeWithDifferentName(){
+
+      string name = ExistingMealTypesService.ExistingMealTypes[0];
+
+			MealType mealType = MealType.ValueOf(name);
+
+      MealType differentMealType = MealType.ValueOf(ExistingMealTypesService.ExistingMealTypes[1]);
+
+      Assert.NotEqual(mealType, differentMealType);
+    }
+
+    [Fact]
+    public void TestMealTypeHasSameHashCodeAsMealTypeWithEqualName(){
+
+      string name = ExistingMealTypesService.ExistingMealTypes[0];
+
+			MealType mealType = MealType.ValueOf(name);
+
+      MealType equalMealType = MealType.ValueOf(name);
+
+      int mealTypeHashCode = mealType.GetHashCode();
+
+      int equalMealTypeHashCode = equalMealType.GetHashCode();
+
+      Assert.Equal(mealTypeHashCode, equalMealTypeHashCode);
+    }
+
+    [Fact]
+    public void TestMealTypeHasDifferentHashCodeAsMealTypeWithEqualName(){
+
+      string name = ExistingMealTypesService.ExistingMealTypes[0];
+
+			MealType mealType = MealType.ValueOf(name);
+
+      MealType differentMealType = MealType.ValueOf(ExistingMealTypesService.ExistingMealTypes[1]);
+
+      int mealTypeHashCode = mealType.GetHashCode();
+
+      int differentMealTypeHashCode = differentMealType.GetHashCode();
+
+      Assert.NotEqual(mealTypeHashCode, differentMealTypeHashCode);
+    }
+
 	}
 
 }

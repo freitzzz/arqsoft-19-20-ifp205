@@ -204,6 +204,94 @@ namespace GFAB.Tests{
 			Assert.Equal(expectedQuantityInGrams, quantityInGrams);
 		}
 
+    [Fact]
+    public void TestDescriptorDoesNotProveEqualityToDifferentClassObject(){
+
+      string name = "Calorie";
+
+      double quantity = 50;
+
+      string quantityUnit = "cal";
+
+			Descriptor descriptor = Descriptor.ValueOf(name, quantity, quantityUnit);
+
+      object differentClassObject = "";
+
+      Assert.NotEqual(descriptor, differentClassObject);
+    }
+
+    [Fact]
+    public void TestDescriptorProvesEqualityToDescriptorWithEqualName(){
+
+      string name = "Calorie";
+
+      double quantity = 50;
+
+      string quantityUnit = "cal";
+
+			Descriptor descriptor = Descriptor.ValueOf(name, quantity, quantityUnit);
+
+      Descriptor equalDescriptor = Descriptor.ValueOf(name, 70, quantityUnit);
+
+      Assert.Equal(descriptor, equalDescriptor);
+    }
+
+    [Fact]
+    public void TestDescriptorDoesNotProveEqualityToDescriptorWithDifferentName(){
+
+      string name = "Calorie";
+
+      double quantity = 50;
+
+      string quantityUnit = "cal";
+
+			Descriptor descriptor = Descriptor.ValueOf(name, quantity, quantityUnit);
+
+      Descriptor differentDescriptor = Descriptor.ValueOf("Fat", 50, "g");
+
+      Assert.NotEqual(descriptor, differentDescriptor);
+    }
+
+    [Fact]
+    public void TestDescriptorHasSameHashCodeAsDescriptorWithEqualName(){
+
+      string name = "Calorie";
+
+      double quantity = 50;
+
+      string quantityUnit = "cal";
+
+			Descriptor descriptor = Descriptor.ValueOf(name, quantity, quantityUnit);
+
+      Descriptor equalDescriptor = Descriptor.ValueOf(name, 70, quantityUnit);
+
+      int descriptorHashCode = descriptor.GetHashCode();
+
+      int equalDescriptorHashCode = equalDescriptor.GetHashCode();
+
+      Assert.Equal(descriptorHashCode, equalDescriptorHashCode);
+    }
+
+    [Fact]
+    public void TestDescriptorHasDifferentHashCodeAsDescriptorWithEqualName(){
+
+      string name = "Calorie";
+
+      double quantity = 50;
+
+      string quantityUnit = "cal";
+
+			Descriptor descriptor = Descriptor.ValueOf(name, quantity, quantityUnit);
+
+      Descriptor differentDescriptor = Descriptor.ValueOf("Fat", 50, "g");
+
+      int descriptorHashCode = descriptor.GetHashCode();
+
+      int differentDescriptorHashCode = differentDescriptor.GetHashCode();
+
+      Assert.NotEqual(descriptorHashCode, differentDescriptorHashCode);
+    }
+
 	}
 
 }

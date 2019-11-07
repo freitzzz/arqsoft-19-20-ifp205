@@ -61,6 +61,74 @@ namespace GFAB.Tests{
 			Assert.Equal(name, allergenName);
 		}
 
+    [Fact]
+    public void TestAllergenDoesNotProveEqualityToDifferentClassObject(){
+
+      string name = ExistingAllergensService.ExistingAllergens[0];
+
+			Allergen allergen = Allergen.ValueOf(name);
+
+      object differentClassObject = "";
+
+      Assert.NotEqual(allergen, differentClassObject);
+    }
+
+    [Fact]
+    public void TestAllergenProvesEqualityToAllergenWithEqualName(){
+
+      string name = ExistingAllergensService.ExistingAllergens[0];
+
+			Allergen allergen = Allergen.ValueOf(name);
+
+      Allergen equalAllergen = Allergen.ValueOf(name);
+
+      Assert.Equal(allergen, equalAllergen);
+    }
+
+    [Fact]
+    public void TestAllergenDoesNotProveEqualityToAllergenWithDifferentName(){
+
+      string name = ExistingAllergensService.ExistingAllergens[0];
+
+			Allergen allergen = Allergen.ValueOf(name);
+
+      Allergen differentAllergen = Allergen.ValueOf(ExistingAllergensService.ExistingAllergens[1]);
+
+      Assert.NotEqual(allergen, differentAllergen);
+    }
+
+    [Fact]
+    public void TestAllergenHasSameHashCodeAsAllergenWithEqualName(){
+
+      string name = ExistingAllergensService.ExistingAllergens[0];
+
+			Allergen allergen = Allergen.ValueOf(name);
+
+      Allergen equalAllergen = Allergen.ValueOf(name);
+
+      int allergenHashCode = allergen.GetHashCode();
+
+      int equalAllergenHashCode = equalAllergen.GetHashCode();
+
+      Assert.Equal(allergenHashCode, equalAllergenHashCode);
+    }
+
+    [Fact]
+    public void TestAllergenHasDifferentHashCodeAsAllergenWithEqualName(){
+
+      string name = ExistingAllergensService.ExistingAllergens[0];
+
+			Allergen allergen = Allergen.ValueOf(name);
+
+      Allergen differentAllergen = Allergen.ValueOf(ExistingAllergensService.ExistingAllergens[1]);
+
+      int allergenHashCode = allergen.GetHashCode();
+
+      int differentAllergenHashCode = differentAllergen.GetHashCode();
+
+      Assert.NotEqual(allergenHashCode, differentAllergenHashCode);
+    }
+
 	}
 
 }
