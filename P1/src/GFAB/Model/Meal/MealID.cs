@@ -45,11 +45,30 @@ namespace GFAB.Model
 
       grantIdStartsWithCapitalCaseLetter(id);
 
-      grantIdIsAtLeastFourCharactersLong(id);
+      grantIdIsAtLeastThreeCharactersLong(id);
 
       this.Id = id;
 
     }
+
+    /// <summary>
+    /// Proves meal identifiers equality
+    /// </summary>
+    /// <param name="comparingMealID">The meal identifier being compared</param>
+    /// <returns>bool true if equality was proven, false otherwise</returns>
+    public override bool Equals(object comparingMealID)
+    {
+
+      MealID objAsMealID = comparingMealID as MealID;
+      return objAsMealID != null && Id.Equals(objAsMealID.Id);
+
+    }
+
+    /// <summary>
+    /// Creates an integer representation of the meal identifier
+    /// </summary>
+    /// <returns>int with the meal identifier integer representation</returns>
+    public override int GetHashCode() => Id.GetHashCode();
 
     // Verifies if the id starts with a capital case letter ([A-Z])
     // If this verification fails an ArgumentException is thrown
@@ -69,7 +88,7 @@ namespace GFAB.Model
     // TODO: @Freitas Unit test
     private void grantIdCanOnlyContainLetters(string id)
     {
-      if (!id.All(Char.IsLetter))
+      if (id.Where((idChar) => Char.IsLetter(idChar) || Char.IsWhiteSpace(idChar)).Count() != id.Count())
       {
         throw new ArgumentException("meal id cannot only contain letters");
       }
@@ -86,14 +105,14 @@ namespace GFAB.Model
       }
     }
 
-    // Verifies if the id is at least four characters long
+    // Verifies if the id is at least three characters long
     // If this verification fails an ArgumentException is thrown
     // TODO: @Freitas Unit test
-    private void grantIdIsAtLeastFourCharactersLong(string id)
+    private void grantIdIsAtLeastThreeCharactersLong(string id)
     {
-      if (id.Length < 4)
+      if (id.Length < 3)
       {
-        throw new ArgumentException("meal id must be at least four characters long");
+        throw new ArgumentException("meal id must be at least three characters long");
       }
     }
 

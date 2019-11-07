@@ -40,7 +40,7 @@ namespace GFAB.Model
       }
 
 
-      List<string> ingredientsList = new List<string>(ingredients);
+      List<string> ingredientsList = ingredients.Select((ingredient) => ingredient.ToLower()).ToList();
 
       HashSet<string> ingredientListAsSet = ingredientsList.ToHashSet();
 
@@ -51,7 +51,7 @@ namespace GFAB.Model
         throw new ArgumentException("cannot inject ingredients list with duplicated elements");
       }
 
-      Ingredients = ingredientsList;
+      Ingredients = new List<string>(ingredients);
     }
 
     /// <summary>

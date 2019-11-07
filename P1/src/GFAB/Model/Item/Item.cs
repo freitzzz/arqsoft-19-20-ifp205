@@ -42,7 +42,7 @@ namespace GFAB.Model
     ///<summary>
     ///The unique identification of the meal which is currently related to a single item 
     ///</summary>
-    //public MealID mealId {get; set;}
+    public MealID mealId {get; set;}
 
     ///<summary>
     /// Method which will indicate if a item is avaliable at the moment or not

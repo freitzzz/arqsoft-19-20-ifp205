@@ -85,6 +85,25 @@ namespace GFAB.Model
 
     }
 
+    /// <summary>
+    /// Proves descriptors equality
+    /// </summary>
+    /// <param name="comparingDescriptor">The descriptor being compared</param>
+    /// <returns>bool true if equality was proven, false otherwise</returns>
+    public override bool Equals(object comparingDescriptor)
+    {
+
+      Descriptor objAsDescriptor = comparingDescriptor as Descriptor;
+      return objAsDescriptor != null && Name.Equals(objAsDescriptor.Name);
+
+    }
+
+    /// <summary>
+    /// Creates an integer representation of the descriptor
+    /// </summary>
+    /// <returns>int with the descriptor integer representation</returns>
+    public override int GetHashCode() => Name.GetHashCode();
+
     // Verifies if the name and quantity unit match as valid
     // If this verification fails an ArgumentException is thrown
     // TODO: @Freitas Unit test
@@ -92,7 +111,7 @@ namespace GFAB.Model
     {
       IEnumerable<string> nameUnits = existingQuantityUnits(name);
 
-      bool exists = nameUnits.Where((unit) => unit.Equals(quantityUnit)) != null;
+      bool exists = nameUnits.Where((unit) => unit.Equals(quantityUnit)).Count() != 0;
 
       if (!exists)
       {
@@ -118,7 +137,7 @@ namespace GFAB.Model
     {
       IEnumerable<string> names = existingNames();
 
-      bool exists = names.Where((_name) => _name.Equals(name)) != null;
+      bool exists = names.Where((_name) => _name.Equals(name)).Count() != 0;
 
       if (!exists)
       {
@@ -133,7 +152,7 @@ namespace GFAB.Model
     {
       double quantityInGrams = convertQuantityToGrams(quantity, quantityUnit);
 
-      if (quantityInGrams >= 100)
+      if (quantityInGrams > 100)
       {
 
         throw new ArgumentException("descriptor quantity in grams cannot be higher than one hundred grams");

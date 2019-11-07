@@ -46,6 +46,25 @@ namespace GFAB.Model
 
     }
 
+    /// <summary>
+    /// Proves meal types equality
+    /// </summary>
+    /// <param name="comparingMealType">The meal type being compared</param>
+    /// <returns>bool true if equality was proven, false otherwise</returns>
+    public override bool Equals(object comparingMealType)
+    {
+
+      MealType objAsMealType = comparingMealType as MealType;
+      return objAsMealType != null && Name.Equals(objAsMealType.Name);
+
+    }
+
+    /// <summary>
+    /// Creates an integer representation of the meal type
+    /// </summary>
+    /// <returns>int with the meal type integer representation</returns>
+    public override int GetHashCode() => Name.GetHashCode();
+
     // Verifies if the name is not null
     // If this verification fails an ArgumentNullException is thrown
     // TODO: @Freitas Unit test
@@ -64,7 +83,7 @@ namespace GFAB.Model
     {
       IEnumerable<string> names = existingNames();
 
-      bool exists = names.Where((_name) => _name.Equals(name)) != null;
+      bool exists = names.Where((_name) => _name.Equals(name)).Count() != 0;
 
       if (!exists)
       {

@@ -46,6 +46,25 @@ namespace GFAB.Model
 
     }
 
+    /// <summary>
+    /// Proves ingredients equality
+    /// </summary>
+    /// <param name="comparingIngredient">The ingredient being compared</param>
+    /// <returns>bool true if equality was proven, false otherwise</returns>
+    public override bool Equals(object comparingIngredient)
+    {
+
+      Ingredient objAsIngredient = comparingIngredient as Ingredient;
+      return objAsIngredient != null && Name.Equals(objAsIngredient.Name);
+
+    }
+
+    /// <summary>
+    /// Creates an integer representation of the ingredient
+    /// </summary>
+    /// <returns>int with the ingredient integer representation</returns>
+    public override int GetHashCode() => Name.GetHashCode();
+
     // Verifies if the name is not null
     // If this verification fails an ArgumentNullException is thrown
     // TODO: @Freitas Unit test
@@ -64,7 +83,7 @@ namespace GFAB.Model
     {
       IEnumerable<string> names = existingNames();
 
-      bool exists = names.Where((_name) => _name.Equals(name)) != null;
+      bool exists = names.Where((_name) => _name.Equals(name)).Count() != 0;
 
       if (!exists)
       {

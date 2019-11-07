@@ -42,7 +42,7 @@ namespace GFAB.Model
 
       bool hasNullQuantityUnits = false;
 
-      hasNullQuantityUnits = descriptorsQuantityUnits.Where((quantityUnits) => quantityUnits.Contains(null)) != null;
+      hasNullQuantityUnits = descriptorsQuantityUnits.Where((quantityUnits) => quantityUnits.Contains(null)).Count() != 0;
 
       if (hasNullQuantityUnits)
       {
@@ -55,7 +55,7 @@ namespace GFAB.Model
 
       hasDuplicates
         = descriptorsQuantityUnits
-        .Where((quantityUnits) => quantityUnits.Count > quantityUnits.ToHashSet().Count) != null;
+        .Where((quantityUnits) => quantityUnits.Count > quantityUnits.ToHashSet().Count).Count() != 0;
 
       
 

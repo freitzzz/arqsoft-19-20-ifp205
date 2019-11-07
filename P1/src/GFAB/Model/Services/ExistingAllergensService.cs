@@ -40,7 +40,7 @@ namespace GFAB.Model
       }
 
 
-      List<string> allergensList = new List<string>(allergens);
+      List<string> allergensList = allergens.Select((allergen) => allergen.ToLower()).ToList();
 
       HashSet<string> allergenListAsSet = allergensList.ToHashSet();
 
@@ -51,7 +51,7 @@ namespace GFAB.Model
         throw new ArgumentException("cannot inject allergens list with duplicated elements");
       }
 
-      Allergens = allergensList;
+      Allergens = new List<string>(allergens);
     }
 
     /// <summary>
