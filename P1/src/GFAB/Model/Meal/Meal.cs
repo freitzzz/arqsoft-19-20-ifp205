@@ -16,39 +16,48 @@ namespace GFAB.Model
     /// </summary>
     public MealID Designation { get; protected set; }
 
+    // Private instance of allergens
+    private List<Allergen> allergens;
+
     /// <summary>
     /// Allergens identifies the allergens which the meal may contain
     /// </summary>
     // TODO: @Freitas Unit test accessor
-	public List<Allergen> Allergens
+    public List<Allergen> Allergens
     {
-      get => new List<Allergen>(Allergens);
-      protected set => Allergens = value;
+      get => new List<Allergen>(allergens);
+      protected set => allergens = value;
     }
 
+    // Private instance of ingredients
+    private List<Ingredient> ingredients;
+    
     /// <summary>
     /// Ingredients identifies the ingredients which the meal is composed by
     /// </summary>
     // TODO: @Freitas Unit test accessor
-	public List<Ingredient> Ingredients
+    public List<Ingredient> Ingredients
     {
-      get => new List<Ingredient>(Ingredients);
-      protected set => Ingredients = value;
+      get => new List<Ingredient>(ingredients);
+      protected set => ingredients = value;
     }
 
     /// <summary>
     /// Type identifies the meal type
     /// </summary>
     public MealType Type { get; protected set; }
+    
+    // Private instance of descriptors
+    private List<Descriptor> descriptors;
 
     /// <summary>
     /// Descriptors identifies the meal nutritional data
     /// </summary>
     // TODO: @Freitas Unit test accessor
-	public List<Descriptor> Descriptors
+    public List<Descriptor> Descriptors
     {
-      get => new List<Descriptor>(Descriptors);
-      protected set => Descriptors = value;
+      get => new List<Descriptor>(descriptors);
+      protected set => descriptors = value;
     }
 
     /// <summary>
@@ -59,8 +68,8 @@ namespace GFAB.Model
     /// <param name="ingredients">The ingredients that are composed by the meal</param>
     /// <param name="descriptors">The nutritional data of the meal</param>
     // TODO: @Freitas Unit test
-	public Meal(string designation, MealType type, List<Ingredient> ingredients,
-      List<Descriptor> descriptors)
+    public Meal(string designation, MealType type, List<Ingredient> ingredients,
+        List<Descriptor> descriptors)
     {
       MealID id = MealID.ValueOf(designation);
 
@@ -91,6 +100,8 @@ namespace GFAB.Model
       Ingredients = new List<Ingredient>(ingredients);
 
       Descriptors = new List<Descriptor>(descriptors);
+
+      Allergens = new List<Allergen>();
     }
 
     /// <summary>
@@ -121,7 +132,7 @@ namespace GFAB.Model
     /// </summary>
     /// <returns>MealID that identifies the meal</returns>
     // TODO: @Freitas Unit test
-	public MealID Id()
+    public MealID Id()
     {
       return Designation;
     }
@@ -133,7 +144,7 @@ namespace GFAB.Model
     {
       int countAsList = allergens.Count;
 
-      int countAsSet = allergens.ToHashSet().Count;
+      int countAsSet = allergens.Select((allergen) => allergen.Name.ToLower()).ToHashSet().Count;
 
       bool hasDuplicates = countAsList > countAsSet;
 
@@ -193,7 +204,7 @@ namespace GFAB.Model
     {
       int countAsList = descriptors.Count;
 
-      int countAsSet = descriptors.ToHashSet().Count;
+      int countAsSet = descriptors.Select((descriptor) => descriptor.Name.ToLower()).ToHashSet().Count;
 
       bool hasDuplicates = countAsList > countAsSet;
 
@@ -247,7 +258,7 @@ namespace GFAB.Model
     {
       int countAsList = ingredients.Count;
 
-      int countAsSet = ingredients.ToHashSet().Count;
+      int countAsSet = ingredients.Select((ingredient) => ingredient.Name.ToLower()).ToHashSet().Count;
 
       bool hasDuplicates = countAsList > countAsSet;
 
@@ -275,7 +286,7 @@ namespace GFAB.Model
     {
       if (ingredients == null)
       {
-        throw new ArgumentException("meal ingredients cannot be null");
+        throw new ArgumentNullException("meal ingredients cannot be null");
       }
     }
 
