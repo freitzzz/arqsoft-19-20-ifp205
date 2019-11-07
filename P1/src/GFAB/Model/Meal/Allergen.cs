@@ -46,6 +46,25 @@ namespace GFAB.Model
 
     }
 
+    /// <summary>
+    /// Proves allergens equality
+    /// </summary>
+    /// <param name="comparingAllergen">The allergen being compared</param>
+    /// <returns>bool true if equality was proven, false otherwise</returns>
+    public override bool Equals(object comparingAllergen)
+    {
+
+      Allergen objAsAllergen = comparingAllergen as Allergen;
+      return objAsAllergen != null && Name.Equals(objAsAllergen.Name);
+
+    }
+
+    /// <summary>
+    /// Creates an integer representation of the allergen
+    /// </summary>
+    /// <returns>int with the allergen integer representation</returns>
+    public override int GetHashCode() => Name.GetHashCode();
+
     // Verifies if the name matches the existent allergen names that are considered
     // as valid
     // TODO: @Freitas Unit Test

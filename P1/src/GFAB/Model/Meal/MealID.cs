@@ -51,6 +51,25 @@ namespace GFAB.Model
 
     }
 
+    /// <summary>
+    /// Proves meal identifiers equality
+    /// </summary>
+    /// <param name="comparingMealID">The meal identifier being compared</param>
+    /// <returns>bool true if equality was proven, false otherwise</returns>
+    public override bool Equals(object comparingMealID)
+    {
+
+      MealID objAsMealID = comparingMealID as MealID;
+      return objAsMealID != null && Id.Equals(objAsMealID.Id);
+
+    }
+
+    /// <summary>
+    /// Creates an integer representation of the meal identifier
+    /// </summary>
+    /// <returns>int with the meal identifier integer representation</returns>
+    public override int GetHashCode() => Id.GetHashCode();
+
     // Verifies if the id starts with a capital case letter ([A-Z])
     // If this verification fails an ArgumentException is thrown
     // TODO: @Freitas Unit test

@@ -85,6 +85,25 @@ namespace GFAB.Model
 
     }
 
+    /// <summary>
+    /// Proves descriptors equality
+    /// </summary>
+    /// <param name="comparingDescriptor">The descriptor being compared</param>
+    /// <returns>bool true if equality was proven, false otherwise</returns>
+    public override bool Equals(object comparingDescriptor)
+    {
+
+      Descriptor objAsDescriptor = comparingDescriptor as Descriptor;
+      return objAsDescriptor != null && Name.Equals(objAsDescriptor.Name);
+
+    }
+
+    /// <summary>
+    /// Creates an integer representation of the descriptor
+    /// </summary>
+    /// <returns>int with the descriptor integer representation</returns>
+    public override int GetHashCode() => Name.GetHashCode();
+
     // Verifies if the name and quantity unit match as valid
     // If this verification fails an ArgumentException is thrown
     // TODO: @Freitas Unit test
