@@ -53,7 +53,7 @@ namespace GFAB.Model
     {
       IEnumerable<string> names = existingNames();
 
-      bool exists = names.Where((_name) => _name.Equals(name)) != null;
+      bool exists = names.Where((_name) => _name.Equals(name)).Count() != 0;
 
       if (!exists)
       {
