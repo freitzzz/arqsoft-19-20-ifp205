@@ -45,7 +45,7 @@ namespace GFAB.Model
 
       grantIdStartsWithCapitalCaseLetter(id);
 
-      grantIdIsAtLeastFourCharactersLong(id);
+      grantIdIsAtLeastThreeCharactersLong(id);
 
       this.Id = id;
 
@@ -69,7 +69,7 @@ namespace GFAB.Model
     // TODO: @Freitas Unit test
     private void grantIdCanOnlyContainLetters(string id)
     {
-      if (!id.All(Char.IsLetter))
+      if (id.Where((idChar) => Char.IsLetter(idChar) || Char.IsWhiteSpace(idChar)).Count() != id.Count())
       {
         throw new ArgumentException("meal id cannot only contain letters");
       }
@@ -86,14 +86,14 @@ namespace GFAB.Model
       }
     }
 
-    // Verifies if the id is at least four characters long
+    // Verifies if the id is at least three characters long
     // If this verification fails an ArgumentException is thrown
     // TODO: @Freitas Unit test
-    private void grantIdIsAtLeastFourCharactersLong(string id)
+    private void grantIdIsAtLeastThreeCharactersLong(string id)
     {
-      if (id.Length < 4)
+      if (id.Length < 3)
       {
-        throw new ArgumentException("meal id must be at least four characters long");
+        throw new ArgumentException("meal id must be at least three characters long");
       }
     }
 
