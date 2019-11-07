@@ -11,7 +11,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import EuroIcon from '@material-ui/icons/Euro';
 import DeleteIcon from '@material-ui/icons/Delete';
-import DeleteItem from '../DeleteItem/DeleteItem'
+import DeleteItem from '../DeleteItem/DeleteItem';
+import PurchaseItem from '../PurchaseItem/PurchaseItem';
+import CreateItem from '../CreateItem/CreateItem';
 
 //Merely for demo
 const rows = [
@@ -45,12 +47,33 @@ export default function ItemList() {
  //DeleteItem's state
  const [showDeleteItem, toggleDeleteItem] = useState(false);
 
- const handleClickOpen = (itemID) => {
+ const handleOpenRemoveItem = (itemID) => {
   toggleDeleteItem(true);
   setSelectedItem(itemID);
  };
- const handleClose = () => {
+ const handleCloseRemoveItem = () => {
   toggleDeleteItem(false);
+ };
+
+ //PurchaseItem's state
+ const [showPurchaseItem, togglePurchaseItem] = useState(false);
+
+ const handleOpenPurchaseItem = (itemID) => {
+  togglePurchaseItem(true);
+  setSelectedItem(itemID);
+ };
+ const handleClosePurchaseItem = () => {
+  togglePurchaseItem(false);
+ };
+
+ //CreateItem's state
+ const [showCreateItem, toggleCreateItem] = useState(false);
+
+ const handleOpenCreateItem = () => {
+  toggleCreateItem(true);
+ };
+ const handleCloseCreateItem = () => {
+  toggleCreateItem(false);
  };
 
  useEffect(() => {
@@ -63,9 +86,12 @@ export default function ItemList() {
   */
   setItems(rows);
  }, []);
+
  return (
   <React.Fragment>
-   {showDeleteItem ? <DeleteItem open={showDeleteItem} close={handleClose} itemID={selectedItem} /> : null}
+   {showDeleteItem ? <DeleteItem open={showDeleteItem} close={handleCloseRemoveItem} itemID={selectedItem} /> : null}
+   {showPurchaseItem ? <PurchaseItem open={showPurchaseItem} close={handleClosePurchaseItem} itemID={selectedItem} /> : null}
+   {showCreateItem ? <CreateItem open={showCreateItem} close={handleCloseCreateItem} /> : null}
    <Title>Items</Title>
    <Table size="small">
     <TableHead>
@@ -91,10 +117,10 @@ export default function ItemList() {
        <TableCell>{row.expirationDate}</TableCell>
        <TableCell>{getItemQuantity()}</TableCell>
        <TableCell align="center">
-        <IconButton aria-label="delete" className={classes.margin} onClick={function(event) { handleClickOpen(row.id) }}>
+        <IconButton aria-label="delete" className={classes.margin} onClick={function (event) { handleOpenRemoveItem(row.id) }}>
          <DeleteIcon fontSize="small" />
         </IconButton>
-        <IconButton aria-label="euro" className={classes.margin}>
+        <IconButton aria-label="euro" className={classes.margin} onClick={function (event) { handleOpenPurchaseItem(row.id) }}>
          <EuroIcon fontSize="small" />
         </IconButton>
        </TableCell>
@@ -103,7 +129,7 @@ export default function ItemList() {
     </TableBody>
    </Table>
    <div>
-    <Button variant="contained" color="primary" className={classes.button}>
+    <Button variant="contained" color="primary" className={classes.button} onClick={handleOpenCreateItem}>
      Create Item
     </Button>
    </div>
