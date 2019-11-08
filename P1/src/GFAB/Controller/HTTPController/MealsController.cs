@@ -111,6 +111,12 @@ namespace GFAB.Controllers
         return Created("api/meals", modelview);
 
       }
+      catch (InvalidOperationException argumentException)
+      {
+        // TODO: Log exception
+        return BadRequest(new ErrorModelView(argumentException.Message));
+
+      }
       catch (ArgumentException argumentException)
       {
         // TODO: Log exception
