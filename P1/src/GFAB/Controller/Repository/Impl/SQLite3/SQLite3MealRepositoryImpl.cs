@@ -12,9 +12,9 @@ namespace GFAB.Controllers
 
     private SQLite3DbContext ctx;
 
-    public SQLite3MealRepositoryImpl(DbContext dbContext)
+    public SQLite3MealRepositoryImpl(SQLite3DbContext dbContext)
     {
-      ctx = dbContext as SQLite3DbContext;
+      ctx = dbContext;
     }
 
     public List<Meal> All()

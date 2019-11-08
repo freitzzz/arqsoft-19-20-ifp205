@@ -10,6 +10,12 @@ namespace GFAB.Controllers
   public class SQLite3DbContext : DbContext
   {
 
+    public SQLite3DbContext(DbContextOptions<SQLite3DbContext> options) : base(options)
+    {
+
+    }
+
+
     public DbSet<Meal> Meals { get; set; }
 
     public DbSet<Item> Items { get; set; }
