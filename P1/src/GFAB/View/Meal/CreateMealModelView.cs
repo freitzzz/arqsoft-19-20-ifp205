@@ -18,6 +18,8 @@ namespace GFAB.View{
 
 		public CreateMealModelViewDescriptors Descriptors {get;set;}
 
+    public CreateMealModelView(){}
+
 
 		[CollectionDataContract]
 		public class CreateMealModelViewDescriptors : List<CreateMealModelViewDescriptorsElement>{
@@ -41,6 +43,8 @@ namespace GFAB.View{
 
 				}
 
+        public CreateMealModelViewDescriptorsElement(){}
+
 			}
 
 			public CreateMealModelViewDescriptors(List<Descriptor> descriptors){
@@ -54,6 +58,8 @@ namespace GFAB.View{
 				}
 
 			}
+
+      public CreateMealModelViewDescriptors(){}
 
 		}
 

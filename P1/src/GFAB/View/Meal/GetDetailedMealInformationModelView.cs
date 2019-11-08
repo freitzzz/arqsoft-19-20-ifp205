@@ -41,6 +41,8 @@ namespace GFAB.View
       Descriptors = new GetDetailedMealInformationModelViewDescriptors(meal.Descriptors);
     }
 
+    public GetDetailedMealInformationModelView(){}
+
     [CollectionDataContract]
     public class GetDetailedMealInformationModelViewAllergens : List<GetDetailedMealInformationModelViewAllergensElement>
     {
@@ -59,7 +61,11 @@ namespace GFAB.View
 
         }
 
+        public GetDetailedMealInformationModelViewAllergensElement(){}
+
       }
+
+      public GetDetailedMealInformationModelViewAllergens(){}
 
 
       public GetDetailedMealInformationModelViewAllergens(List<Allergen> allergens)
@@ -96,7 +102,11 @@ namespace GFAB.View
 
         }
 
+        public GetDetailedMealInformationModelViewIngredientsElement(){}
+
       }
+
+      public GetDetailedMealInformationModelViewIngredients(){}
 
       public GetDetailedMealInformationModelViewIngredients(List<Ingredient> ingredients)
       {
@@ -140,7 +150,11 @@ namespace GFAB.View
 
         }
 
+        public GetDetailedMealInformationModelViewDescriptorsElement(){}
+
       }
+
+      public GetDetailedMealInformationModelViewDescriptors(){}
 
       public GetDetailedMealInformationModelViewDescriptors(List<Descriptor> descriptors)
       {
