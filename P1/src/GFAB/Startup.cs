@@ -43,13 +43,15 @@ namespace GFAB
             });
         });
 
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            // services.AddDbContext<SQLite3DbContext>(
+            //   options => options.UseSqlite(Configuration.GetConnectionString("sqlite3"))
+            // );
 
-            services.AddDbContext<SQLite3DbContext>(
-              options => options.UseSqlite(Configuration.GetConnectionString("sqlite3"))
+            services.AddDbContext<InMemoryDbContext>(
+              options => options.UseInMemoryDatabase("inmemory")
             );
 
-            services.AddScoped<RepositoryFactory, SQLite3RepositoryFactoryImpl>();
+            services.AddScoped<RepositoryFactory, InMemoryRepositoryFactoryImpl>();
 
 
             // Load existing allergens, ingredients, meal types and descriptors
