@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using GFAB.Controllers;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GFAB
 {
@@ -25,6 +27,12 @@ namespace GFAB
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<SQLite3DbContext>(
+              options => options.UseSqlite(Configuration.GetConnectionString("sqlite3"))
+            );
+
+            services.AddScoped<RepositoryFactory, SQLite3RepositoryFactoryImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,10 +55,11 @@ namespace GFAB
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+
+                endpoints.MapControllers();
             });
 
             app.UseHttpsRedirection();
-
         }
     }
 }
