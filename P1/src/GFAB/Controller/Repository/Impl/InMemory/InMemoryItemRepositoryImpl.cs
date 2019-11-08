@@ -24,7 +24,7 @@ namespace GFAB.Controllers
 
     public void Delete(Item rootToDelete)
     {
-      throw new System.NotImplementedException();
+      ctx.Items.Remove(rootToDelete);
     }
 
     public Item Find(long id)
@@ -41,7 +41,10 @@ namespace GFAB.Controllers
 
     public Item Find(ItemID rootIdentifier)
     {
-      IQueryable<Item> items = ctx.Items.Where((item) => item.Id().Equals(rootIdentifier));
+
+      List<Item> allItems = All();
+
+      IEnumerable<Item> items = allItems.Where((item) => item.id.Equals(rootIdentifier));
 
       if (items.Count() == 0)
       {
@@ -54,11 +57,21 @@ namespace GFAB.Controllers
     public Item Save(Item rootToSave)
     {
 
-      ctx.Items.Add(rootToSave);
+      try
+      {
+        Find(rootToSave.Id());
+        throw new InvalidOperationException("item with the save business identifier already exists");
+      }
+      catch (ArgumentException noItemFound)
+      {
 
-      ctx.SaveChanges();
+        ctx.Items.Add(rootToSave);
 
-      return Find(rootToSave.Id());
+        ctx.SaveChanges();
+
+        return Find(rootToSave.Id());
+
+      }
 
     }
 
