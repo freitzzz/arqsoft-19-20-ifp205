@@ -49,20 +49,12 @@ namespace GFAB.Model
 
       GrantIdCannotBeNull(id);
 
-      GrantIdCompliesWithGenerationRule(id);
-
       this.Id = id;
 
     }
 
     // Necessary for EF ORM
     protected ItemID(){}
-
-    // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
-    private void GrantIdCompliesWithGenerationRule(string id)
-    {
-      throw new NotImplementedException();
-    }
 
     private void GrantIdCannotBeNull(string id)
     {
