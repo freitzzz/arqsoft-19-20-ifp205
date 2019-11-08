@@ -5,6 +5,10 @@ namespace GFAB.View.Item {
     /// </summary>
     public class RegisterItemModelView {
 
+        public  RegisterItemModelView() {
+            
+        }
+
         /// <summary>
         /// The Identification number of the certain item
         /// </summary>
