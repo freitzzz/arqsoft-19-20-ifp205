@@ -16,7 +16,7 @@ namespace GFAB.View{
 
 		public List<string> Allergens;
 
-		public List<CreateMealModelViewDescriptors> Descriptors;
+		public CreateMealModelViewDescriptors Descriptors;
 
 
 		[CollectionDataContract]
