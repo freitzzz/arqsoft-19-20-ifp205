@@ -32,34 +32,50 @@ namespace GFAB.Controllers
                 return BadRequest(new ErrorModelView("information not accepted"));
             }
 
-            try {
+            try
+            {
                 Meal meal = this.factory.MealRepository().Find(itemToAdd.mealId);
 
-                try {
+                try
+                {
                     Location location = Location.ValueOf(itemToAdd.location);
                     DateTime expirationDate = DateTime.Parse(itemToAdd.expirationDate);
                     DateTime productionDate = DateTime.Parse(itemToAdd.productionDate);
-                    if(expirationDate > productionDate) {
+                    try
+                    {
                         Item item = new Item(meal.Id(), location, productionDate, expirationDate);
 
-                        RegisterItemModelView response = new RegisterItemModelView(Convert.ToInt32(item.ID),
-                            Convert.ToInt32(meal.ID), item.id.Id, 
-                            item.location.Name,
-                            item.livenessPeriod.EndDateTime.ToShortDateString(), 
-                            item.productionDate.ToShortDateString(), item.expirationDate.ToShortDateString());
+                        try
+                        {
+                            this.factory.ItemRepository().Save(item);
 
-                        return StatusCode(201,response);
+                            RegisterItemModelView response = new RegisterItemModelView(Convert.ToInt32(item.ID),
+                                Convert.ToInt32(meal.ID), item.id.Id,
+                                item.location.Name,
+                                item.livenessPeriod.EndDateTime.ToShortDateString(),
+                                item.productionDate.ToShortDateString(), item.expirationDate.ToShortDateString());
+
+                            return StatusCode(201, response);
+                        }
+                        catch (Exception databaseException)
+                        { //TODO: Do technical log
+                            return StatusCode(500);
+                        }
                     }
-                    else {
-                        return BadRequest(new ErrorModelView("production date it cannot be after the expiration date"));
+                    catch (ArgumentException periodException)
+                    {
+
+                        return BadRequest(new ErrorModelView(periodException.Message));
                     }
                 }
-                catch(ArgumentException exception) {
+                catch (ArgumentException exception)
+                {
                     return BadRequest(new ErrorModelView(exception.Message));
                 }
 
             }
-            catch(ArgumentException e) {
+            catch (ArgumentException e)
+            {
                 return BadRequest(new ErrorModelView(e.Message));
             }
         }
