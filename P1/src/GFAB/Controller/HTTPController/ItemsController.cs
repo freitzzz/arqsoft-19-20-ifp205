@@ -11,11 +11,9 @@ namespace GFAB.Controllers
     [Route("api/items")]
     [ApiController]
 
-    public class ItemsController : ControllerBase
+    public class ItemsController : ControllerBase //TODO: Create a technical logger to write in a .txt file locally on the server
     {
         private RepositoryFactory factory;
-
-        //TODO: @PedroCoelho Finish Implementing
 
         public ItemsController(RepositoryFactory repositoryFactory)
         {
@@ -58,7 +56,7 @@ namespace GFAB.Controllers
                             return StatusCode(201, response);
                         }
                         catch (Exception databaseException)
-                        { //TODO: Do technical log
+                        { 
                             return StatusCode(500);
                         }
                     }
@@ -79,14 +77,26 @@ namespace GFAB.Controllers
                 return BadRequest(new ErrorModelView(e.Message));
             }
         }
-
-        //TODO: @PedroCoelho finish Implementing
+        
         //Delete : /items:id
-        [HttpDelete]
-        public async Task<IActionResult> RemoveItem(int itemId)
+        [HttpDelete("{id}")]
+        public IActionResult RemoveItem( long itemId)
         {
+            try {
+                Item item = this.factory.ItemRepository().Find(itemId);
 
-            return NotFound(new ErrorModelView("request not implemented"));
+                this.factory.ItemRepository().Delete(item);
+
+                return NoContent();
+            }
+            catch(Exception e) {
+
+                if(e is ArgumentException)
+                    return NotFound(new ErrorModelView(e.Message));
+
+                return StatusCode(500);
+            }
+            
         }
     }
 }
