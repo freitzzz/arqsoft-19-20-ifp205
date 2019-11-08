@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using GFAB.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.IO;
+using GFAB.View;
+using GFAB.Model;
 
 namespace GFAB
 {
@@ -33,6 +37,29 @@ namespace GFAB
             );
 
             services.AddScoped<RepositoryFactory, SQLite3RepositoryFactoryImpl>();
+
+
+            // Load existing allergens, ingredients, meal types and descriptors
+
+            var jsonOptions = new JsonSerializerOptions{
+
+              PropertyNameCaseInsensitive = true,
+
+              PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+
+            };
+
+            var jsonString = File.ReadAllText("existingdata.json");
+
+            ExistingDataModelView modelview = JsonSerializer.Deserialize<ExistingDataModelView>(jsonString, jsonOptions);
+
+            ExistingAllergensService.InjectAllergens(modelview.Allergens);
+
+            ExistingIngredientsService.InjectIngredients(modelview.Ingredients);
+
+            ExistingMealTypesService.InjectMealTypes(modelview.MealTypes);
+
+            ExistingDescriptorsService.InjectDescriptors(modelview.Descriptors);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
