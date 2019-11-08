@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -10,6 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import { getIngredients } from '../../../Controller/IngredientsController';
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -32,7 +34,7 @@ export default function AlertDialog(props) {
     };
 
     //Selected Location state
-    const [selectedLocation, setSelectedLocation] = React.useState('');
+    const [selectedLocation, setSelectedLocation] = React.useState('ISEP');
 
     const handleLocationChange = event => {
         setSelectedLocation(event.target.value);
@@ -53,7 +55,14 @@ export default function AlertDialog(props) {
         setSelectedExpDate(event.target.value);
     };
 
-    //Label, Location, Exp Date, Prod Date, Identification number (?)
+    useEffect(() => {
+        /*
+        var ingredients = getIngredients();
+        ingredients.then((data) => {
+            console.log(data);
+        })
+        */
+       }, []);
 
     return (
         <div>
@@ -78,16 +87,8 @@ export default function AlertDialog(props) {
                         </Select>
                     </FormControl>
                     <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-label">Location</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={selectedLocation}
-                            onChange={handleLocationChange}
-                        >
-                            <MenuItem value={'meal1'}>Edifício E</MenuItem>
-                            <MenuItem value={'meal2'}>Edifício H</MenuItem>
-                        </Select>
+                        <InputLabel htmlFor="component-simple">Location</InputLabel>
+                        <Input id="component-simple" value={selectedLocation} onChange={handleLocationChange} />
                     </FormControl>
                 </DialogContent>
                 <DialogContent>
