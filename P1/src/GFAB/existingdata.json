@@ -1,0 +1,11 @@
+{
+  "allergens":["Celery", "Nuts", "Oat"],
+  "ingredients":["Olive Oil", "Red Lentils", "Milk"],
+  "mealtypes":["Soup", "Main Course", "Dessert"],
+  "descriptors":{
+    "Salt":["g", "mg"],
+    "Fibre":["g", "mg"],
+    "Fat":["g", "mg"],
+    "Calorie":["cal", "kcal"]
+  }
+}
