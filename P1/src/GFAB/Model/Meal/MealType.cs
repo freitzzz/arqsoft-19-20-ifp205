@@ -46,6 +46,9 @@ namespace GFAB.Model
 
     }
 
+    // Necessary for EF ORM
+    protected MealType(){}
+
     /// <summary>
     /// Proves meal types equality
     /// </summary>

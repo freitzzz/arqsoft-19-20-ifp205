@@ -46,6 +46,9 @@ namespace GFAB.Model
 
     }
 
+    // Necessary for EF ORM
+    protected Allergen(){}
+
     /// <summary>
     /// Proves allergens equality
     /// </summary>

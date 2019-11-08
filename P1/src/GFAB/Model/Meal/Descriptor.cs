@@ -74,6 +74,9 @@ namespace GFAB.Model
 
     }
 
+    // Necessary for EF ORM
+    protected Descriptor(){}
+
     /// <summary>
     /// Returns the descriptor quantity in grams
     /// </summary>

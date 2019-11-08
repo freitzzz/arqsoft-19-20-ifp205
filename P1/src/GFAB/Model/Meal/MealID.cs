@@ -51,6 +51,9 @@ namespace GFAB.Model
 
     }
 
+    // Necessary for EF ORM
+    protected MealID(){}
+
     /// <summary>
     /// Proves meal identifiers equality
     /// </summary>

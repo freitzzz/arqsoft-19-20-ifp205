@@ -46,6 +46,9 @@ namespace GFAB.Model
 
     }
 
+    // Necessary for EF ORM
+    protected Ingredient(){}
+
     /// <summary>
     /// Proves ingredients equality
     /// </summary>
