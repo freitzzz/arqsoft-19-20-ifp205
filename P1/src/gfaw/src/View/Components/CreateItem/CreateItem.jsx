@@ -11,7 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
-import { getIngredients } from '../../../Controller/IngredientsController';
+import { getData } from '../../../Controller/GetController';
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -57,7 +57,7 @@ export default function AlertDialog(props) {
 
     useEffect(() => {
         /*
-        var ingredients = getIngredients();
+        var ingredients = getData('meals');
         ingredients.then((data) => {
             console.log(data);
         })
