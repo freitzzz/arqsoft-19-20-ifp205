@@ -132,6 +132,9 @@ namespace GFAB.Model
       Allergens = new List<Allergen>(allergens);
     }
 
+    // Necessary for EF ORM
+    protected Meal(){}
+
     /// <summary>
     /// Returns the meal business identifier
     /// </summary>

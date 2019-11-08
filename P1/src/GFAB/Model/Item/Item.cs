@@ -13,6 +13,11 @@ namespace GFAB.Model
     {
     }
 
+    /// <summary>
+    /// Internal identifier (database)
+    /// </summary>
+    public long ID {get; protected set;}
+
     ///<summary>
     /// Identifies a certain item in inventory. This is unique for each item
     ///</summary>

@@ -55,6 +55,9 @@ namespace GFAB.Model
 
     }
 
+    // Necessary for EF ORM
+    protected ItemID(){}
+
     // TODO: @PedroCoelho implement this verification method (should throw ArgumentException if verification fails)
     private void GrantIdCompliesWithGenerationRule(string id)
     {

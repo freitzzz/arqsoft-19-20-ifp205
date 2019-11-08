@@ -52,6 +52,9 @@ namespace GFAB.Model
       this.EndDateTime = endDateTime;
     }
 
+    // Necessary for EF ORM
+    protected TimePeriod(){}
+
     ///<summary>
     ///Verifies if startDateTime is before endDateTime
     ///<summary> 

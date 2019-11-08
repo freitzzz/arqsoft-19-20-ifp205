@@ -40,6 +40,9 @@ namespace GFAB.Model
       this.Name = name;
     }
 
+    // Necessary for EF ORM
+    protected Location(){}
+
     private void GrantNameHasAtLeastThreeCharacters(string name)
     {
       if(name.Length < 3) 
