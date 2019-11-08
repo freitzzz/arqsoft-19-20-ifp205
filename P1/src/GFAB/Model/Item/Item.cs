@@ -13,6 +13,19 @@ namespace GFAB.Model
     {
     }
 
+    private int GenerateItemIdentificationNumber() {
+
+      return (int) new Random().Next(1001);
+    }
+
+    public Item (MealID mealDesignation, Location location, DateTime productionDate, DateTime expirationDate) {
+
+        this.mealId = mealDesignation;
+        this.expirationDate = expirationDate;
+        this.productionDate = productionDate;
+        this.id = ItemID.ValueOf(this.mealId.Id, this.GenerateItemIdentificationNumber(), this.productionDate, this.expirationDate);
+    }
+
     /// <summary>
     /// Internal identifier (database)
     /// </summary>

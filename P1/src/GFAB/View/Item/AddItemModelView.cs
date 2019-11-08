@@ -6,6 +6,10 @@ namespace GFAB.View.Item {
     /// </summary>
     public class AddItemModelView {
 
+        public AddItemModelView() {
+            
+        }
+
         /// <summary>
         /// The identification number of the meal associated to the new item
         /// </summary>
