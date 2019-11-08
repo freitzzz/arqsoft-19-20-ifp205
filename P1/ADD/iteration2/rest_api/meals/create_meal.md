@@ -62,7 +62,7 @@ Example:
 {
     "id":1,
     "designation":"Stone Soup",
-    "type":"soup",
+    "type":"Soup",
     "allergens":[
         {
           "name":"Celery"
