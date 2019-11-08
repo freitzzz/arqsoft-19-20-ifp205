@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using GFAB.Model;
 using static GFAB.View.GetAvailableDescriptorsModelView;
 
 namespace GFAB.View{
@@ -12,11 +11,11 @@ namespace GFAB.View{
 		[DataContract]
 		public class GetAvailableDescriptorsModelViewElement{
 
-			public int Id;
+			public int Id{get;set;}
 
-			public string Name;
+			public string Name{get;set;}
 
-      public List<string> QuantityUnits;
+      public List<string> QuantityUnits{get;set;}
 
 			public GetAvailableDescriptorsModelViewElement(string name, List<string> quantityUnits){
 
@@ -40,6 +39,8 @@ namespace GFAB.View{
 				GetAvailableDescriptorsModelViewElement element = new GetAvailableDescriptorsModelViewElement(name, quantityUnits);
 
 				element.Id = i + 1;
+
+        Add(element);
 			}
 
 		}

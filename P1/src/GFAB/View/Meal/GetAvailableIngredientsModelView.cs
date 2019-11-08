@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using GFAB.Model;
 using static GFAB.View.GetAvailableIngredientsModelView;
 
 namespace GFAB.View{
@@ -11,9 +10,9 @@ namespace GFAB.View{
 		[DataContract]
 		public class GetAvailableIngredientsModelViewElement{
 
-			public int Id;
+			public int Id {get;set;}
 
-			public string Name;
+			public string Name {get;set;}
 
 			public GetAvailableIngredientsModelViewElement(string ingredient){
 
@@ -31,6 +30,8 @@ namespace GFAB.View{
 				GetAvailableIngredientsModelViewElement element = new GetAvailableIngredientsModelViewElement(ingredient);
 
 				element.Id = i + 1;
+
+        Add(element);
 			}
 
 		}

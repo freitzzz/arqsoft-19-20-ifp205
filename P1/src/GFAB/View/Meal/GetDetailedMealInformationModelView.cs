@@ -12,17 +12,17 @@ namespace GFAB.View
   public class GetDetailedMealInformationModelView
   {
 
-    public long Id;
+    public long Id {get;set;}
 
-    public string Designation;
+    public string Designation {get;set;}
 
-    public string Type;
+    public string Type {get;set;}
 
-    public GetDetailedMealInformationModelViewAllergens Allergens;
+    public GetDetailedMealInformationModelViewAllergens Allergens {get;set;}
 
-    public GetDetailedMealInformationModelViewIngredients Ingredients;
+    public GetDetailedMealInformationModelViewIngredients Ingredients {get;set;}
 
-    public GetDetailedMealInformationModelViewDescriptors Descriptors;
+    public GetDetailedMealInformationModelViewDescriptors Descriptors {get;set;}
 
 
     public GetDetailedMealInformationModelView(Meal meal)
@@ -50,7 +50,7 @@ namespace GFAB.View
       public class GetDetailedMealInformationModelViewAllergensElement
       {
 
-        public string Name;
+        public string Name {get;set;}
 
         public GetDetailedMealInformationModelViewAllergensElement(Allergen allergen)
         {
@@ -87,7 +87,7 @@ namespace GFAB.View
       public class GetDetailedMealInformationModelViewIngredientsElement
       {
 
-        public string Name;
+        public string Name {get;set;}
 
         public GetDetailedMealInformationModelViewIngredientsElement(Ingredient ingredient)
         {
@@ -123,11 +123,11 @@ namespace GFAB.View
       public class GetDetailedMealInformationModelViewDescriptorsElement
       {
 
-        public string Name;
+        public string Name {get;set;}
 
-        public double Quantity;
+        public double Quantity {get;set;}
 
-        public string QuantityUnit;
+        public string QuantityUnit {get;set;}
 
         public GetDetailedMealInformationModelViewDescriptorsElement(Descriptor descriptor)
         {

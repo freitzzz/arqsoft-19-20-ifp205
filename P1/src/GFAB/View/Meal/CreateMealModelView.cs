@@ -8,15 +8,15 @@ namespace GFAB.View{
 	[DataContract]
 	public class CreateMealModelView{
 
-		public string Designation;
+		public string Designation {get;set;}
 
-		public string Type;
+		public string Type {get;set;}
 		
-		public List<string> Ingredients;
+		public List<string> Ingredients {get;set;}
 
-		public List<string> Allergens;
+		public List<string> Allergens {get;set;}
 
-		public CreateMealModelViewDescriptors Descriptors;
+		public CreateMealModelViewDescriptors Descriptors {get;set;}
 
 
 		[CollectionDataContract]
@@ -25,11 +25,11 @@ namespace GFAB.View{
 			[DataContract]
 			public class CreateMealModelViewDescriptorsElement{
 
-				public string Name;
+				public string Name {get;set;}
 
-				public double Quantity;
+				public double Quantity {get;set;}
 
-				public string QuantityUnit;
+				public string QuantityUnit {get;set;}
 
 				public CreateMealModelViewDescriptorsElement(Descriptor descriptor){
 

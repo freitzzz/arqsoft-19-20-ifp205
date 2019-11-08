@@ -11,9 +11,9 @@ namespace GFAB.View{
 		[DataContract]
 		public class GetAvailableMealTypesModelViewElement{
 
-			public int Id;
+			public int Id {get;set;}
 
-			public string Name;
+			public string Name {get;set;}
 
 			public GetAvailableMealTypesModelViewElement(string mealType){
 
@@ -31,6 +31,8 @@ namespace GFAB.View{
 				GetAvailableMealTypesModelViewElement element = new GetAvailableMealTypesModelViewElement(mealType);
 
 				element.Id = i + 1;
+
+        Add(element);
 			}
 
 		}

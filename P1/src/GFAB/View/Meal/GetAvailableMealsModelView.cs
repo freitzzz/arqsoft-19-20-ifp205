@@ -12,11 +12,11 @@ namespace GFAB.View
     [DataContract]
     public class GetAvailableMealElement
     {
-      public long Id;
+      public long Id {get;set;}
 
-      public string Designation;
+      public string Designation {get;set;}
 
-      public string Type;
+      public string Type {get;set;}
     }
 
     public GetAvailableMealsModelView(List<Meal> meals)
