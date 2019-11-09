@@ -39,7 +39,7 @@ namespace GFAB.View
 
         element.Location = item.location.Name;
 
-        element.AvailableToServeUntil = item.livenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'dd");
+        element.AvailableToServeUntil = item.livenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'ddTHH':'mm':'ss");
 
         element.ProductionDate = item.productionDate.ToString("yyyy'-'MM'-'dd");
 
