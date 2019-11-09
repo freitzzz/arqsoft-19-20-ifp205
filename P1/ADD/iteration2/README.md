@@ -47,20 +47,16 @@ The goal of this iteration is to support the primary functionalities of GFA, by 
 
 Given the iteration goal selected drivers in Step 2, it is necessary to define which design concepts will be taken in account to realize the elements to refine selected in Step 3. The design concents proposed are the following:
 
-- Architectural Patterns:
-    - MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB and GFAW components. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data. In GFAW the controller handles events that are emitted from the view, and the model are model definitions that are consumed of GFAB component.
-
-- Adoption of **DDD** in GFAB component, by defining:
-    - Aggregate Roots for entities
-    - Entities for models that have identity
-    - Value Objects for concepts that add value to domain
-    - Repositories for aggregate roots
-    - Services in order to hide complex domain logic
-- Other Design Patterns:
-    - Factories (Creational Pattern)
+|Design Decisions and Location|Rationale|
+|-----------------------------|---------|
+|Architecturally structure GFAB and GFAW components with the adoption of MVC|MVC (Model-View-Controller) architectural pattern which allows a clean separation of responsibilities in GFAB and GFAW components. Model will hold responsibilities regarding business logic functionalities and definitions, while controller handles the produced interface requests as well as any other external component communication. View will have the responsibility to define passive views that represent state of requests and responses using models data. In GFAW the controller handles events that are emitted from the view, and the model are model definitions that are consumed of GFAB component. This satisfies all requirements necessary to produce use cases functionalities, both from a server and client side perspective (UC1, UC2, UC3, UC5 and UC6).|
+|Separate business responsibilities by structuring GFAB with the use of DDD and other patterns|The adoption of DDD in GFAB allows to separate business responsibilities. The patterns to adopted are: Aggregate Root, Entity, Value Object, Repository, Service. Repository pattern should also be complemented with Factory creational pattern as the controller is agnostic of what repository implementation to use|
 
 
-(FALTA ALTERNATIVAS + RAZOES PARA NAO ADOPTAR ESTAS, MARCAR NOS DESIGN CONCEPTS SELECIONADOS QUE DRIVERS ESTES SATISFAZEM)
+|Alternative|Reason for Discarding|
+|-----------|---------------------|
+|MVP (Model View Presenter) architectural pattern for GFAB|MVP implies that the view can only communicate with the controller, where the presenter acts as a controller interacting with the model directly. Using this architectural pattern would require the controller to have the responsibility to know how to build the view using model|
+|MVVM (Model View View Model) architectural pattern for GFAW|Models in GFAW are pure objects that represent the request and response bodies defined by the REST API specification. Using an architectural pattern that implies that the model has the responsibility to send notifications regarding model data changes, would have no benefits for GFAW|
 
 
 **Step 5**
@@ -98,6 +94,10 @@ To satisfy the structure of the chosen design concepts, the following elements a
   **Aggregate Roots Diagram**
 
   ![AggregateRoots](diagrams/AggregateRoots.png)
+
+  **GFAB Packages Diagram**
+
+  ![GFAB_Packages_Diagram](diagrams/GFAB_Packages.png)
 
 - Component & Connector View :
 

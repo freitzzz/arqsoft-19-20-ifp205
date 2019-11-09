@@ -55,12 +55,12 @@ export default function ItemList() {
   //CreateItem's state
   const [showCreateItem, toggleCreateItem] = useState(false);
 
-  const handleOpenCreateItem = () => {
-    toggleCreateItem(true);
-  };
-  const handleCloseCreateItem = () => {
-    toggleCreateItem(false);
-  };
+ const handleOpenCreateItem = () => {
+  toggleCreateItem(true);
+ };
+ const handleCloseCreateItem = () => {
+  toggleCreateItem(false);
+ };
 
   //Calculation of the Remaining Available Time for a given Item
   const itemRemainingAvailableTime = (timePeriod) => {

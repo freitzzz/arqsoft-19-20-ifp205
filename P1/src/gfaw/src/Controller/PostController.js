@@ -11,7 +11,7 @@ export async function postData(uri, postData) {
     // get the response body (the method explained below)
     return response.json();
   } else {
-    alert("HTTP-Error: " + response.status);
+    console.log("HTTP-Error: " + response.status);
     return null;
   }
 }
