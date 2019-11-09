@@ -80,7 +80,7 @@ export default function ItemList() {
         rows.push(newItem);
       }
     }).then(() => { setItems(rows); })
-  }, []);
+  }, [items]);
 
   return (
     <React.Fragment>
