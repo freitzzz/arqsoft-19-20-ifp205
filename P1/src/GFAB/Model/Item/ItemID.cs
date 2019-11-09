@@ -13,7 +13,7 @@ namespace GFAB.Model
     /// Id identifies the item business identifier
     /// </summary>
     /// <value></value>
-    public string Id { get; }
+    public string Id { get; protected set;}
 
     /// <summary>
     /// Creates an ItemID based on the item label specifications

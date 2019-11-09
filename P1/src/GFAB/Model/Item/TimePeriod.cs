@@ -13,13 +13,13 @@ namespace GFAB.Model
     /// Start date time indicates the time in which the period starts
     /// </summary>
     /// <value></value>
-    public DateTime StartDateTime { get; }
+    public DateTime StartDateTime { get; protected set;}
 
     /// <summary>
     /// End date time indicates the time in which the period ends
     /// </summary>
     /// <value></value>
-    public DateTime EndDateTime { get; }
+    public DateTime EndDateTime { get; protected set;}
 
     /// <summary>
     /// Creates a TimePeriod based on its start and end date time period

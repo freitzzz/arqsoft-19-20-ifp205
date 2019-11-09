@@ -12,7 +12,7 @@ namespace GFAB.Model
     /// Name indicates the location name
     /// </summary>
     /// <value></value>
-    public string Name { get;}
+    public string Name { get; protected set;}
 
     /// <summary>
     /// Creates a Location based on a specified string
