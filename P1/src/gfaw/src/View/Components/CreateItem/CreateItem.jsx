@@ -12,6 +12,8 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import { getData } from '../../../Controller/GetController';
+import { createMeal } from '../../../Model/Meal';
+import { postData } from '../../../Controller/PostController';
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -25,6 +27,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function AlertDialog(props) {
     const classes = useStyles();
+
+    //All meals found in the database
+    const [meals, setMeals] = React.useState([]);
 
     //Selected Meal to serve as the base for the Item to be created
     const [baseMeal, setBaseMeal] = React.useState('');
@@ -45,7 +50,6 @@ export default function AlertDialog(props) {
 
     const handleProdDateChange = event => {
         setSelectedProdDate(event.target.value);
-        console.log(event.target.value);
     };
 
     //Expiration Date state
@@ -55,14 +59,25 @@ export default function AlertDialog(props) {
         setSelectedExpDate(event.target.value);
     };
 
+    const handleNewItemCreation = event => {
+        var itemData = { mealId: baseMeal, location: selectedLocation, productionDate: selectedProdDate, expirationDate: selectedExpDate }
+
+
+        console.log(JSON.stringify(itemData));
+        postData('items', JSON.stringify(itemData));
+    };
+
     useEffect(() => {
-        /*
-        var ingredients = getData('meals');
-        ingredients.then((data) => {
-            console.log(data);
-        })
-        */
-       }, []);
+        var meals = getData('meals');
+        var rows = [];
+        meals.then((data) => {
+            for (var i = 0; i < data.length; i++) {
+                var meal = data[i];
+                var newMeal = createMeal(meal.id, meal.designation, meal.mealType, 0, 0, 0);
+                rows.push(newMeal);
+            }
+        }).then(() => { setMeals(rows); })
+    }, []);
 
     return (
         <div>
@@ -82,8 +97,9 @@ export default function AlertDialog(props) {
                             value={baseMeal}
                             onChange={handleMealChange}
                         >
-                            <MenuItem value={'meal1'}>Sopa de Pedra</MenuItem>
-                            <MenuItem value={'meal2'}>Frango</MenuItem>
+                            {meals.map(row => (
+                                <MenuItem value={row.id}>{row.designation}</MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
                     <FormControl className={classes.formControl}>
@@ -119,8 +135,8 @@ export default function AlertDialog(props) {
                     <Button onClick={props.close} color="primary">
                         Cancel
           </Button>
-                    <Button onClick={props.close} color="primary" autoFocus>
-                        Confirm
+                    <Button onClick={() => { handleNewItemCreation(); props.close(); }} color="primary" autoFocus>
+                        Submit
           </Button>
                 </DialogActions>
             </Dialog>

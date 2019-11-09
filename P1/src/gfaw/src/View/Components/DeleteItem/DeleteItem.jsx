@@ -5,8 +5,14 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { deleteData } from '../../../Controller/DeleteController';
+
 
 export default function AlertDialog(props) {
+
+  const handleDeleteItem = () => {
+    deleteData('items', props.itemID);
+  };
 
   return (
     <div>
@@ -26,7 +32,7 @@ export default function AlertDialog(props) {
           <Button onClick={props.close} color="primary">
             Cancel
           </Button>
-          <Button onClick={props.close} color="primary" autoFocus>
+          <Button onClick={() => { handleDeleteItem(); props.close();}} color="primary" autoFocus>
             Delete
           </Button>
         </DialogActions>
