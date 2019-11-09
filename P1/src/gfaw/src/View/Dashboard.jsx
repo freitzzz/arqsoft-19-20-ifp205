@@ -92,9 +92,8 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    width: theme.spacing(7),
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9),
+      width: theme.spacing(7),
     },
   },
   appBarSpacer: theme.mixins.toolbar,
@@ -203,15 +202,15 @@ export default function Dashboard() {
   );
 }
 
-function DrawMenu(props){
-  switch(props.drawView){
+function DrawMenu(props) {
+  switch (props.drawView) {
     case 'MEALS':
-      return <MealList/>;
+      return <MealList />;
 
     case 'ITEMS':
-      return <ItemList/>;
+      return <ItemList />;
 
-    default: 
+    default:
       return null;
   }
 }
