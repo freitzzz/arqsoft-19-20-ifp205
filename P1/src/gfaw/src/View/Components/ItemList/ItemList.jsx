@@ -69,6 +69,9 @@ export default function ItemList() {
  const handleCloseCreateItem = () => {
   toggleCreateItem(false);
  };
+ 
+ const header = ['Label', 'Location', 'Time Period', 'Production Date', 'Expiration Date', 'Quantity', 'Actions']
+    .map((title) => {return (<TableCell>{title}</TableCell>)});
 
  useEffect(() => {
   //TODO: Retrieve Meals from the API
@@ -90,13 +93,7 @@ export default function ItemList() {
    <Table size="small">
     <TableHead>
      <TableRow>
-      <TableCell>Identification Number</TableCell>
-      <TableCell>Label</TableCell>
-      <TableCell>Location</TableCell>
-      <TableCell>Remaining Available Time</TableCell>
-      <TableCell>Production Date</TableCell>
-      <TableCell>Expiration Date</TableCell>
-      <TableCell align="center">Actions</TableCell>
+      {header}
      </TableRow>
     </TableHead>
     <TableBody>
