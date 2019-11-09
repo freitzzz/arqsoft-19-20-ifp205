@@ -46,7 +46,7 @@ namespace GFAB.Controllers
 
       List<Item> allItems = All();
 
-      IEnumerable<Item> items = allItems.Where((item) => item.id.Equals(rootIdentifier));
+      IEnumerable<Item> items = allItems.Where((item) => item.ItemId.Equals(rootIdentifier));
 
       if (items.Count() == 0)
       {

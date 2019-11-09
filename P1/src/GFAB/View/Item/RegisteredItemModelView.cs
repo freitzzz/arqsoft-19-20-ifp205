@@ -61,17 +61,17 @@ namespace GFAB.View
 
       id = item.ID;
 
-      mealId = item.mealId.Id;
+      mealId = item.MealId.Id;
 
       label = item.Id().Id;
 
-      location = item.location.Name;
+      location = item.Location.Name;
 
-      availableToServeUntil = item.livenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'ddTHH':'mm':'ss");
+      availableToServeUntil = item.LivenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'ddTHH':'mm':'ss");
 
-      productionDate = item.productionDate.ToString("yyyy'-'MM'-'dd");
+      productionDate = item.ProductionDate.ToString("yyyy'-'MM'-'dd");
 
-      expirationDate = item.expirationDate.ToString("yyyy'-'MM'-'dd");
+      expirationDate = item.ExpirationDate.ToString("yyyy'-'MM'-'dd");
 
     }
   }

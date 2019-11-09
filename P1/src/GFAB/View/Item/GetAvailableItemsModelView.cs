@@ -35,15 +35,15 @@ namespace GFAB.View
 
         element.Id = item.ID;
 
-        element.MealId = item.mealId.Id;
+        element.MealId = item.MealId.Id;
 
-        element.Location = item.location.Name;
+        element.Location = item.Location.Name;
 
-        element.AvailableToServeUntil = item.livenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'ddTHH':'mm':'ss");
+        element.AvailableToServeUntil = item.LivenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'ddTHH':'mm':'ss");
 
-        element.ProductionDate = item.productionDate.ToString("yyyy'-'MM'-'dd");
+        element.ProductionDate = item.ProductionDate.ToString("yyyy'-'MM'-'dd");
 
-        element.ExpirationDate = item.expirationDate.ToString("yyyy'-'MM'-'dd");
+        element.ExpirationDate = item.ExpirationDate.ToString("yyyy'-'MM'-'dd");
 
         Add(element);
       }

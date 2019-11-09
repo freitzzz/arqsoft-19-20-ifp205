@@ -18,46 +18,34 @@ namespace GFAB.Model
     /// Identifies a certain item in inventory. This is unique for each item
     ///</summary>
     [Key]
-    public ItemID id { get; set; }
+    public ItemID ItemId { get; set; }
     ///<summary>
     /// Represents the current location within the kitchen for a single item
     ///</summary>
-    public Location location { get; set; }
+    public Location Location { get; set; }
     ///<summary>
     ///Represents the date which the item was produced
     ///</summary>
-    public DateTime productionDate { get; set; }
+    public DateTime ProductionDate { get; set; }
     ///<summary>
     ///Represents the date for which the item can no longer be served
     ///</summary>
-    public DateTime expirationDate { get; set; }
+    public DateTime ExpirationDate { get; set; }
     ///<summary>
     /// Represents the period for which the item can be served in the cafeteria (for example)
     ///</summary>
-    public TimePeriod livenessPeriod { get; set; }
+    public TimePeriod LivenessPeriod { get; set; }
     ///<summary>
     ///Flag which indicates if the item was already server or not
     /// By default a item isnt served
     ///</summary>
-    public bool served { get; set; } = false;
+    public bool Served { get; set; } = false;
     ///<summary>
     ///The unique identification of the meal which is currently related to a single item 
     ///</summary>
-    public MealID mealId { get; set; }
+    public MealID MealId { get; set; }
 
-
-    // For the ORM
-    protected Item()
-    {
-    }
-
-    private int GenerateItemIdentificationNumber()
-    {
-
-      return (int)new Random().Next(1001);
-    }
-
-    public Item(MealID mealDesignation, string location, DateTime productionDate, DateTime expirationDate)
+    public Item(MealID mealId, string location, DateTime productionDate, DateTime expirationDate)
     {
 
       DateTime timeNow = DateTime.Now;
@@ -76,17 +64,28 @@ namespace GFAB.Model
       grantProductionDateIsNotAfterExpirationDate(productionDate, expirationDate);
 
 
-      this.mealId = mealDesignation;
+      this.MealId = mealId;
 
-      this.location = Location.ValueOf(location);
+      this.Location = Location.ValueOf(location);
 
-      this.livenessPeriod = TimePeriod.ValueOf(timeNow, timeNow.AddDays(1));
+      this.LivenessPeriod = TimePeriod.ValueOf(timeNow, timeNow.AddDays(1));
 
-      this.expirationDate = expirationDate;
+      this.ExpirationDate = expirationDate;
 
-      this.productionDate = productionDate;
+      this.ProductionDate = productionDate;
 
-      this.id = ItemID.ValueOf(this.mealId.Id, this.GenerateItemIdentificationNumber(), this.productionDate, this.expirationDate);
+      this.ItemId = ItemID.ValueOf(this.MealId.Id, this.GenerateItemIdentificationNumber(), this.ProductionDate, this.ExpirationDate);
+    }
+
+    // For the ORM
+    protected Item()
+    {
+    }
+
+    private int GenerateItemIdentificationNumber()
+    {
+
+      return (int)new Random().Next(1001);
     }
 
 
@@ -96,13 +95,13 @@ namespace GFAB.Model
     public bool Available()
     {
 
-      if (!this.served) return true;
+      if (!this.Served) return true;
       else return false;
     }
 
     public ItemID Id()
     {
-      return id;
+      return ItemId;
     }
 
     ///<summary>
@@ -113,7 +112,7 @@ namespace GFAB.Model
     {
       if (this.Available())
       {
-        this.served = true;
+        this.Served = true;
         return true;
       }
       else return false;
@@ -148,7 +147,7 @@ namespace GFAB.Model
 
     private void grantProductionDateIsNotAfterTodaysDate(DateTime productionDate)
     {
-      if(expirationDate > DateTime.Now){
+      if(productionDate > DateTime.Now){
 
         throw new ArgumentException("item production date cannot be after todays date");
 
@@ -166,7 +165,12 @@ namespace GFAB.Model
 
     private void grantExpirationDateCannotBeNull(DateTime expirationDate)
     {
-      throw new ArgumentNullException("item expiration date cannot be null");
+
+      if(expirationDate == null){
+
+        throw new ArgumentNullException("item expiration date cannot be null");
+
+      }
     }
   }
 }

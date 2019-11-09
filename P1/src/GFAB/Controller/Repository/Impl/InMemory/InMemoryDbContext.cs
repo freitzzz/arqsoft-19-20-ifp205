@@ -37,13 +37,13 @@ namespace GFAB.Controllers
       builder.Entity<Meal>().OwnsMany(meal => meal.Ingredients);
 
 
-      builder.Entity<Item>().OwnsOne(item => item.livenessPeriod);
+      builder.Entity<Item>().OwnsOne(item => item.LivenessPeriod);
 
-      builder.Entity<Item>().OwnsOne(item => item.mealId);
+      builder.Entity<Item>().OwnsOne(item => item.MealId);
 
-      builder.Entity<Item>().OwnsOne(item => item.location);
+      builder.Entity<Item>().OwnsOne(item => item.Location);
 
-      builder.Entity<Item>().OwnsOne(item => item.id);
+      builder.Entity<Item>().OwnsOne(item => item.ItemId);
     }
 
   }
