@@ -83,6 +83,12 @@ namespace GFAB.Controllers
         return BadRequest(new ErrorModelView(argumentException.Message));
 
       }
+      catch (FormatException dateFormatException)
+      {
+        // TODO: Log exception
+        return BadRequest(new ErrorModelView(dateFormatException.Message));
+
+      }
       catch (Exception databaseException)
       {
         // TODO: Log exception
