@@ -34,11 +34,11 @@ export default function ItemList() {
   const [showDeleteItem, toggleDeleteItem] = useState(false);
 
   const handleOpenRemoveItem = (itemID) => {
-    toggleDeleteItem(true);
+    toggleDeleteItem(!showDeleteItem);
     setSelectedItem(itemID);
   };
   const handleCloseRemoveItem = () => {
-    toggleDeleteItem(false);
+    toggleDeleteItem(!showDeleteItem);
   };
 
   //PurchaseItem's state
@@ -61,9 +61,14 @@ export default function ItemList() {
  const handleCloseCreateItem = () => {
   toggleCreateItem(false);
  };
- 
- const header = ['Label', 'Location', 'Time Period', 'Production Date', 'Expiration Date', 'Quantity', 'Actions']
-    .map((title) => {return (<TableCell>{title}</TableCell>)});
+
+  //Calculation of the Remaining Available Time for a given Item
+  const itemRemainingAvailableTime = (timePeriod) => {
+    var now = new Date();
+    var timeLimit = new Date(timePeriod + 'Z');
+    var diffHours = Math.abs(timeLimit - now) / 36e5;
+    return Math.round(diffHours);
+  };
 
   useEffect(() => {
     var items = getData('items');
@@ -77,42 +82,48 @@ export default function ItemList() {
     }).then(() => { setItems(rows); })
   }, []);
 
- return (
-  <React.Fragment>
-   {showDeleteItem ? <DeleteItem open={showDeleteItem} close={handleCloseRemoveItem} itemID={selectedItem} /> : null}
-   {showPurchaseItem ? <PurchaseItem open={showPurchaseItem} close={handleClosePurchaseItem} itemID={selectedItem} /> : null}
-   {showCreateItem ? <CreateItem open={showCreateItem} close={handleCloseCreateItem} /> : null}
-   <Title>Items</Title>
-   <Table size="small">
-    <TableHead>
-     <TableRow>
-      {header}
-     </TableRow>
-    </TableHead>
-    <TableBody>
-     {items.map(row => (
-      <TableRow key={row.id}>
-       <TableCell>{row.identificationNumber}</TableCell>
-       <TableCell>{row.label}</TableCell>
-       <TableCell>{row.location}</TableCell>
-       <TableCell>{row.timePeriod}</TableCell>
-       <TableCell>{row.productionDate}</TableCell>
-       <TableCell>{row.expirationDate}</TableCell>
-       <TableCell align="center">
-        <IconButton aria-label="delete" className={classes.margin} onClick={function (event) { handleOpenRemoveItem(row.id) }}>
-         <DeleteIcon fontSize="small" />
-        </IconButton>
-        <IconButton aria-label="euro" className={classes.margin} onClick={function (event) { handleOpenPurchaseItem(row.id) }}>
-         <EuroIcon fontSize="small" />
-        </IconButton>
-       </TableCell>
-      </TableRow>
-     ))}
-    </TableBody>
-   </Table>
-   <div>
-    <Button variant="contained" color="primary" className={classes.button} onClick={handleOpenCreateItem}>
-     Create Item
+  return (
+    <React.Fragment>
+      {showDeleteItem ? <DeleteItem open={showDeleteItem} close={handleCloseRemoveItem} itemID={selectedItem} /> : null}
+      {showPurchaseItem ? <PurchaseItem open={showPurchaseItem} close={handleClosePurchaseItem} itemID={selectedItem} /> : null}
+      {showCreateItem ? <CreateItem open={showCreateItem} close={handleCloseCreateItem} /> : null}
+      <Title>Items</Title>
+      <Table size="small">
+        <TableHead>
+          <TableRow>
+            <TableCell>Identification Number</TableCell>
+            <TableCell>Label</TableCell>
+            <TableCell>Location</TableCell>
+            <TableCell>Available for (Hours)</TableCell>
+            <TableCell>Production Date</TableCell>
+            <TableCell>Expiration Date</TableCell>
+            <TableCell align="center">Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {items.map(row => (
+            <TableRow key={row.id}>
+              <TableCell>{row.identificationNumber}</TableCell>
+              <TableCell>{row.label}</TableCell>
+              <TableCell>{row.location}</TableCell>
+              <TableCell>{itemRemainingAvailableTime(row.timePeriod)}</TableCell>
+              <TableCell>{row.productionDate}</TableCell>
+              <TableCell>{row.expirationDate}</TableCell>
+              <TableCell align="center">
+                <IconButton aria-label="delete" className={classes.margin} onClick={function (event) { handleOpenRemoveItem(row.id) }}>
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+                <IconButton aria-label="euro" className={classes.margin} onClick={function (event) { handleOpenPurchaseItem(row.id) }}>
+                  <EuroIcon fontSize="small" />
+                </IconButton>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <div>
+        <Button variant="contained" color="primary" className={classes.button} onClick={handleOpenCreateItem}>
+          Create Item
     </Button>
       </div>
     </React.Fragment>
