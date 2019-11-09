@@ -18,84 +18,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Chip, Select, FormControl, MenuItem, InputLabel, Input } from '@material-ui/core';
 import { getData } from '../../../Controller/GetController';
 import { postData } from '../../../Controller/PostController';
-import { get } from 'https';
-//Merely for demo
-// const rows = [
-//   createMeal(0, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-//   createMeal(1, 'Arroz de frango', 'Dish', 'Arroz, Frango', 'Alho', '450 kcal'),
-//   createMeal(2, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-//   createMeal(3, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-//   createMeal(4, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-//   createMeal(5, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-// ];
-
-// const fetchedIngredients = [
-//   {
-//     "id": 1,
-//     "name": "Olive Oil"
-//   },
-//   {
-//     "id": 2,
-//     "name": "Red Lentils"
-//   },
-//   {
-//     "id": 3,
-//     "name": "Milk"
-//   }
-// ];
-
-// const fetchedAllergens = [
-//   {
-//     "id": 1,
-//     "name": "Celery"
-//   },
-//   {
-//     "id": 2,
-//     "name": "Nuts"
-//   },
-//   {
-//     "id": 3,
-//     "name": "Oat"
-//   }
-// ];
-
-// const fetchedDescriptors = [
-//   {
-//     "id": 1,
-//     "name": "Salt",
-//     "quantityUnits": ["g", "mg"]
-//   },
-//   {
-//     "id": 2,
-//     "name": "Fibre",
-//     "quantityUnits": ["g", "mg"]
-//   },
-//   {
-//     "id": 3,
-//     "name": "Fat",
-//     "quantityUnits": ["g", "mg"]
-//   },
-//   {
-//     "id": 4,
-//     "name": "Calorie",
-//     "quantityUnits": ["cal", "kcal"]
-//   }
-// ];
-
-// const fetchedMealTypes = [
-//   {
-//     "id": 1,
-//     "name": "Soup"
-//   },
-//   {
-//     "id": 2,
-//     "name": "Main Course"
-//   },
-//   {
-//     "id": 3,
-//     "name": "Dessert"
-//   }
-// ];
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -123,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MealList() {
   const classes = useStyles();
-  const header = ['Designation', 'Meal Type', 'Ingredients', 'Allergens', 'Descriptors', 'Actions']
+  const header = ['Designation', 'Actions']
     .map((title) => { return (<TableCell>{title}</TableCell>) });
 
   // To feed the comboboxes
@@ -166,13 +88,6 @@ export default function MealList() {
 
   const handleSubmitCreateMealDialog = () => {
     //send data
-    console.log({
-      designation: designation,
-      type: mealType.name,
-      ingredients: ingredients.map(i => i.name),
-      allergens: allergens.map(a => a.name),
-      descriptors: descriptors
-    });
     postData('meals', JSON.stringify({
       designation: designation,
       type: mealType.name,
@@ -266,11 +181,7 @@ export default function MealList() {
           {meals && meals.length ? meals.map(row => (
             <TableRow key={row.id}>
               <TableCell>{row.designation}</TableCell>
-              <TableCell>{row.mealType}</TableCell>
-              <TableCell>{row.ingredients}</TableCell>
-              <TableCell>{row.allergens}</TableCell>
-              <TableCell>{row.descriptors}</TableCell>
-              <TableCell align="center">
+              <TableCell>
                 <IconButton aria-label="edit" className={classes.margin}>
                   <EditIcon fontSize="small" />
                 </IconButton>
