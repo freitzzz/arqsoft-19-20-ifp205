@@ -59,6 +59,10 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 - Other Design Patterns:
     - Factories (Creational Pattern)
 
+
+(FALTA ALTERNATIVAS + RAZOES PARA NAO ADOPTAR ESTAS, MARCAR NOS DESIGN CONCEPTS SELECIONADOS QUE DRIVERS ESTES SATISFAZEM)
+
+
 **Step 5**
 
 - Goal: Instantiate architectural elements, allocate responsibilities and define interfaces
@@ -74,6 +78,8 @@ To satisfy the structure of the chosen design concepts, the following elements a
 - Fine-Grain GFAB Components Diagram
 - Fine-Grain GFAW Components Diagram
 - GFAB REST API Specification
+
+(FALTA MARCAR QUE ELEMENTOS ABORDAM OS DESIGN CONCEPTS SELECIONADOS, TABELA DE RESPONSABILIDADES)
 
 **Step 6**
 
@@ -112,6 +118,26 @@ Use Cases chosen to implement given the selected drivers:
 
 ![UseCaseDiagram](diagrams/UsesCaseDiagram.png)
 
+(FALTAM DOMAIN OBJECTS A ILUSTRAR RESPONSABILIDADES)
+
 **Step 7**
 
 - Goal: Perform analysis of current design and review iteration goal and achivements of design purposes
+
+In this iteration GFA was designed architecturally in a fine-grain view, which allowed the team to understand how each component units were being integrated.
+A domain model was sketched which allowed to understand the business concepts that exist in GFA. Consecutively a class diagram for the models that represent this business concepts was realized, allowing the representation of the functionalities that these produced, as well as their properties.
+It was concluded that the adoption of DDD in GFAB allowed a clean separation of responsibilities, which eases the development process of the component. The definition of the REST API specification produced by GFAB permits the development of GFAW as GFAB is also being developed, as the consumers already now the interface specifications that is being consumed.
+
+The following table represents the update of the kanban board after the iteration:
+
+| Not Addressed | Partially Addressed | Addressed |
+|---------------|---------------------|-----------|
+||UC1||
+|||UC2|
+|||UC3|
+|||UC5|
+|||UC6|
+|UC9|||
+|||CON-4|
+|CRN-4|||
+|QA-3|||

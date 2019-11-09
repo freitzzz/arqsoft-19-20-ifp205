@@ -39,7 +39,7 @@ namespace GFAB
         options.AddPolicy(MyAllowSpecificOrigins,
               builder =>
               {
-                builder.WithOrigins("http://localhost:3000");
+                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
               });
       });
 

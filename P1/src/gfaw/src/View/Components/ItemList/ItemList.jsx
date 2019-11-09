@@ -14,54 +14,46 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import DeleteItem from '../DeleteItem/DeleteItem';
 import PurchaseItem from '../PurchaseItem/PurchaseItem';
 import CreateItem from '../CreateItem/CreateItem';
-
-//Merely for demo
-const rows = [
- createItem(0, 0, 'Sopa de pedra', 'Edifício H', '15h', '04/11/2019', '11/11/2019'),
- createItem(1, 1, 'Sopa de pedra', 'Edifício H', '15h', '04/11/2019', '11/11/2019'),
- createItem(2, 2, 'Sopa de pedra', 'Edifício H', '15h', '04/11/2019', '11/11/2019'),
- createItem(3, 3, 'Sopa de pedra', 'Edifício H', '15h', '04/11/2019', '11/11/2019'),
- createItem(4, 4, 'Sopa de pedra', 'Edifício H', '15h', '04/11/2019', '11/11/2019'),
-];
+import { getData } from '../../../Controller/GetController';
 
 const useStyles = makeStyles(theme => ({
- button: {
-  margin: theme.spacing(1),
- },
+  button: {
+    margin: theme.spacing(1),
+  },
 }));
 
 export default function ItemList() {
- const classes = useStyles();
+  const classes = useStyles();
 
- const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
 
- // State keeping for the clicked Item
- const [selectedItem, setSelectedItem] = useState(-1);
+  // State keeping for the clicked Item
+  const [selectedItem, setSelectedItem] = useState(-1);
 
- //DeleteItem's state
- const [showDeleteItem, toggleDeleteItem] = useState(false);
+  //DeleteItem's state
+  const [showDeleteItem, toggleDeleteItem] = useState(false);
 
- const handleOpenRemoveItem = (itemID) => {
-  toggleDeleteItem(true);
-  setSelectedItem(itemID);
- };
- const handleCloseRemoveItem = () => {
-  toggleDeleteItem(false);
- };
+  const handleOpenRemoveItem = (itemID) => {
+    toggleDeleteItem(true);
+    setSelectedItem(itemID);
+  };
+  const handleCloseRemoveItem = () => {
+    toggleDeleteItem(false);
+  };
 
- //PurchaseItem's state
- const [showPurchaseItem, togglePurchaseItem] = useState(false);
+  //PurchaseItem's state
+  const [showPurchaseItem, togglePurchaseItem] = useState(false);
 
- const handleOpenPurchaseItem = (itemID) => {
-  togglePurchaseItem(true);
-  setSelectedItem(itemID);
- };
- const handleClosePurchaseItem = () => {
-  togglePurchaseItem(false);
- };
+  const handleOpenPurchaseItem = (itemID) => {
+    togglePurchaseItem(true);
+    setSelectedItem(itemID);
+  };
+  const handleClosePurchaseItem = () => {
+    togglePurchaseItem(false);
+  };
 
- //CreateItem's state
- const [showCreateItem, toggleCreateItem] = useState(false);
+  //CreateItem's state
+  const [showCreateItem, toggleCreateItem] = useState(false);
 
  const handleOpenCreateItem = () => {
   toggleCreateItem(true);
@@ -73,16 +65,17 @@ export default function ItemList() {
  const header = ['Label', 'Location', 'Time Period', 'Production Date', 'Expiration Date', 'Quantity', 'Actions']
     .map((title) => {return (<TableCell>{title}</TableCell>)});
 
- useEffect(() => {
-  //TODO: Retrieve Meals from the API
-  /*Example: var req = fetch(api_url/items);
-  var reqObj = JSON.parse(req);
-  for(reqObj.Meal in reqObj){
-   setMeals(meals + {reqObj.description, ...})
-  }
-  */
-  setItems(rows);
- }, []);
+  useEffect(() => {
+    var items = getData('items');
+    var rows = [];
+    items.then((data) => {
+      for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        var newItem = createItem(item.id, 0, item.mealId, item.location, item.availableToServeUntil, item.productionDate, item.expirationDate);
+        rows.push(newItem);
+      }
+    }).then(() => { setItems(rows); })
+  }, []);
 
  return (
   <React.Fragment>
@@ -121,7 +114,7 @@ export default function ItemList() {
     <Button variant="contained" color="primary" className={classes.button} onClick={handleOpenCreateItem}>
      Create Item
     </Button>
-   </div>
-  </React.Fragment>
- );
+      </div>
+    </React.Fragment>
+  );
 }

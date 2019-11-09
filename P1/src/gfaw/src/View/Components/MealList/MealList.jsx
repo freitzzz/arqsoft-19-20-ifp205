@@ -14,75 +14,182 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Chip, Select, FormControl, MenuItem } from '@material-ui/core';
+import { Chip, Select, FormControl, MenuItem, InputLabel, Input } from '@material-ui/core';
+import { getData } from '../../../Controller/GetController';
+import { postData } from '../../../Controller/PostController';
 //Merely for demo
-const rows = [
-  createMeal(0, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-  createMeal(1, 'Arroz de frango', 'Dish', 'Arroz, Frango', 'Alho', '450 kcal'),
-  createMeal(2, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-  createMeal(3, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-  createMeal(4, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-  createMeal(5, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
-];
+// const rows = [
+//   createMeal(0, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
+//   createMeal(1, 'Arroz de frango', 'Dish', 'Arroz, Frango', 'Alho', '450 kcal'),
+//   createMeal(2, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
+//   createMeal(3, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
+//   createMeal(4, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
+//   createMeal(5, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
+// ];
+
+// const fetchedIngredients = [
+//   {
+//     "id": 1,
+//     "name": "Olive Oil"
+//   },
+//   {
+//     "id": 2,
+//     "name": "Red Lentils"
+//   },
+//   {
+//     "id": 3,
+//     "name": "Milk"
+//   }
+// ];
+
+// const fetchedAllergens = [
+//   {
+//     "id": 1,
+//     "name": "Celery"
+//   },
+//   {
+//     "id": 2,
+//     "name": "Nuts"
+//   },
+//   {
+//     "id": 3,
+//     "name": "Oat"
+//   }
+// ];
+
+// const fetchedDescriptors = [
+//   {
+//     "id": 1,
+//     "name": "Salt",
+//     "quantityUnits": ["g", "mg"]
+//   },
+//   {
+//     "id": 2,
+//     "name": "Fibre",
+//     "quantityUnits": ["g", "mg"]
+//   },
+//   {
+//     "id": 3,
+//     "name": "Fat",
+//     "quantityUnits": ["g", "mg"]
+//   },
+//   {
+//     "id": 4,
+//     "name": "Calorie",
+//     "quantityUnits": ["cal", "kcal"]
+//   }
+// ];
+
+// const fetchedMealTypes = [
+//   {
+//     "id": 1,
+//     "name": "Soup"
+//   },
+//   {
+//     "id": 2,
+//     "name": "Main Course"
+//   },
+//   {
+//     "id": 3,
+//     "name": "Dessert"
+//   }
+// ];
 
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+    maxWidth: 300,
+  },
+  chips: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  chip: {
+    margin: 2,
+  },
+  noLabel: {
+    marginTop: theme.spacing(3),
+  },
+  textField: {
+    margin: theme.spacing(1),
+  }
 }));
 
 export default function MealList() {
   const classes = useStyles();
-
-  const [meals, setMeals] = useState([]);
   const header = ['Designation', 'Meal Type', 'Ingredients', 'Allergens', 'Descriptors', 'Actions']
     .map((title) => { return (<TableCell>{title}</TableCell>) });
 
+  // To feed the comboboxes
+  const [ingredientList, setIngredientList] = useState([]);
+  const [allergenList, setAllergenList] = useState([]);
+  const [mealTypeList, setMealTypeList] = useState([]);
+  const [descriptorList, setDescriptorList] = useState([]);
+  // Only to support the descriptor weight units
+  const [unitList, setUnitList] = useState([]);
+
+  //dialog
   const [open, setOpen] = React.useState(false);
+  //meal List
+  const [meals, setMeals] = useState([]);
+
+  //dialog inputs
+  const [designation, setDesignation] = useState('');
+  const [mealType, setMealType] = useState('');
+  const [ingredients, setIngredients] = useState([]);
+  const [allergens, setAllergens] = useState([]);
+  const [quantity, setQuantity] = useState();
+  const [quantityUnit, setQuantityUnit] = useState();
+  const [name, setName] = useState();
+  const [descriptors, setDescriptors] = useState([]);
+
   const handleCreateMealDialog = () => {
     setOpen(!open);
   }
 
-  const [ingredients, setIngredients] = useState([]);
-
-  const handleCreateIngredient = (event) => {
-    if (event.key === 'Enter') {
-      setIngredients([...ingredients, event.target.value]);
-      event.target.value = '';
-    }
+  const handleCloseCreateMealDialog = () => {
+    setOpen(false);
   }
 
-  const handleRemoveIngredient = ingredient => () => {
-    setIngredients(ingredients => ingredients.filter(ingredientItem => ingredientItem !== ingredient));
+  const handleSubmitCreateMealDialog = () => {
+    //send data
+    console.log({
+      designation: designation,
+      type: mealType.name,
+      ingredients: ingredients.map(i => i.name),
+      allergens: allergens.map(a => a.name),
+      descriptors: descriptors
+    });
+    postData('meals', {
+      designation: designation,
+      type: mealType.name,
+      ingredients: ingredients.map(i => i.name),
+      allergens: allergens.map(a => a.name),
+      descriptors: descriptors
+    });
+    setOpen(false);
   }
 
-  const [mealType, setMealType] = useState('');
+  const handleCreateDesignation = event => {
+    setDesignation(event.target.value);
+  };
+
+  const handleCreateIngredient = event => {
+    setIngredients(event.target.value);
+  };
 
   const handleCreateMealType = (event) => {
-    if (event.key === 'Enter') {
-      setMealType(event.target.value);
-    }
+    setMealType(event.target.value);
   }
 
-  const [allergens, setAllergens] = useState([]);
-
-  const handleCreateAllergen = (event) => {
-    if (event.key === 'Enter') {
-      setAllergens([...allergens, event.target.value]);
-      event.target.value = '';
-    }
-  }
-
-  const handleRemoveAllergen = allergen => () => {
-    setAllergens(allergens => allergens.filter(allergenItem => allergenItem !== allergen));
-  }
-
-  const [descriptors, setDescriptors] = useState([]);
-  const [quantity, setQuantity] = useState();
-  const [quantityUnit, setQuantityUnit] = useState();
-  const [name, setName] = useState([]);
+  const handleCreateAllergen = event => {
+    setAllergens(event.target.value);
+  };
 
   const handleCreateDescriptor = () => {
     setDescriptors([...descriptors, { quantity: quantity, quantityUnit: quantityUnit, name: name }]);
@@ -101,29 +208,41 @@ export default function MealList() {
   }
 
   const handleCreateName = (event) => {
-    setName(event.target.value);
+    setName(event.target.value.name);
+    setUnitList(event.target.value.quantityUnits);
   }
 
   useEffect(() => {
-    //TODO: Retrieve Meals from the API
-    /*Example: var req = fetch(api_url/meals);
-    var reqObj = JSON.parse(req);
-    for(reqObj.Meal in reqObj){
-     setMeals(meals + {reqObj.description, ...})
-    }
-    */
-    setMeals(rows);
-  }, []);
+    setMealTypeList(getData('mealtypes'));
+    setIngredientList(getData('ingredients'));
+    setAllergenList(getData('allergens'));
+    setDescriptorList(getData('descriptors'));
+    setMeals(getData('meals'));
+    // setMealTypeList(fetchedMealTypes);
+    // setIngredientList(fetchedIngredients);
+    // setAllergenList(fetchedAllergens);
+    // setDescriptorList(fetchedDescriptors);
+    // setMeals(rows);
+    console.log('fetched');
+  }, [open]);
 
-  const ingredientChips = ingredients.map(ingredient => { return <Chip label={ingredient} onDelete={handleRemoveIngredient(ingredient)} /> })
-  const allergenChips = allergens.map(allergen => { return <Chip label={allergen} onDelete={handleRemoveAllergen(allergen)} /> })
-  // const descriptorChips = descriptors.map(descriptor => { return <Chip label={`${descriptor.quantity} ${descriptor.quantityUnit} ${}`} onDelete={handleRemoveDescriptor(descriptor)} /> })
+  // Dropdown list initialization
+  const ingredientOptions = ingredientList && ingredientList.length ? ingredientList
+    .map((ingredient) => { return (<MenuItem key={ingredient.id} value={ingredient}>{ingredient.name}</MenuItem>) }) : <MenuItem>Nothing Here</MenuItem>;
 
-  const units = ['kg', 'g', 'mg', 'kcal']
-    .map((unit) => { return (<MenuItem value={unit}>{unit}</MenuItem>) });
+  const mealTypeOptions = mealTypeList && mealTypeList.length ? mealTypeList
+    .map((mealType) => { return (<MenuItem key={mealType.id} value={mealType}>{mealType.name}</MenuItem>) }) : <MenuItem>Nothing Here</MenuItem>;
 
-  const names = ['Rice', 'Pasta', 'Garlic']
-    .map((name) => { return (<MenuItem value={name}>{name}</MenuItem>) });
+  const allergenOptions = allergenList && allergenList.length ? allergenList
+    .map((allergen) => { return (<MenuItem key={allergen.id} value={allergen}>{allergen.name}</MenuItem>) }) : <MenuItem>Nothing Here</MenuItem>;
+
+  const descriptorOption = descriptorList && descriptorList.length ? descriptorList
+    .map((descriptor) => { return (<MenuItem key={descriptor.id} value={descriptor}>{descriptor.name}</MenuItem>) }) : <MenuItem>Nothing Here</MenuItem>;
+
+  const unitOption = unitList && unitList.length ? unitList
+    .map((unit) => { return (<MenuItem key={unit} value={unit}>{unit}</MenuItem>) }) : <MenuItem>Nothing Here</MenuItem>;
+
+  const descriptorChips = descriptors ? descriptors.map((descriptor) => { return (<Chip value={descriptor} onDelete={handleRemoveDescriptor(descriptor)} label={`${descriptor.name} ${descriptor.quantity} ${descriptor.quantityUnit}`}/>) }) : null;
 
   return (
     <React.Fragment>
@@ -135,7 +254,7 @@ export default function MealList() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {meals.map(row => (
+          {meals && meals.length ? meals.map(row => (
             <TableRow key={row.id}>
               <TableCell>{row.designation}</TableCell>
               <TableCell>{row.mealType}</TableCell>
@@ -148,53 +267,97 @@ export default function MealList() {
                 </IconButton>
               </TableCell>
             </TableRow>
-          ))}
+          )) : null}
         </TableBody>
       </Table>
       <div>
-        <Button variant="contained" size="small" color="primary" className={classes.button} onClick={handleCreateMealDialog}>
+        <Button size="small" color="primary" className={classes.button} onClick={handleCreateMealDialog}>
           Create Meal
     </Button>
       </div>
       <Dialog open={open} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Create Meal</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Create a new Meal
-        </DialogContentText>
           <div>
-            <TextField autoFocus margin="dense" id="name" label="Designation" fullWidth />
-            <TextField autoFocus margin="dense" id="meal_type" label="Meal Type" onKeyPressCapture={handleCreateMealType} />
+            <TextField autoFocus margin="dense" id="designation" label="Designation" fullWidth className={classes.textField} onChange={handleCreateDesignation} />
             <div>
-              <FormControl>
-                <Select autoFocus margin="dense" id="ingredients" label="Ingredients" onKeyPressCapture={handleCreateIngredient} >
-                  {names}
+              <FormControl className={classes.formControl} >
+                <InputLabel id="meal_type_label">Meal Type</InputLabel>
+                <Select id="meal_type" labelId="meal_type_label" onChange={handleCreateMealType} value={mealType} >
+                  {mealTypeOptions}
                 </Select>
               </FormControl>
-              {ingredientChips}
             </div>
             <div>
-              <TextField autoFocus margin="dense" id="allergens" label="Allergens" onKeyPressCapture={handleCreateAllergen} />
-              {allergenChips}
-            </div>
-            <div>
-              <TextField autoFocus margin="dense" id="quantity" label="Quantity" onChange={handleCreateAllergen} />
-              <FormControl variant="outlined">
-                <Select autoFocus margin="dense" id="quantity_unit" label="Quantity Unit" onChange={handleCreateQuantityUnit} >
-                  {units}
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-mutiple-chip-label">Ingredients</InputLabel>
+                <Select
+                  labelId="demo-mutiple-chip-label"
+                  id="demo-mutiple-chip"
+                  multiple
+                  value={ingredients}
+                  onChange={handleCreateIngredient}
+                  input={<Input id="select-multiple-chip" />}
+                  renderValue={selected => (
+                    <div className={classes.chips}>
+                      {selected.map(value => (
+                        <Chip key={value.id} label={value.name} />
+                      ))}
+                    </div>
+                  )}
+                >
+                  {ingredientOptions}
                 </Select>
-                <Select autoFocus margin="dense" id="name" label="Name" onChange={handleCreateName} />
-                <Button onClick={handleCreateDescriptor} color="primary">Add Descriptor</Button>
               </FormControl>
-              {/* {descriptorChips} */}
+            </div>
+            <div>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-mutiple-chip-label">Allergens</InputLabel>
+                <Select
+                  labelId="demo-mutiple-chip-label"
+                  id="demo-mutiple-chip"
+                  multiple
+                  value={allergens}
+                  onChange={handleCreateAllergen}
+                  input={<Input id="select-multiple-chip" />}
+                  renderValue={selected => (
+                    <div className={classes.chips}>
+                      {selected.map(value => (
+                        <Chip key={value.id} label={value.name} />
+                      ))}
+                    </div>
+                  )}
+                >
+                  {allergenOptions}
+                </Select>
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={classes.formControl} >
+                <InputLabel id="descriptor_label">Content</InputLabel>
+                <Select id="descriptor" labelId="descriptor_label" onChange={handleCreateName} >
+                  {descriptorOption}
+                </Select>
+              </FormControl>
+              <FormControl className={classes.formControl} >
+                <InputLabel id="unit_label">Unit</InputLabel>
+                <Select id="unit" labelId="unit_label" onChange={handleCreateQuantityUnit} >
+                  {unitOption}
+                </Select>
+              </FormControl>
+              <TextField autoFocus margin="dense" id="quantity" label="Quantity" onChange={handleCreateQuantity} />
+              <Button color="primary" onClick={handleCreateDescriptor}>Add Descriptor</Button>
+            </div>
+            <div>
+              {descriptorChips}
             </div>
           </div>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCreateMealDialog} color="primary">
+          <Button onClick={handleCloseCreateMealDialog} color="primary">
             Cancel
             </Button>
-          <Button onClick={handleCreateMealDialog} color="primary">
+          <Button onClick={handleSubmitCreateMealDialog} color="primary">
             Submit
             </Button>
         </DialogActions>
