@@ -35,13 +35,22 @@ namespace GFAB
       services.AddRazorPages();
 
       services.AddCors(options =>
-  {
-    options.AddPolicy(MyAllowSpecificOrigins,
-          builder =>
-          {
-        builder.WithOrigins("http://localhost:3000");
+      {
+        options.AddPolicy(MyAllowSpecificOrigins,
+              builder =>
+              {
+                builder.WithOrigins("http://localhost:3000");
+              });
       });
-  });
+
+
+      services.Configure<ApiBehaviorOptions>(options =>
+      {
+          options.InvalidModelStateResponseFactory = context =>
+          {
+            return new BadRequestObjectResult(new ErrorModelView("request body not formatted"));
+          };
+      });
 
       // services.AddDbContext<SQLite3DbContext>(
       //   options => options.UseSqlite(Configuration.GetConnectionString("sqlite3"))
