@@ -13,23 +13,29 @@ namespace GFAB.Model
     {
     }
 
-    private int GenerateItemIdentificationNumber() {
+    private int GenerateItemIdentificationNumber()
+    {
 
-      return (int) new Random().Next(1001);
+      return (int)new Random().Next(1001);
     }
 
-    public Item (MealID mealDesignation, Location location, DateTime productionDate, DateTime expirationDate) {
+    public Item(MealID mealDesignation, Location location, DateTime productionDate, DateTime expirationDate)
+    {
 
-        this.mealId = mealDesignation;
-        this.expirationDate = expirationDate;
-        this.productionDate = productionDate;
-        this.id = ItemID.ValueOf(this.mealId.Id, this.GenerateItemIdentificationNumber(), this.productionDate, this.expirationDate);
+      DateTime timeNow = DateTime.Now;
+
+      this.mealId = mealDesignation;
+      this.location = location;
+      this.livenessPeriod = TimePeriod.ValueOf(timeNow, timeNow.AddDays(1));
+      this.expirationDate = expirationDate;
+      this.productionDate = productionDate;
+      this.id = ItemID.ValueOf(this.mealId.Id, this.GenerateItemIdentificationNumber(), this.productionDate, this.expirationDate);
     }
 
     /// <summary>
     /// Internal identifier (database)
     /// </summary>
-    public long ID {get; protected set;}
+    public long ID { get; protected set; }
 
     ///<summary>
     /// Identifies a certain item in inventory. This is unique for each item
@@ -60,7 +66,7 @@ namespace GFAB.Model
     ///<summary>
     ///The unique identification of the meal which is currently related to a single item 
     ///</summary>
-    public MealID mealId {get; set;}
+    public MealID mealId { get; set; }
 
     ///<summary>
     /// Method which will indicate if a item is avaliable at the moment or not
