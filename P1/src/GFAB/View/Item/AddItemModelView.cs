@@ -1,4 +1,4 @@
-namespace GFAB.View.Item {
+namespace GFAB.View {
 
     /// <summary>
     /// Model View for the request POST: /items
