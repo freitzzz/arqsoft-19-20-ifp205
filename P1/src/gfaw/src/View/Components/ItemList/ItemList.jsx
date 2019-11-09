@@ -34,11 +34,11 @@ export default function ItemList() {
   const [showDeleteItem, toggleDeleteItem] = useState(false);
 
   const handleOpenRemoveItem = (itemID) => {
-    toggleDeleteItem(true);
+    toggleDeleteItem(!showDeleteItem);
     setSelectedItem(itemID);
   };
   const handleCloseRemoveItem = () => {
-    toggleDeleteItem(false);
+    toggleDeleteItem(!showDeleteItem);
   };
 
   //PurchaseItem's state
@@ -60,6 +60,14 @@ export default function ItemList() {
   };
   const handleCloseCreateItem = () => {
     toggleCreateItem(false);
+  };
+
+  //Calculation of the Remaining Available Time for a given Item
+  const itemRemainingAvailableTime = (timePeriod) => {
+    var now = new Date();
+    var timeLimit = new Date(timePeriod + 'Z');
+    var diffHours = Math.abs(timeLimit - now) / 36e5;
+    return Math.round(diffHours);
   };
 
   useEffect(() => {
@@ -86,7 +94,7 @@ export default function ItemList() {
             <TableCell>Identification Number</TableCell>
             <TableCell>Label</TableCell>
             <TableCell>Location</TableCell>
-            <TableCell>Remaining Available Time</TableCell>
+            <TableCell>Available for (Hours)</TableCell>
             <TableCell>Production Date</TableCell>
             <TableCell>Expiration Date</TableCell>
             <TableCell align="center">Actions</TableCell>
@@ -98,7 +106,7 @@ export default function ItemList() {
               <TableCell>{row.identificationNumber}</TableCell>
               <TableCell>{row.label}</TableCell>
               <TableCell>{row.location}</TableCell>
-              <TableCell>{row.timePeriod}</TableCell>
+              <TableCell>{itemRemainingAvailableTime(row.timePeriod)}</TableCell>
               <TableCell>{row.productionDate}</TableCell>
               <TableCell>{row.expirationDate}</TableCell>
               <TableCell align="center">
