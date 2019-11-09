@@ -19,13 +19,13 @@ namespace GFAB.Model
       return (int)new Random().Next(1001);
     }
 
-    public Item(MealID mealDesignation, Location location, DateTime productionDate, DateTime expirationDate)
+    public Item(MealID mealDesignation, string location, DateTime productionDate, DateTime expirationDate)
     {
 
       DateTime timeNow = DateTime.Now;
 
       this.mealId = mealDesignation;
-      this.location = location;
+      this.location = Location.ValueOf(location);
       this.livenessPeriod = TimePeriod.ValueOf(timeNow, timeNow.AddDays(1));
       this.expirationDate = expirationDate;
       this.productionDate = productionDate;
@@ -71,7 +71,7 @@ namespace GFAB.Model
     ///<summary>
     /// Method which will indicate if a item is avaliable at the moment or not
     ///</summary>
-    public bool avaliable()
+    public bool Available()
     {
 
       if (!this.served) return true;
@@ -89,7 +89,7 @@ namespace GFAB.Model
     ///</summary>
     public bool markAsServed()
     {
-      if (this.avaliable())
+      if (this.Available())
       {
         this.served = true;
         return true;
