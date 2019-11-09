@@ -24,7 +24,7 @@ namespace GFAB.Controllers
 
         if (allergens.Count == 0)
         {
-          return NotFound();
+          return NotFound(null);
         }
 
         GetAvailableAllergensModelView modelview = new GetAvailableAllergensModelView(allergens);
@@ -34,7 +34,7 @@ namespace GFAB.Controllers
       catch (Exception databaseException)
       {
         // TODO: Log exception
-        return StatusCode(500);
+        return StatusCode(500, null);
       }
 
     }

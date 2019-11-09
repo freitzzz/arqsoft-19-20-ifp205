@@ -29,7 +29,7 @@ namespace GFAB.Controllers
 
         if (items.Count == 0)
         {
-          return NotFound();
+          return NotFound(null);
         }
 
         GetAvailableItemsModelView modelview = new GetAvailableItemsModelView(items);
@@ -39,7 +39,7 @@ namespace GFAB.Controllers
       catch (Exception databaseException)
       {
         // TODO: Log exception
-        return StatusCode(500);
+        return StatusCode(500, null);
       }
 
     }
@@ -86,7 +86,7 @@ namespace GFAB.Controllers
       catch (Exception databaseException)
       {
         // TODO: Log exception
-        return StatusCode(500);
+        return StatusCode(500, null);
 
       }
     }
@@ -107,9 +107,9 @@ namespace GFAB.Controllers
       {
 
         if (e is ArgumentException)
-          return NotFound();
+          return NotFound(null);
 
-        return StatusCode(500);
+        return StatusCode(500, null);
       }
 
     }

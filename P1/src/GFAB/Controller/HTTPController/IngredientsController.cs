@@ -24,7 +24,7 @@ namespace GFAB.Controllers
 
         if (ingredients.Count == 0)
         {
-          return NotFound();
+          return NotFound(null);
         }
 
         GetAvailableIngredientsModelView modelview = new GetAvailableIngredientsModelView(ingredients);
@@ -34,7 +34,7 @@ namespace GFAB.Controllers
       catch (Exception databaseException)
       {
         // TODO: Log exception
-        return StatusCode(500);
+        return StatusCode(500, null);
       }
 
     }

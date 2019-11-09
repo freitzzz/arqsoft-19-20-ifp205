@@ -32,7 +32,7 @@ namespace GFAB.Controllers
 
         if (meals.Count == 0)
         {
-          return NotFound();
+          return NotFound(null);
         }
 
         GetAvailableMealsModelView modelview = new GetAvailableMealsModelView(meals);
@@ -42,7 +42,7 @@ namespace GFAB.Controllers
       catch (Exception databaseException)
       {
         // TODO: Log exception
-        return StatusCode(500);
+        return StatusCode(500, null);
       }
 
     }
@@ -64,13 +64,13 @@ namespace GFAB.Controllers
       catch (ArgumentException noMealMatchIdException)
       {
         // TODO: Log exception
-        return NotFound();
+        return NotFound(null);
 
       }
       catch (Exception databaseException)
       {
         // TODO: Log exception
-        return StatusCode(500);
+        return StatusCode(500, null);
 
       }
 
@@ -126,7 +126,7 @@ namespace GFAB.Controllers
       catch (Exception databaseException)
       {
         // TODO: Log exception
-        return StatusCode(500);
+        return StatusCode(500, null);
 
       }
 
