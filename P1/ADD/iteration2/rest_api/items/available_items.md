@@ -19,7 +19,7 @@ Example:
         "id":1,
         "mealId":"Stone Soup",
         "location":"ISEP",
-        "availableToServeUntil":"2019-11-01"
+        "availableToServeUntil":"2019-11-01T13:05:20"
         "productionDate":"2019-10-31",
         "expirationDate":"2020-01-31"
     },
@@ -27,7 +27,7 @@ Example:
         "id":2,
         "mealId":"Spanish Codfish",
         "location":"ISEP",
-        "availableToServeUntil":"2019-11-01"
+        "availableToServeUntil":"2019-11-01T13:05:25"
         "productionDate":"2019-10-31",
         "expirationDate":"2020-01-31"
     }
