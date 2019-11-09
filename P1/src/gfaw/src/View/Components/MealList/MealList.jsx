@@ -18,6 +18,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Chip, Select, FormControl, MenuItem, InputLabel, Input } from '@material-ui/core';
 import { getData } from '../../../Controller/GetController';
 import { postData } from '../../../Controller/PostController';
+import { get } from 'https';
 //Merely for demo
 // const rows = [
 //   createMeal(0, 'Sopa de Pedra', 'Sopa', 'Água, Pedra', 'Alho', '100 kcal'),
@@ -153,6 +154,13 @@ export default function MealList() {
   }
 
   const handleCloseCreateMealDialog = () => {
+    setName(null);
+    setDesignation(null);
+    setIngredients([]);
+    setAllergens([]);
+    setDescriptors([]);
+    setQuantity('');
+    setQuantityUnit(null);
     setOpen(false);
   }
 
@@ -165,13 +173,20 @@ export default function MealList() {
       allergens: allergens.map(a => a.name),
       descriptors: descriptors
     });
-    postData('meals', {
+    postData('meals', JSON.stringify({
       designation: designation,
       type: mealType.name,
       ingredients: ingredients.map(i => i.name),
       allergens: allergens.map(a => a.name),
       descriptors: descriptors
-    });
+    }));
+    setName(null);
+    setDesignation(null);
+    setIngredients([]);
+    setAllergens([]);
+    setDescriptors([]);
+    setQuantity('');
+    setQuantityUnit(null);
     setOpen(false);
   }
 
@@ -192,7 +207,7 @@ export default function MealList() {
   };
 
   const handleCreateDescriptor = () => {
-    setDescriptors([...descriptors, { quantity: quantity, quantityUnit: quantityUnit, name: name }]);
+    setDescriptors([...descriptors, { quantity: parseFloat(quantity), quantityUnit: quantityUnit, name: name }]);
   }
 
   const handleRemoveDescriptor = descriptor => () => {
@@ -213,17 +228,11 @@ export default function MealList() {
   }
 
   useEffect(() => {
-    setMealTypeList(getData('mealtypes'));
-    setIngredientList(getData('ingredients'));
-    setAllergenList(getData('allergens'));
-    setDescriptorList(getData('descriptors'));
-    setMeals(getData('meals'));
-    // setMealTypeList(fetchedMealTypes);
-    // setIngredientList(fetchedIngredients);
-    // setAllergenList(fetchedAllergens);
-    // setDescriptorList(fetchedDescriptors);
-    // setMeals(rows);
-    console.log('fetched');
+    getData('mealtypes').then(value => setMealTypeList(value));
+    getData('ingredients').then(value => setIngredientList(value));
+    getData('allergens').then(value => setAllergenList(value));
+    getData('descriptors').then(value => setDescriptorList(value));
+    getData('meals').then(value => setMeals(value));
   }, [open]);
 
   // Dropdown list initialization

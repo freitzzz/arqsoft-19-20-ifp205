@@ -9,7 +9,7 @@ export async function getData(uri) {
 
     return json;
   } else {
-    alert("HTTP-Error: " + response.status);
+    console.log("HTTP-Error: " + response.status);
     return null;
   }
 }
