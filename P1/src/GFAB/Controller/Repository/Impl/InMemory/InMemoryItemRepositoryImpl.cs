@@ -19,12 +19,14 @@ namespace GFAB.Controllers
 
     public List<Item> All()
     {
-      return ctx.Items.ToList();
+      return ctx.Items.ToList().Where((item) => item.Available()).ToList();
     }
 
     public void Delete(Item rootToDelete)
     {
       ctx.Items.Remove(rootToDelete);
+
+      ctx.SaveChanges();
     }
 
     public Item Find(long id)
