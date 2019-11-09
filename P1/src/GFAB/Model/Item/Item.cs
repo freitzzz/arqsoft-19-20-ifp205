@@ -8,29 +8,6 @@ namespace GFAB.Model
   //Also the root of the aggregate Item --> represented in our aggregate/root diagram aswell
   public class Item : AggregateRoot<ItemID>
   {
-    // For the ORM
-    protected Item()
-    {
-    }
-
-    private int GenerateItemIdentificationNumber()
-    {
-
-      return (int)new Random().Next(1001);
-    }
-
-    public Item(MealID mealDesignation, string location, DateTime productionDate, DateTime expirationDate)
-    {
-
-      DateTime timeNow = DateTime.Now;
-
-      this.mealId = mealDesignation;
-      this.location = Location.ValueOf(location);
-      this.livenessPeriod = TimePeriod.ValueOf(timeNow, timeNow.AddDays(1));
-      this.expirationDate = expirationDate;
-      this.productionDate = productionDate;
-      this.id = ItemID.ValueOf(this.mealId.Id, this.GenerateItemIdentificationNumber(), this.productionDate, this.expirationDate);
-    }
 
     /// <summary>
     /// Internal identifier (database)
@@ -68,6 +45,51 @@ namespace GFAB.Model
     ///</summary>
     public MealID mealId { get; set; }
 
+
+    // For the ORM
+    protected Item()
+    {
+    }
+
+    private int GenerateItemIdentificationNumber()
+    {
+
+      return (int)new Random().Next(1001);
+    }
+
+    public Item(MealID mealDesignation, string location, DateTime productionDate, DateTime expirationDate)
+    {
+
+      DateTime timeNow = DateTime.Now;
+      
+      grantMealIdCannotBeNull(mealId);
+
+
+      grantProductionDateCannotBeNull(productionDate);
+
+      grantExpirationDateCannotBeNull(expirationDate);
+
+      grantProductionDateIsNotAfterTodaysDate(productionDate);
+
+      grantExpirationDateIsNotBeforeTodaysDate(expirationDate);
+
+      grantProductionDateIsNotAfterExpirationDate(productionDate, expirationDate);
+
+
+      this.mealId = mealDesignation;
+
+      this.location = Location.ValueOf(location);
+
+      this.livenessPeriod = TimePeriod.ValueOf(timeNow, timeNow.AddDays(1));
+
+      this.expirationDate = expirationDate;
+
+      this.productionDate = productionDate;
+
+      this.id = ItemID.ValueOf(this.mealId.Id, this.GenerateItemIdentificationNumber(), this.productionDate, this.expirationDate);
+    }
+
+
     ///<summary>
     /// Method which will indicate if a item is avaliable at the moment or not
     ///</summary>
@@ -95,6 +117,56 @@ namespace GFAB.Model
         return true;
       }
       else return false;
+    }
+
+    private void grantMealIdCannotBeNull(MealID mealId)
+    {
+      if(mealId == null){
+
+        throw new ArgumentNullException("item meal id cannot be null");
+
+      }
+    }
+
+    private void grantProductionDateIsNotAfterExpirationDate(DateTime productionDate, DateTime expirationDate)
+    {
+      if(productionDate > expirationDate){
+
+        throw new ArgumentException("item production date cannot be after expiration date");
+
+      }
+    }
+
+    private void grantExpirationDateIsNotBeforeTodaysDate(DateTime expirationDate)
+    {
+      if(expirationDate < DateTime.Now){
+
+        throw new ArgumentException("item expiration date cannot be before todays date");
+
+      }
+    }
+
+    private void grantProductionDateIsNotAfterTodaysDate(DateTime productionDate)
+    {
+      if(expirationDate > DateTime.Now){
+
+        throw new ArgumentException("item production date cannot be after todays date");
+
+      }
+    }
+
+    private void grantProductionDateCannotBeNull(DateTime productionDate)
+    {
+      if(productionDate == null){
+
+        throw new ArgumentNullException("item production date cannot be null");
+
+      }
+    }
+
+    private void grantExpirationDateCannotBeNull(DateTime expirationDate)
+    {
+      throw new ArgumentNullException("item expiration date cannot be null");
     }
   }
 }
