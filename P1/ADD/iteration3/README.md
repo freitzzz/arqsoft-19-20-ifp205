@@ -115,11 +115,11 @@ Use Cases chosen to implement given the selected drivers:
 ![UseCasesDomainObjects](diagrams/UseCasesDomainObjects.png)
 
 
-- Responsability Tables for Defined Elements
+- Responsability Table for Defined Elements
 
 |Element|Responsibility|
 |-------|--------------|
-|||
+|Item Purchase (Model)|Produces models and functionalities related to `item purchase` aggregate root|
 
 **Step 7**
 
