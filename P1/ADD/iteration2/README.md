@@ -25,10 +25,12 @@
 | UC1 |||
 | UC2 |||
 | UC3 |||
+| UC4 |||
 | UC5 |||
 | UC6 |||
 | UC9 |||
 | CON-4 |||
+| CON-6 |||
 | CRN-4 |||
 | QA-3 |||
 
@@ -145,9 +147,11 @@ The following table represents the update of the kanban board after the iteratio
 ||UC1||
 |||UC2|
 |||UC3|
+||UC4||
 |||UC5|
 |||UC6|
 |UC9|||
 |||CON-4|
+|||CON-6|
 |CRN-4|||
 |QA-3|||
