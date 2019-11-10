@@ -93,7 +93,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
   **Model Objects Class Diagram**
 
-  ![ModelObjectsDiagram](diagrams/ModelObjectsDiagram.png)
+  ![ModelObjectsDiagram](diagrams/ModelObjectsClassDiagram.png)
 
   **Aggregate Roots Diagram**
 
@@ -103,16 +103,6 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
   ![GFAB_Packages_Diagram](diagrams/GFAB_Packages.png)
 
-- Component & Connector View :
-
- **GFAB Components Diagram Fine-Grain View**
-
- ![GFAB_Components](diagrams/GFABComponentsDiagramFineGrainView.png)
-
- **GBAW Components Diagram Fine-Grain View**
- 
- ![GFAWComponentDiagram](diagrams/GFAWComponentsDiagramFineGrainView.png)
-
 
 - Allocation View :
 
@@ -120,7 +110,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 Use Cases chosen to implement given the selected drivers:
 
-![UseCaseDiagram](diagrams/UsesCaseDiagram.png)
+![UseCaseDiagram](diagrams/UseCasesDiagram.png)
 
   **Domain Objects for Use Cases**
 
