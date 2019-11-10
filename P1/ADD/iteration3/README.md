@@ -73,7 +73,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 |-----------------------------|---------|
 |Refine domain model|Domain model allows the identification of business concepts, and needs to be updated to include selected drivers chabges(UC1, UC4, UC7, UC8, UC9, UC11, UC12, UC13, CON-7, CON-8, CON-11, CON-12, CRN-4, QA-3)|
 |Refine use cases actors|To establish actors and their responbilities it is necessary to map the use cases being addressed by their actors|
-|Map use cases to domain objects|Use cases can help creating domain objects that have these as their responsibilities|
+|Map use cases to domain objects|Domain objects of use cases help in identifying the dependencies existent for each use case|
 |Define models interface|It is necessary to explicit models objects interfaces in order to understand how models communicate with each other as well as how their functionalities are produced. This will not only help to understand how use cases affect model objects, but also constraints related to item identification number generation and user logs/activities (CON-7, CON-8, CON-11)|
 |Refine DDD map of domain model|Previously DDD map of the domain model needs to be updated as the introduction of new selected drivers change the existent business concepts|
 |Refine GFAB REST API|Introduction of new selected drivers imply changes in the existing REST API specification|
