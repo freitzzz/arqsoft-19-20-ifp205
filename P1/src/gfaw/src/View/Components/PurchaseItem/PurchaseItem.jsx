@@ -10,6 +10,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { deleteWithParameterData } from '../../../Controller/DeleteController';
+
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -28,6 +30,10 @@ export default function AlertDialog(props) {
     const handleChange = event => {
         setBuyerType(event.target.value);
     };
+
+    const handleDeleteItem = () => {
+        deleteWithParameterData('items', props.itemID, buyerType);
+      };
 
     return (
         <div>
@@ -51,8 +57,10 @@ export default function AlertDialog(props) {
                         value={buyerType}
                         onChange={handleChange}
                     >
-                        <MenuItem value={'INTERNAL'}>Internal</MenuItem>
-                        <MenuItem value={'EXTERNAL'}>External</MenuItem>
+                        <MenuItem value={'internal'}>Internal</MenuItem>
+                        <MenuItem value={'external'}>External</MenuItem>
+                        <MenuItem value={'administrator'}>Administrator</MenuItem>
+                        <MenuItem value={'kitchen%20worker'}>Kitchen Worker</MenuItem>
                     </Select>
                 </FormControl>
                 <DialogContent>
@@ -60,7 +68,7 @@ export default function AlertDialog(props) {
                         <Button onClick={props.close} color="primary">
                             Cancel
           </Button>
-                        <Button onClick={props.close} color="primary" autoFocus>
+                        <Button onClick={() => { handleDeleteItem(); props.close(); }} color="primary" autoFocus>
                             Confirm
           </Button>
                     </DialogActions>
