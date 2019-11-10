@@ -101,6 +101,10 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
   ![GFAB_Packages_Diagram](diagrams/GFAB_Packages.png)
 
+  **GFAW Packages Diagram**
+
+  ![GFAW_Packages_Diagram](diagrams/GFAWPackagesDiagram.png)
+
 #### Component & Connector View :
 
  **GFAB Components Diagram Fine-Grain View**
