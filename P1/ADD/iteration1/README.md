@@ -91,7 +91,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
    **Deployment Diagram**
 
-   With a deployment diagram its possible to visualize the allocation of the system in each tier. For an initial iteration it was decided that HTTP is used over HTTPS as the goal is to create a prototype to demonstrate a set of functionalities to the stakeholders. GFAW component was designed to be deployed on the cloud using [Heroku](https://www.heroku.com) services. GFAB was also designed to be deployed on the cloud using Azure services.
+   With a deployment diagram its possible to visualize the allocation of the system in each tier. For an initial iteration it was decided that HTTP and HTTPS as the goal is to create a prototype to demonstrate a set of functionalities to the stakeholders. GFAW and GFAB components were designed to be deployed on the cloud using [Heroku](https://www.heroku.com) services.
 
    ![DeploymentDiagram](diagrams/deployment_diagram_coarse_granularity.png)
 
