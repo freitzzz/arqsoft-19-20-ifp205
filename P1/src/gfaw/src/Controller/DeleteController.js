@@ -9,7 +9,7 @@ export async function deleteData(uri, deletedID) {
     // get the response body (the method explained below)
     return response.status;
   } else {
-    console.log("HTTP-Error: " + response.status);
+    alert("HTTP-Error: " + response.status);
     return null;
   }
 }
