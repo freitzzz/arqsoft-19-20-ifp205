@@ -41,9 +41,8 @@
 
 - Goal: Choose elements of the system to refine
 
-The goal of this iteration is to support the remaining functionalities of GFA, by designing architecturally the software in a fine grain view. In order to realize this design it is necessary to refine the following elements:
+The goal of this iteration is to support the remaining functionalities of GFA and auditing concerns, constraints and drivers, by designing architecturally the software in a fine grain view. In order to realize this design it is necessary to refine the following elements:
 
-- GFAW (Gorgeous Food Application Web)
 - GFAB (Gorgeous Food Application Business)
 
 **Step 4**
@@ -54,15 +53,15 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
-
-|||
 |Separate business responsibilities by structuring GFAB with the use of DDD and other patterns|The adoption of DDD in GFAB allows to separate business responsibilities. The patterns to be adopted are: Aggregate Root, Entity, Value Object, Repository, Service. Repository pattern should also be complemented with Factory creational pattern as the controller is agnostic of what repository implementation to use|
-|||
+|Use strategy pattern to design item identification number generation|Strategy pattern helps expliciting functionalities with multiple implementations, while being agnostic of these implementations. This will provide support for CON-8|
+|Use service that allows the request of an item identification number generator|This service will create an indirection between the requester and the concrete implementation of the generator, so that the requester does not need to know which generator concretization is being applied|
+|Use `serilog` to capture and handle user activity logs|The use of a well tested structured logging technology will provide support for UC7, UC8, CON-11, CRN-4 and QA-3|
 
 
 |Alternative|Reason for Discarding|
 |-----------|---------------------|
-
+|Logging technologies for .NET|There are other logging technologies such as `log4net` and `NLog`. The reason the team excludes these alternatives is that `serilog` focuses primarly on [structured logging](https://serilog.net/) and is the technology that is [most used (as of 10/11/2019)](https://www.nuget.org/stats/packages) by the .NET community|
 
 **Step 5**
 
@@ -84,7 +83,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Goal: Sketch views and record design decisions
 
-- Module View:
+#### Module View:
 
   **Domain Model**
 
@@ -103,7 +102,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
   ![GFAB_Packages_Diagram](diagrams/GFAB_Packages.png)
 
 
-- Allocation View :
+#### Allocation View :
 
   **Use Case Diagram**
 
@@ -116,30 +115,38 @@ Use Cases chosen to implement given the selected drivers:
 ![UseCasesDomainObjects](diagrams/UseCasesDomainObjects.png)
 
 
-- Responsability Tables for Defined Elements
+- GFAB REST API Specification
+
+The [REST API](rest_api/README.md) specification produced by GFAB was refined to include support for drivers UC1, UC4, UC8, UC11, UC12, UC13 and CON-11.
+
+
+- Responsability Table for Defined Elements
 
 |Element|Responsibility|
 |-------|--------------|
-|||
+|Item Purchase (Model)|Produces models and functionalities related to `item purchase` aggregate root|
 
 **Step 7**
 
 - Goal: Perform analysis of current design and review iteration goal and achivements of design purposes
 
-In this iteration GFA was designed architecturally in a fine-grain view, which allowed the team to understand how each component units were being integrated.
-A domain model was sketched which allowed to understand the business concepts that exist in GFA. Consecutively a class diagram for the models that represent this business concepts was realized, allowing the representation of the functionalities that these produced, as well as their properties.
-It was concluded that the adoption of DDD in GFAB allowed a clean separation of responsibilities, which eases the development process of the component. The definition of the REST API specification produced by GFAB permits the development of GFAW as GFAB is also being developed, as the consumers already now the interface specifications that is being consumed.
+This iteration focused on providing architecture support for remaining use cases that were not or partially addressed as well as other concerns, constrains and quality attributes that are related to user auditing. The software is now designed to support user activity logging, yet the generation of management reports still needs to be rediscussed with the stakeholders. CON-7 is now supported as it was designed that the school database will also store purchase details.
 
 The following table represents the update of the kanban board after the iteration:
 
 | Not Addressed | Partially Addressed | Addressed |
 |---------------|---------------------|-----------|
-||UC1||
-|||UC2|
-|||UC3|
-|||UC5|
-|||UC6|
-|UC9|||
-|||CON-4|
-|CRN-4|||
-|QA-3|||
+|||UC1|
+|||UC4|
+||UC7||
+|||UC8|
+||UC9||
+|||UC11|
+|||UC12|
+|||UC13|
+|||CON-7|
+|||CON-8|
+|||CON-11|
+||CON-12||
+|||CRN-4|
+||QA-3||
