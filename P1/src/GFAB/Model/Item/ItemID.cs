@@ -24,7 +24,7 @@ namespace GFAB.Model
     /// <param name="expirationDate">The date in which the item expires</param>
     /// <returns>ItemID generated with the item label specifications</returns>
     /// TODO : Unit Test this function
-    public static ItemID ValueOf(string mealDesignation, int itemIdentificationNumber, DateTime productionDate, DateTime expirationDate){
+    public static ItemID ValueOf(string mealDesignation, long itemIdentificationNumber, DateTime productionDate, DateTime expirationDate){
 
       string generatedId = GenerateId(mealDesignation, itemIdentificationNumber, productionDate, expirationDate);
 
@@ -34,7 +34,7 @@ namespace GFAB.Model
     ///<summary>
     /// Identification generation algorithm
     ///</summary>
-    private static string GenerateId(string mealDesignation, int itemIdentificationNumber, DateTime productionDate, DateTime expirationDate)
+    private static string GenerateId(string mealDesignation, long itemIdentificationNumber, DateTime productionDate, DateTime expirationDate)
     {
       return mealDesignation + ":" + itemIdentificationNumber.ToString() + "\n" + productionDate.ToShortDateString() + "-" + expirationDate.ToShortDateString();
     }

@@ -14,6 +14,11 @@ namespace GFAB.Model
     /// </summary>
     public long ID { get; protected set; }
 
+    /// <summary>
+    /// A generated number that identifies an item
+    /// </summary>
+    public long IdentificationNumber {get; protected set;}
+
     ///<summary>
     /// Identifies a certain item in inventory. This is unique for each item
     ///</summary>
@@ -74,18 +79,16 @@ namespace GFAB.Model
 
       this.ProductionDate = productionDate;
 
-      this.ItemId = ItemID.ValueOf(this.MealId.Id, this.GenerateItemIdentificationNumber(), this.ProductionDate, this.ExpirationDate);
+      long identificationNumber = ItemIdentificationNumberGeneratorService.RequestGenerator().Generate();
+
+      this.IdentificationNumber = identificationNumber;
+
+      this.ItemId = ItemID.ValueOf(this.MealId.Id, identificationNumber , this.ProductionDate, this.ExpirationDate);
     }
 
     // For the ORM
     protected Item()
     {
-    }
-
-    private int GenerateItemIdentificationNumber()
-    {
-
-      return (int)new Random().Next(1001);
     }
 
 

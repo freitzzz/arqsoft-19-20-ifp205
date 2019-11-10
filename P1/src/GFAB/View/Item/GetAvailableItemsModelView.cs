@@ -14,6 +14,8 @@ namespace GFAB.View
     {
       public long Id {get;set;}
 
+      public long IdentificationNumber {get; set;}
+
       public string MealId {get; set;}
 
       public string Location {get;set;}
@@ -34,6 +36,8 @@ namespace GFAB.View
         GetAvailableItemElement element = new GetAvailableItemElement();
 
         element.Id = item.ID;
+
+        element.IdentificationNumber = item.IdentificationNumber;
 
         element.MealId = item.MealId.Id;
 

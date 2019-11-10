@@ -20,6 +20,8 @@ namespace GFAB.View
     /// <value></value>
     public long id { get; set; }
 
+    public long identificationNumber {get; set;}
+
     /// <summary>
     /// The Meal business identifier
     /// </summary>
@@ -62,6 +64,8 @@ namespace GFAB.View
       id = item.ID;
 
       mealId = item.MealId.Id;
+
+      identificationNumber = item.IdentificationNumber;
 
       label = item.Id().Id;
 
