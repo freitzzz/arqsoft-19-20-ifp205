@@ -83,7 +83,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 - Goal: Sketch views and record design decisions
 
-- Module View:
+#### Module View:
 
   **Domain Model**
 
@@ -102,7 +102,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
   ![GFAB_Packages_Diagram](diagrams/GFAB_Packages.png)
 
 
-- Allocation View :
+#### Allocation View :
 
   **Use Case Diagram**
 
@@ -116,6 +116,7 @@ Use Cases chosen to implement given the selected drivers:
 
 
 - GFAB REST API Specification
+
 The [REST API](rest_api/README.md) specification produced by GFAB was refined to include support for drivers UC1, UC4, UC8, UC11, UC12, UC13 and CON-11.
 
 
