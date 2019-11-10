@@ -50,19 +50,18 @@ As this is the first iteration of a greenfield system, it is necessary to define
 
 Given the iteration goal selected drivers in Step 2, it is necessary to define which design concepts will be taken in account to realize the elements to refine selected in Step 3. The design concents proposed are the following:
 
-- Reference Architectures:
-   - Three Layer Application
-- Deployment Patterns:
-   - 4 Tier Deployment Pattern fits the needs of the requirements for the selected elements to refine
-- Architectural Styles:
-  - REST (Representational State Transfer) architectural style will allow the structure of GFAB API by defining collections. Each of these collections represent a domain responsibility and hold resources which are entities of that domain.
-  - Client Server as GFAB produces an API ready to be consumed by external clients
-  - Component-Based
-  - Layer-Architecture
-  - SOA (Service Oriented Architecture)
-- Technologies and Frameworks:
-  - React.JS will allow the build of GFAW (Satisfies CON-1, CON-5 and QA-1)
-  - .NET Core + Entity Framework will allow the build of GFAB (Satisfies CON-5)
+|Design Decisions and Location|Rationale|
+|-----------------------------|---------|
+|Architecture GFA using a three layer reference architecture|The use of a three layer architecture|
+|Use 4 tier deployment pattern to physically architecture GFA|The 4 tier deployment pattern fits the needs of the requirements of GFA, in which there is a tier for the client browser, webapp, REST API server and a tier for the database and user directory|
+|Use REST architectural style to define GFAB API|REST (Representational State Transfer) architectural style will allow the structure of GFAB API by defining collections. Each of these collections represent a domain responsibility and hold resources which are entities of that domain.|
+|Use .NET Core and Entity Framework for building GFAB|.NET Core and Entity Framework are open-source technologies (CON-5) that help creating web APIs under an OO (Objects Oriented) programming paradigm|
+|Use React.JS to build GFAW|React.JS is an open-source library for building single page applications (CON-1, CON-5, QA-1)|
+
+|Alternative|Rationale|
+|-----------|---------|
+|Vue.JS or Angular.JS for building GFAW|The team is more confortable with React.JS|
+|Golang or Java + Spring Boot for building GFAB|The team is more confortable with .NET Core and Entity Framework|
 
 **Step 5**
 
@@ -70,14 +69,17 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 
 To satisfy the structure of the chosen design concepts, the following elements are proposed to be created:
 
-- Create component-and-connector structures to represent system elements integrations
-- Create allocation structures diagram to represent system elements allocations
+|Design Decisions and Location|Rationale|
+|-----------------------------|---------|
+|Map system elements to logical components|This will help understanding how each system element communicates with each other|
+|Map system elementos to physical components|This will help understanding how each system element physically communicates with each other|
+
 
 **Step 6**
 
 - Goal: Sketch views and record design decisions
 
-- Component-and-connector View : 
+#### Component-and-connector View : 
 
    **Component Diagram**
 
@@ -85,7 +87,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
    ![ComponentDiagram](diagrams/component_diagram_coarse_granularity.png)
 
-- Allocation View :
+#### Allocation View :
 
    **Deployment Diagram**
 
