@@ -67,7 +67,7 @@ The software being developed is a greenfield system, so it is proposed the follo
 | CON-3 | First release planned after two months |Stakeholder Feedback (Pre-iteration 1)|--|
 | CON-4 | A PoC should be presented within five weeks|Stakeholder Feedback (Pre-iteration 1)|Iteration 2|
 | CON-5 | Adoption of open-source tecnologies |Stakeholder Feedback (Pre-iteration 1)|Iteration 1|
-| CON-6 | It is intended that the introduction of new  meal descriptors affects very little, or nothing, other components of the application. |Stakeholder Feedback (Pre-iteration 1)|--|
+| CON-6 | It is intended that the introduction of new  meal descriptors affects very little, or nothing, other components of the application. |Stakeholder Feedback (Pre-iteration 1)|Iteration 2|
 | CON-7 | A change in the meal identification number should not affect more than one architeture component |Stakeholder Feedback (Pre-iteration 1)|--|
 | CON-8 | Change in the generation of this number identification is to be implemented and tested with no side effects in 1 person-day of effort.|Stakeholder Feedback (Pre-iteration 1)|--|
 | CON-9|  The school has a database server with a backup policy implemented and it is to be used by the application to be developed |Stakeholder Feedback (Pre-iteration 1)|--|
