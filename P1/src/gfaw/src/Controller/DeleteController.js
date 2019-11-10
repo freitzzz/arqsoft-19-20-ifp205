@@ -9,7 +9,7 @@ export async function deleteData(uri, deletedID) {
     // get the response body (the method explained below)
     return response.status;
   } else {
-    console.log("HTTP-Error: " + response.status);
+    alert("Couldn't delete the selected Item!" + "\nHTTP-Error: " + response.status);
     return null;
   }
 }
