@@ -26,6 +26,8 @@ Produced functionalities can be found in the table below. Consumers can interact
 |POST|[/descriptors](descriptors/create_descriptor.md)|Creates a descriptor|
 |GET|[/mealtypes](mealtypes/available_mealtypes.md)|Retrieves available meal types|
 |POST|[/mealtypes](mealtypes/create_mealtype.md)|Creates a meal type|
+|GET|[/logs](logs/all_logs.md)|Retrieves all user activity logs|
+|GET|[/logs/:id](logs/detailed_log_information.md)|Retrieves detailed information of a log|
 
 ## Generic CRUD behaviour within the GFAB component
 
