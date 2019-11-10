@@ -54,15 +54,15 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
-
-|||
 |Separate business responsibilities by structuring GFAB with the use of DDD and other patterns|The adoption of DDD in GFAB allows to separate business responsibilities. The patterns to be adopted are: Aggregate Root, Entity, Value Object, Repository, Service. Repository pattern should also be complemented with Factory creational pattern as the controller is agnostic of what repository implementation to use|
-|||
+|Use strategy pattern to design item identification number generation|Strategy pattern helps expliciting functionalities with multiple implementations, while being agnostic of these implementations. This will provide support for CON-8|
+|Use service that allows the request of an item identification number generator|This service will create an indirection between the requester and the concrete implementation of the generator, so that the requester does not need to know which generator concretization is being applied|
+|Use `serilog` to capture and handle user activity logs|The use of a well tested structured logging technology will provide support for UC7, UC8, CON-11, CRN-4 and QA-3|
 
 
 |Alternative|Reason for Discarding|
 |-----------|---------------------|
-
+|Logging technologies for .NET|There are other logging technologies such as `log4net` and `NLog`. The reason the team excludes these alternatives is that `serilog` focuses primarly on [structured logging](https://serilog.net/) and is the technology that is [most used (as of 10/11/2019)](https://www.nuget.org/stats/packages) by the .NET community|
 
 **Step 5**
 
