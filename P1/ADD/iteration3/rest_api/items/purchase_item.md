@@ -10,7 +10,7 @@ Verb: `DELETE`
 
 The following query parameters are required in order to register an item purchase:
 
-- `userType` The type of the user that purchased the meal
+- `userType` The type of the user that purchased the meal (Can either be administrator, internal, external or kitchen worker)
 
 ## Success Responses
 
