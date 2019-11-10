@@ -32,8 +32,12 @@ export default function AlertDialog(props) {
     };
 
     const handleDeleteItem = () => {
-        deleteWithParameterData('items', props.itemID, buyerType);
-      };
+        if (!buyerType === '') {
+            deleteWithParameterData('items', props.itemID, buyerType);
+        } else {
+            alert('Please select a User Type!');
+        }
+    };
 
     return (
         <div>
