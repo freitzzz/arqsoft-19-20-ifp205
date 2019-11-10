@@ -56,8 +56,8 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 |-----------------------------|---------|
 
 |||
+|Separate business responsibilities by structuring GFAB with the use of DDD and other patterns|The adoption of DDD in GFAB allows to separate business responsibilities. The patterns to be adopted are: Aggregate Root, Entity, Value Object, Repository, Service. Repository pattern should also be complemented with Factory creational pattern as the controller is agnostic of what repository implementation to use|
 |||
-|Separate business responsibilities by structuring GFAB with the use of DDD and other patterns|The adoption of DDD in GFAB allows to separate business responsibilities. The patterns to adopted are: Aggregate Root, Entity, Value Object, Repository, Service. Repository pattern should also be complemented with Factory creational pattern as the controller is agnostic of what repository implementation to use|
 
 
 |Alternative|Reason for Discarding|
@@ -72,14 +72,13 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
-|Refine domain model|Domain model allows the identification of business concepts, and needs to be updated to include new use cases changes(UC1, UC4, UC7, UC8, UC9, UC11, UC12, UC13)|
+|Refine domain model|Domain model allows the identification of business concepts, and needs to be updated to include selected drivers chabges(UC1, UC4, UC7, UC8, UC9, UC11, UC12, UC13, CON-7, CON-8, CON-11, CON-12, CRN-4, QA-3)|
 |Refine use cases actors|To establish actors and their responbilities it is necessary to map the use cases being addressed by their actors|
 |Map use cases to domain objects|Use cases can help creating domain objects that have these as their responsibilities|
-|Define models interface|To understand how models communicate with each other as well as how their functionalities are produced|
-|Map domain model using DDD|This helps understanding how DDD should be applied in GFAB|
-|Refine GFAB REST API|Introduction of new use cases imply changes in the existing REST API specification|
+|Define models interface|It is necessary to explicit models objects interfaces in order to understand how models communicate with each other as well as how their functionalities are produced. This will not only help to understand how use cases affect model objects, but also constraints related to item identification number generation and user logs/activities (CON-7, CON-8, CON-11)|
+|Refine DDD map of domain model|Previously DDD map of the domain model needs to be updated as the introduction of new selected drivers change the existent business concepts|
+|Refine GFAB REST API|Introduction of new selected drivers imply changes in the existing REST API specification|
 
-(FALTA MARCAR QUE ELEMENTOS ABORDAM OS DESIGN CONCEPTS SELECIONADOS, TABELA DE RESPONSABILIDADES)
 
 **Step 6**
 
