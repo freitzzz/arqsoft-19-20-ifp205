@@ -76,7 +76,7 @@ export default function ItemList() {
     items.then((data) => {
       for (var i = 0; i < data.length; i++) {
         var item = data[i];
-        var newItem = createItem(item.id, 0, item.mealId, item.location, item.availableToServeUntil, item.productionDate, item.expirationDate);
+        var newItem = createItem(item.id, item.identificationNumber, item.mealId, item.location, item.availableToServeUntil, item.productionDate, item.expirationDate);
         rows.push(newItem);
       }
     }).then(() => { setItems(rows); })
@@ -91,7 +91,7 @@ export default function ItemList() {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Identification Number</TableCell>
+            {/*<TableCell>Identification Number</TableCell>*/}
             <TableCell>Label</TableCell>
             <TableCell>Location</TableCell>
             <TableCell>Available for (Hours)</TableCell>
@@ -103,7 +103,7 @@ export default function ItemList() {
         <TableBody>
           {items.map(row => (
             <TableRow key={row.id}>
-              <TableCell>{row.identificationNumber}</TableCell>
+              {/*<TableCell>{row.identificationNumber}</TableCell>*/}
               <TableCell>{row.label}</TableCell>
               <TableCell>{row.location}</TableCell>
               <TableCell>{itemRemainingAvailableTime(row.timePeriod)}</TableCell>
