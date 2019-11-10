@@ -91,7 +91,7 @@ export default function ItemList() {
       <Table size="small">
         <TableHead>
           <TableRow>
-            {/*<TableCell>Identification Number</TableCell>*/}
+            <TableCell>Identification Number</TableCell>
             <TableCell>Label</TableCell>
             <TableCell>Location</TableCell>
             <TableCell>Available for (Hours)</TableCell>
@@ -103,7 +103,7 @@ export default function ItemList() {
         <TableBody>
           {items.map(row => (
             <TableRow key={row.id}>
-              {/*<TableCell>{row.identificationNumber}</TableCell>*/}
+              <TableCell>{row.identificationNumber}</TableCell>
               <TableCell>{row.label}</TableCell>
               <TableCell>{row.location}</TableCell>
               <TableCell>{itemRemainingAvailableTime(row.timePeriod)}</TableCell>
