@@ -65,15 +65,16 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 
 To satisfy the structure of the chosen design concepts, the following elements are proposed to be created:
 
-- Domain Model
-- Use Case Diagram
-- Models Objects Class Diagram
-- Aggregate Roots Diagram
-- Package Diagram of each GFAB sub-component
-- End-To-End Generic Sequence Diagram of a functionality in GFAB component
-- Fine-Grain GFAB Components Diagram
-- Fine-Grain GFAW Components Diagram
-- GFAB REST API Specification
+|Design Decisions and Location|Rationale|
+|-----------------------------|---------|
+|Elaborate domain model|Domain model allows the identification of business concepts, which are necessary to address use cases (UC1, UC2, UC3, UC5, UC6, UC9)|
+|Elaborate use cases by actors|To establish actors and their responbilities it is necessary to map the use cases being addressed by their actors|
+|Map use cases to domain objects|Use cases can help creating domain objects that have these as their responsibilities|
+|Define models interface|To understand how models communicate with each other as well as how their functionalities are produced|
+|Decompose GFAB and GFAW in little modules|To explicit all dependencies existent in each component|
+|Map domain model using DDD|This helps understanding how DDD should be applied in GFAB|
+|Elaborate GFAB REST API|To explicit the specification of the produced functionalities so consumers can understand how requests and responses are performed and structured|
+|Explicit sequence of REST API functionalities in GFAB component|To understand the flux of each module interaction each time a functionality is requested|
 
 (FALTA MARCAR QUE ELEMENTOS ABORDAM OS DESIGN CONCEPTS SELECIONADOS, TABELA DE RESPONSABILIDADES)
 
@@ -118,7 +119,16 @@ Use Cases chosen to implement given the selected drivers:
 
 ![UseCaseDiagram](diagrams/UsesCaseDiagram.png)
 
-(FALTAM DOMAIN OBJECTS A ILUSTRAR RESPONSABILIDADES)
+  **Domain Objects for Use Cases**
+
+![UseCasesDomainObjects](diagrams/UseCasesDomainObjects.png)
+
+
+- Responsability Tables for Defined Elements
+
+|Element|Responsibility|
+|-------|--------------|
+|||
 
 **Step 7**
 
