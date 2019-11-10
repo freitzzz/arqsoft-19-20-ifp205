@@ -11,6 +11,11 @@ namespace GFAB.Controllers
       ctx = dbContext;
     }
 
+    public ItemPurchaseRepository ItemPurchaseRepository()
+    {
+      return new InMemoryItemPurchaseRepositoryImpl(ctx);
+    }
+
     public ItemRepository ItemRepository()
     {
       return new InMemoryItemRepositoryImpl(ctx);

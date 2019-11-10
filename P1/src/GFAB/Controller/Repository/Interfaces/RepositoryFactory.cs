@@ -10,6 +10,8 @@ namespace GFAB.Controllers
 
     ItemRepository ItemRepository();
 
+    ItemPurchaseRepository ItemPurchaseRepository();
+
   }
 
 }

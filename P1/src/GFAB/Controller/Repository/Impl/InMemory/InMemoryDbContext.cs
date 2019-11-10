@@ -20,6 +20,8 @@ namespace GFAB.Controllers
 
     public DbSet<Item> Items { get; set; }
 
+    public DbSet<ItemPurchase> ItemPurchases {get ; set;}
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
       base.OnModelCreating(builder);
@@ -44,6 +46,13 @@ namespace GFAB.Controllers
       builder.Entity<Item>().OwnsOne(item => item.Location);
 
       builder.Entity<Item>().OwnsOne(item => item.ItemId);
+
+      
+      builder.Entity<ItemPurchase>().HasKey(itemPurchase => itemPurchase.ID);
+
+      builder.Entity<ItemPurchase>().OwnsOne(itemPurchase => itemPurchase.ItemID);
+
+      builder.Entity<ItemPurchase>().OwnsOne(itemPurchase => itemPurchase.PurchaseID);
     }
 
   }

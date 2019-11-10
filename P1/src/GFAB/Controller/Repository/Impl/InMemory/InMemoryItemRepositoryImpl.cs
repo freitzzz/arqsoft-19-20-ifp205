@@ -79,7 +79,11 @@ namespace GFAB.Controllers
 
     public Item Update(Item rootToUpdate)
     {
-      throw new System.NotImplementedException();
+      ctx.Items.Update(rootToUpdate);
+
+      ctx.SaveChanges();
+
+      return rootToUpdate;
     }
   }
 

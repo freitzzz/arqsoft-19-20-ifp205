@@ -98,8 +98,15 @@ namespace GFAB.Model
     public bool Available()
     {
 
-      if (!this.Served) return true;
-      else return false;
+      if(DateTime.Now > LivenessPeriod.EndDateTime){
+        return false;
+      }
+
+      if(DateTime.Now > ExpirationDate){
+        return false;
+      }
+
+      return !Served;
     }
 
     public ItemID Id()

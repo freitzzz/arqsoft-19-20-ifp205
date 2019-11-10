@@ -97,15 +97,20 @@ namespace GFAB.Controllers
       }
     }
 
-    //Delete : /items:id
-    [HttpDelete("{id}")]
+    
     public IActionResult RemoveItem(long id)
     {
       try
       {
         Item item = this.factory.ItemRepository().Find(id);
 
-        this.factory.ItemRepository().Delete(item);
+        bool marked = item.markAsServed();
+        
+        if(!marked){
+          return NotFound(null);
+        }
+
+        this.factory.ItemRepository().Update(item);
 
         return NoContent();
       }
@@ -114,6 +119,64 @@ namespace GFAB.Controllers
 
         if (e is ArgumentException)
           return NotFound(null);
+
+        return StatusCode(500, null);
+      }
+
+    }
+
+    //Delete : /items:id
+    [HttpDelete("{id}")]
+    public IActionResult RegisterItemPurchase(long id, [FromQuery] string userType)
+    {
+
+      if(userType == null){
+        return RemoveItem(id);
+      }
+
+      try
+      {
+
+        UserType type;
+
+        try{
+          type = UserTypeConversionService.ToUserType(userType);
+        }catch(ArgumentException invalidUserType){
+          return BadRequest(new ErrorModelView(invalidUserType.Message));
+        }
+
+        Item item = this.factory.ItemRepository().Find(id);
+
+        bool marked = item.markAsServed();
+
+        if(!marked){
+          return BadRequest(new ErrorModelView("item was already served"));
+        }
+
+        this.factory.ItemRepository().Update(item);
+
+        try{
+          ItemPurchase purchasedItem = new ItemPurchase(type, item.ItemId);
+
+          this.factory.ItemPurchaseRepository().Save(purchasedItem);
+
+          return NoContent();
+
+        }catch(Exception exception){
+          
+          if(exception is ArgumentException || exception is InvalidOperationException){
+            return BadRequest(new ErrorModelView(exception.Message));
+          }else{
+            return StatusCode(500, null);
+          }
+
+        }
+      }
+      catch (Exception e)
+      {
+
+        if (e is ArgumentException)
+          return NotFound();
 
         return StatusCode(500, null);
       }
