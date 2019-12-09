@@ -1,0 +1,11 @@
+{
+    "name" : "Gorgeous Food",
+    "entities" : [
+        {
+            "name" : "User",
+            "nanoentities" : [
+                "UserType"
+            ]
+        },
+    ]
+}
