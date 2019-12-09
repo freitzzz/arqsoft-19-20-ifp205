@@ -7,5 +7,60 @@
                 "UserType"
             ]
         },
+        {
+            "name" : "Inventory",
+            "nanoentities" : []
+        },
+        {
+            "name" : "Item",
+            "nanoentities" : [
+                "ItemID",
+                "Location",
+                "TimePeriod"
+            ]
+        },
+        {
+            "name" : "PoS",
+            "nanoentities" : [
+                "PoSID",
+                "DownTime",
+                "Building",
+                "Floor",
+                "Room",
+                "ItemTransfer"
+            ]
+        },
+        {
+            "name" : "Meal",
+            "nanoentities" : [
+                "MealID",
+                "MealType",
+                "Ingredient",
+                "Allergen",
+                "Descriptor"   
+            ]
+        }
+    ],
+    "relations" : [
+        {
+            "origin" : "User",
+            "destination" : "UserType",
+            "type" : "ASSOCATION"
+        },
+        {
+            "origin" : "Inventory",
+            "destination" : "Item",
+            "type" : "AGGREGATION"
+        },
+        {
+            "origin" : "PoS", 
+            "destination" : "Item",
+            "type" : "AGGREGATION"
+        },
+        {
+            "origin" : "Meal",
+            "destination" : "Item",
+            "type" : "ASSOCATION"
+        }
     ]
 }
