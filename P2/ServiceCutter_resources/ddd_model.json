@@ -16,12 +16,14 @@
             "nanoentities" : [
                 "ItemID",
                 "Location",
-                "TimePeriod"
+                "TimePeriod",
+                "MealID"
             ]
         },
         {
             "name" : "PoS",
             "nanoentities" : [
+                "ItemID",
                 "PoSID",
                 "DownTime",
                 "Building",
@@ -43,11 +45,6 @@
     ],
     "relations" : [
         {
-            "origin" : "User",
-            "destination" : "UserType",
-            "type" : "ASSOCATION"
-        },
-        {
             "origin" : "Inventory",
             "destination" : "Item",
             "type" : "AGGREGATION"
@@ -56,11 +53,6 @@
             "origin" : "PoS", 
             "destination" : "Item",
             "type" : "AGGREGATION"
-        },
-        {
-            "origin" : "Meal",
-            "destination" : "Item",
-            "type" : "ASSOCATION"
         }
     ]
 }
