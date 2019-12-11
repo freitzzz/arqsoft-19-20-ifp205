@@ -59,7 +59,7 @@ The software being developed is a brownfield system, so it is proposed the follo
 | UC14 | Consult meal allergens | It is necessary to provide a mechanism that allows the retrieval of the allergens of a specific meal. This use of this mechanism should be available to everyone without the need of authentication | High |Low| Pre-iteration 4 | -- |
 | UC15 | Consult meal ingredients | It is necessary to provide a mechanism that allows the retrieval of the ingredients of a specific meal. This use of this mechanism should be available to everyone without the need of authentication | High |Low| Pre-iteration 4 | -- |
 | UC16 | Consult meal nutritional data | It is necessary to provide a mechanism that allows the retrieval of the nutritional data of a specific meal. This use of this mechanism should be available to everyone without the need of authentication | High |Low| Pre-iteration 4 | -- |
-| UC17 | Specify new PoS (Point of Sell) | It is necessary to specify the existing PoS as items are only available in each PoS | High | Medium | Pre-iteration 4 | -- |
+| UC17 | Specify new PoS (Point of Sale) | It is necessary to specify the existing PoS as items are only available in each PoS | High | Medium | Pre-iteration 4 | -- |
 | UC18 | Transfer item between PoS | It is possible that an item is transfered from one point of sell to other point of sell | Medium | High | Pre-iteration 4 | -- |
 | UC19 | Query item quantity availability | It is necessary to provide a mechanism that allows the retrieval of the available items for a specific meal | High | Medium | Pre-iteration 4 | -- |
 
@@ -81,7 +81,7 @@ The software being developed is a brownfield system, so it is proposed the follo
 | CON-11 | Administrator should be able to query user logs and see their activities, all of them, or performed between dates or only some type of activies |Stakeholder Feedback (Pre-iteration 1)|Iteration 3|
 | CON-12 | It should be possible to generate reports in more than one language|Stakeholder Feedback (Pre-iteration 1)|--|
 | CON-13 | Ingredients, allergens and nutrition data for meals are to be accessible without the need for authentication |Pre-iteration 4|--|
-| CON-14 | This application must be developed by the schoolâ€™s technical sta and should be available in nine months |Pre-iteration 4|--|
+| CON-14 | This application must be developed by the school’s technical sta and should be available in nine months |Pre-iteration 4|--|
 | CON-15 | Within four weeks queries related to the number of available items for specific meals,but also adding and removing new items to inventory (microservices) should be demonstrated to many stakeholders |Pre-iteration 4|--|
 | CON-16 | Aware of these dificulties, this very initial prototype does not need to use service discov-ery registries, but local method calls need to be replaced by synchronous remote calls,or better options. |Pre-iteration 4|--|
 | CON-17 | Direct dependencies in the database are to be eliminated depending on the adopted data management strategies |Pre-iteration 4|--|
