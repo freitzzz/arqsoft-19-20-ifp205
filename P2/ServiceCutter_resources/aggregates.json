@@ -1,42 +1,57 @@
 {
-    "aggregates" : [
+    "name" : "Gorgeous_Food",
+    "entities" : [
         {
             "name" : "Meal",
             "nanoentities" : [
-                "Meal.MealID",
-                "Meal.Ingredient",
-                "Meal.MealType",
-                "Meal.Descriptor",
-                "Meal.Allergen"
+                "MealID",
+                "MealType",
+                "Ingredient",
+                "Allergen",
+                "Descriptor"
             ]
         },
         {
             "name" : "Item",
             "nanoentities" : [
-                "Item.ItemID",
-                "Item.MealID",
-                "Item.Location",
-                "Item.TimePeriod"
-            ]
-        },
-        {
-            "name" : "ItemPurchase",
-            "nanoentities" : [
-                "ItemPurchase.ItemPurchaseID",
-                "ItemPurchase.ItemID",
-                "Item.UserType"
+                "ItemID",
+                "Location",
+                "TimePeriod"
             ]
         },
         {
             "name" : "PoS",
             "nanoentities" : [
-                "PoS.PoSID",
-                "PoS.Building",
-                "PoS.Floor",
-                "PoS.Room",
-                "PoS.DownTime",
-                "PoS.ItemTransfer"
+                "PoSID",
+                "DownTime",
+                "Building",
+                "Floor",
+                "Room",
+                "ItemTransfer"
             ]
+        },
+        {
+            "name" : "ItemPurchase",
+            "nanoentities" : [
+                "ItemPurchaseID"
+            ]
+        }
+    ],
+    "relations" : [
+        {
+            "origin" : "Item",
+            "destination" : "Meal",
+            "type" : "COMPOSITION"
+        },
+        {
+            "origin" : "PoS",
+            "destination" : "Item",
+            "type" : "AGGREGATION"
+        },
+        {
+            "origin" : "ItemPurchase",
+            "destination" : "Item",
+            "type" : "COMPOSITION"
         }
     ]
 }
