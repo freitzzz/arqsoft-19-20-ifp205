@@ -1,58 +1,42 @@
 {
-    "name" : "Gorgeous Food",
-    "entities" : [
+    "aggregates" : [
         {
-            "name" : "User",
+            "name" : "Meal",
             "nanoentities" : [
-                "UserType"
+                "Meal.MealID",
+                "Meal.Ingredient",
+                "Meal.MealType",
+                "Meal.Descriptor",
+                "Meal.Allergen"
             ]
-        },
-        {
-            "name" : "Inventory",
-            "nanoentities" : []
         },
         {
             "name" : "Item",
             "nanoentities" : [
-                "ItemID",
-                "Location",
-                "TimePeriod",
-                "MealID"
+                "Item.ItemID",
+                "Item.MealID",
+                "Item.Location",
+                "Item.TimePeriod"
+            ]
+        },
+        {
+            "name" : "ItemPurchase",
+            "nanoentities" : [
+                "ItemPurchase.ItemPurchaseID",
+                "ItemPurchase.ItemID",
+                "Item.UserType"
             ]
         },
         {
             "name" : "PoS",
             "nanoentities" : [
-                "ItemID",
-                "PoSID",
-                "DownTime",
-                "Building",
-                "Floor",
-                "Room",
-                "ItemTransfer"
+                "PoS.PoSID",
+                "PoS.Building",
+                "PoS.Floor",
+                "PoS.Room",
+                "PoS.DownTime",
+                "PoS.ItemTransfer"
             ]
-        },
-        {
-            "name" : "Meal",
-            "nanoentities" : [
-                "MealID",
-                "MealType",
-                "Ingredient",
-                "Allergen",
-                "Descriptor"   
-            ]
-        }
-    ],
-    "relations" : [
-        {
-            "origin" : "Inventory",
-            "destination" : "Item",
-            "type" : "AGGREGATION"
-        },
-        {
-            "origin" : "PoS", 
-            "destination" : "Item",
-            "type" : "AGGREGATION"
         }
     ]
 }
