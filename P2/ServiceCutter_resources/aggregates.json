@@ -22,7 +22,8 @@
             "name" : "PoS",
             "nanoentities" : [
                 "PoSID",
-                "DownTime",
+                "StartOfDownTime",
+                "EndOfDownTime"
                 "Building",
                 "Floor",
                 "Room",
