@@ -76,7 +76,7 @@
             "nanoentitiesWritten" : ["PoS.PoSID", "PoS.Building", "PoS.Floor", "PoS.Room"]
         },
         {
-            "name" : "Trasnfer item between PoS",
+            "name" : "Transfer item between PoS",
             "nanoentitiesRead" : ["PoS.PoSID", "Item.ItemID"],
             "nanoentitiesWritten" : ["PoS.ItemTransfer"]
         },
