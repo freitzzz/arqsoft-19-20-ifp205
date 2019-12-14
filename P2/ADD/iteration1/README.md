@@ -132,6 +132,39 @@ The **Report Management** bounded context will be responsible for creating the v
 
    ![BoundedContexts](../../ServiceCutter_resources/generatedImages/Newman_UseCases_Dependencies_5.png)
 
+
+#### Component-and-connector View : 
+
+   **Component Diagram**
+
+
+#### Allocation View :
+
+   **Deployment Diagram**
+
+![Deployment Diagram](../diagrams/deploymentDiagram.png)
+
+#### Module View:
+
+  **Domain Model**
+
+
+  **Model Objects Class Diagram**
+
+
+  **Aggregate Roots Diagram**
+
+
+  **Packages Diagram**
+
+
+#### Allocation View :
+
+  **Use Case Diagram**
+
+  **Domain Objects for Use Cases**
+
+
 **Step 7**
 
 - Goal: Perform analysis of current design and review iteration goal and achivements of design purposes
