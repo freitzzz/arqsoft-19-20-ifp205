@@ -212,12 +212,12 @@ Also, the relationship between the **Report Management** service and the **Meal 
 |Purchase (Model)|Produces models and functionalities related to `item purchase` aggregate root|
 |User (Model)|Produces models and functionalities related to the users supplied by the school's user directory|
 |ActivityType (Model)|Produces models and functionalities related to the User's logged activities within the application|
-|Model (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits model objects functionalities|
-|View (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits model views represented in the REST API|
-|Controller (GFMM/GFIM/GFPH/GFUM/GFRM)|Handles REST API requests and external components communication|
-|Model (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits model objects|
-|View (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits the presentation that the user consumes and handles any user interaction|
-|Controller (GFMM/GFIM/GFPH/GFUM/GFRM)|Handles external components communication|
+|Model (GF Services)|Produces an interface that explicits model objects functionalities|
+|View (GF Services)|Produces an interface that explicits model views represented in the REST API|
+|Controller (GF Services)|Handles REST API requests and external components communication|
+|Model (GF Services)|Produces an interface that explicits model objects|
+|View (GF Services)|Produces an interface that explicits the presentation that the user consumes and handles any user interaction|
+|Controller (GF Services)|Handles external components communication|
 
 **Step 7**
 
