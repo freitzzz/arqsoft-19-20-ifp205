@@ -2,7 +2,7 @@
 
 Allows the register of an item purchase.
 
-URI: `/items/:id`
+URI: `/pos/:id/items/:id`
 
 Verb: `DELETE`
 
@@ -10,7 +10,7 @@ Verb: `DELETE`
 
 The following query parameters are required in order to register an item purchase:
 
-- `userType` The type of the user that purchased the meal (Can either be administrator, internal, external or kitchen worker)
+- `userType` The type of the user that purchased the item (Can either be administrator, internal, external or kitchen worker)
 
 ## Success Responses
 
@@ -30,6 +30,6 @@ Example:
 
 ```
 
-`404 Not Found` - No item with the specified resource identified was found
+`404 Not Found` - No pos or item with the specified resource identified was found
 
 `500 Internal Server Error` - The server failed to resolve the request
