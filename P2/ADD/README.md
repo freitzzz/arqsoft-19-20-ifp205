@@ -81,7 +81,7 @@ The software being developed is a brownfield system, so it is proposed the follo
 | CON-11 | Administrator should be able to query user logs and see their activities, all of them, or performed between dates or only some type of activies |Stakeholder Feedback (Pre-iteration 1)|Iteration 3|
 | CON-12 | It should be possible to generate reports in more than one language|Stakeholder Feedback (Pre-iteration 1)|--|
 | CON-13 | Ingredients, allergens and nutrition data for meals are to be accessible without the need for authentication |Pre-iteration 4|--|
-| CON-14 | This application must be developed by the school’s technical sta and should be available in nine months |Pre-iteration 4|--|
+| CON-14 | This application must be developed by the schoolï¿½s technical sta and should be available in nine months |Pre-iteration 4|--|
 | CON-15 | Within four weeks queries related to the number of available items for specific meals,but also adding and removing new items to inventory (microservices) should be demonstrated to many stakeholders |Pre-iteration 4|--|
 | CON-16 | Aware of these dificulties, this very initial prototype does not need to use service discov-ery registries, but local method calls need to be replaced by synchronous remote calls,or better options. |Pre-iteration 4|--|
 | CON-17 | Direct dependencies in the database are to be eliminated depending on the adopted data management strategies |Pre-iteration 4|--|
@@ -106,3 +106,26 @@ The software being developed is a brownfield system, so it is proposed the follo
 | QA-2 | Localizability | Multilanguage support is desirable as the school accepts foreign students on a regular base, as well as it can attract tourists | All |Stakeholder Feedback (Pre-iteration 1)|--|
 | QA-3 | Auditability | The application should be able to provide management reports in more than one language. Activity logging is also considered | All |Stakeholder Feedback (Pre-iteration 1)|--|
 | QA-4 |  | The application should provide fast responses in comparison to inventory updates |Pre-iteration 4|--|
+
+Considering each Use Case a business function it's possible to describe business capabilities. Those are organized in the following table according the supplied information:
+
+| Use Cases | Business Capability |
+|-|-|
+| UC7 - Generate Management Reports <br> UC8 - View User Logs/Activities | Report management |
+| UC9 - Edit Meal <br> UC4 - Create new Meal Descriptor <br> UC6 - Create Meal <br> UC13 - Add Ingredients <br> UC12 - Add Meal Types <br> UC11 - Add Allergens | Meal Management |
+|  UC2 - Register Item to Inventory <br> UC3 - Remove existing Item from Inventory <br> UC10 - Edit Item Quantity | Inventory Management |
+| UC1 - Register Item Purchase <br> UC19 - Query Item quantity availability <br> UC8 - View User Logs/Activities | PoS Handling |
+| UC18 - Transfer Item between PoS <br> UC17 - Specify New PoS <br> UCXX - Specify Downtimes | PoS Management |
+| UC14 - Consult Meal Allergens <br> UC15 - Consult Meal Ingredients <br> UC16 - Consult Meal Nutritional Data | Informational Data |
+
+Justifications:
+
+It's possible to decompose in at least 6 services. Starting from Report Management, it exists to supply the Administrator with the required reports from the sold Items, that's why Use Case 8 is in both Report Management and Pos Handling Business Capability.
+
+The Use Case 18 was placed as a responsibility of PoS Management given that the Items are being transferred between PoS, implying it should be management of PoS.
+
+It was thought a seventh service, Sales, to register the purchases triggered by PoS, but since it's not a real focus of the application it is not considered and the responsibility was given to the PoS Handling. While not including it, it would be useful, in the future, to possibly have a service with that responsibility, for hypotetical scenarios like an online store or Item orders.
+
+Other Use Cases are only contained in one service only and comply with Single Responsibility and Common Closure Principle (CCP).
+
+![Business Capabilities](diagrams/businessCapabilities.png)
