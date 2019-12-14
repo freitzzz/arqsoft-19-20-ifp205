@@ -1,0 +1,57 @@
+{
+    "name" : "Gorgeous_Food",
+    "entities" : [
+        {
+            "name" : "Meal",
+            "nanoentities" : [
+                "MealID",
+                "MealType",
+                "Ingredient",
+                "Allergen",
+                "Descriptor"
+            ]
+        },
+        {
+            "name" : "Item",
+            "nanoentities" : [
+                "ItemID",
+                "TimePeriod"
+            ]
+        },
+        {
+            "name" : "PoS",
+            "nanoentities" : [
+                "PoSID",
+                "StartOfDownTime",
+                "EndOfDownTime",
+                "Building",
+                "Floor",
+                "Room",
+                "ItemTransfer"
+            ]
+        },
+        {
+            "name" : "ItemPurchase",
+            "nanoentities" : [
+                "ItemPurchaseID"
+            ]
+        }
+    ],
+    "relations" : [
+        {
+            "origin" : "Item",
+            "destination" : "Meal",
+            "type" : "COMPOSITION"
+        },
+        {
+            "origin" : "PoS",
+            "destination" : "Item",
+            "type" : "AGGREGATION"
+        },
+        {
+            "origin" : "ItemPurchase",
+            "destination" : "Item",
+            "type" : "COMPOSITION"
+        }
+    ]
+}

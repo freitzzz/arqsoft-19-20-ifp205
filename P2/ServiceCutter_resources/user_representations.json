@@ -1,0 +1,89 @@
+{
+    "useCases" : [
+        {
+            "name" : "Register Item Purchase",
+            "nanoentitiesRead" : ["Item.ItemID"],
+            "nanoentitiesWritten" : ["ItemPurchase.ItemPurchaseID"] 
+        },
+        {
+            "name" : "Register Item to Inventory",
+            "nanoentitiesRead" : ["Meal.MealID"],
+            "nanoentitiesWritten" : ["Item.ItemID", "Item.TimePeriod"]
+        },
+        {
+            "name" : "Remove existing Item from Inventory",
+            "nanoentitiesRead" : ["Item.ItemID"],
+            "nanoentitiesWritten" : []
+        },
+        {
+            "name" : "Create new Meal Descriptor",
+            "nanoentitiesRead" : [],
+            "nanoentitiesWritten" : ["Meal.Descriptor"]
+        },
+        {
+            "name" : "View Meal Details",
+            "nanoentitiesRead" : ["Meal.MealID","Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor"],
+            "nanoentitiesWritten" : []
+        },
+        {
+            "name" : "Create Meal",
+            "nanoentitiesRead" : [],
+            "nanoentitiesWritten" : ["Meal.MealID", "Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor"]
+        },
+        {
+            "name" : "Edit Meal",
+            "nanoentitiesRead" : ["Meal.MealID"],
+            "nanoentitiesWritten" : ["Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor"]
+        },
+        {
+            "name" : "Edit Item Quantity",
+            "nanoentitiesRead" : ["Item.ItemID", "PoS.PoSID"],
+            "nanoentitiesWritten" : []
+        },
+        {
+            "name" : "Add Allergens",
+            "nanoentitiesRead" : [],
+            "nanoentitiesWritten" : ["Meal.Allergen"]
+        },
+        {
+            "name" : "Add Meal Types",
+            "nanoentitiesRead" : [],
+            "nanoentitiesWritten" : ["Meal.MealType"]
+        },
+        {
+            "name" : "Add Meal Ingredients",
+            "nanoentitiesRead" : [], 
+            "nanoentitiesWritten" : ["Meal.Ingredient"]
+        },
+        {
+            "name" : "Consult Meal Allergens",
+            "nanoentitiesRead" : ["Meal.MealID", "Meal.Allergen"],
+            "nanoentitiesWritten" : []
+        },
+        {
+            "name" : "Consult meal ingredients",
+            "nanoentitiesRead" : ["Meal.MealID", "Meal.Ingredient"],
+            "nanoentitiesWritten" : []
+        },
+        {
+            "name" : "Consult meal nutritional data",
+            "nanoentitiesRead" : ["Meal.MealID", "Meal.Descriptor"],
+            "nanoentitiesWritten" : []
+        },
+        {
+            "name" : "Specify new PoS",
+            "nanoentitiesRead" : [],
+            "nanoentitiesWritten" : ["PoS.PoSID", "PoS.Building", "PoS.Floor", "PoS.Room"]
+        },
+        {
+            "name" : "Transfer item between PoS",
+            "nanoentitiesRead" : ["PoS.PoSID", "Item.ItemID"],
+            "nanoentitiesWritten" : ["PoS.ItemTransfer"]
+        },
+        {
+            "name" : "Query item quantity availability",
+            "nanoentitiesRead" : ["Meal.MealID"],
+            "nanoentitiesWritten" : []
+        }
+    ]
+}
