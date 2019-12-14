@@ -192,6 +192,32 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
   ![DomainObjectsDiagram](../diagrams/DomainObjectsDiagram.png)
 
+|Element|Responsibility|
+|-------|--------------|
+|HTTP Controller|Produces controllers that handle all REST API requests|
+|Repository|Produce interfaces (and their implementations) for aggregate roots objects management functionalities (Store, Update, Find and Delete)|
+|Meal (View)|Explicits all model views that are related to `meal` collection produced by the REST API|
+|Item (View)|Explicits all model views that are related to `item` collection produced by the REST API|
+|Allergen (View)|Explicits all model views that are related to `allergens` collection produced by the REST API|
+|Ingredient (View)|Explicits all model views that are related to `ingredients` collection produced by the REST API|
+|Descriptor (View)|Explicits all model views that are related to `descriptors` collection produced by the REST API|
+|Meal Type (View)|Explicits all model views that are related to `mealtypes` collection produced by the REST API|
+|PoS (View)|Explicits all model views that are related to `PoS` collection produced by the REST API|
+|User (View)|Explicits all model views that are related to `user` collection produced by the REST API|
+|ActivityType (View)|Explicits all model views that are related to `activityType` collection produced by the REST API|
+|Meal (Model)|Produces models and functionalities related to `meal` aggregate root|
+|Item (Model)|Produces models and functionalities related to `item` aggregate root|
+|PoS (Model)|Produces models and functionalities related to `PoS` aggregate root|
+|Services (Model)|Produces domain services used by model objects|
+|Purchase (Model)|Produces models and functionalities related to `item purchase` aggregate root|
+|User (Model)|Produces models and functionalities related to the users supplied by the school's user directory|
+|ActivityType (Model)|Produces models and functionalities related to the User's logged activities within the application|
+|Model (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits model objects functionalities|
+|View (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits model views represented in the REST API|
+|Controller (GFMM/GFIM/GFPH/GFUM/GFRM)|Handles REST API requests and external components communication|
+|Model (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits model objects|
+|View (GFMM/GFIM/GFPH/GFUM/GFRM)|Produces an interface that explicits the presentation that the user consumes and handles any user interaction|
+|Controller (GFMM/GFIM/GFPH/GFUM/GFRM)|Handles external components communication|
 
 **Step 7**
 
