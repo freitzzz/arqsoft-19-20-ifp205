@@ -6,6 +6,12 @@ URI: `/items`
 
 Verb: `GET`
 
+## Optional Data
+
+The following query parameters can be specified in order to filter items retrieval:
+
+- `mealId` Specifies that the items being retrieved are of a specific meal
+
 ## Success Responses
 
 `200 OK` - One or more items have been retrieved
