@@ -81,7 +81,7 @@ The software being developed is a brownfield system, so it is proposed the follo
 | CON-11 | Administrator should be able to query user logs and see their activities, all of them, or performed between dates or only some type of activies |Stakeholder Feedback (Pre-iteration 1)|Iteration 3|
 | CON-12 | It should be possible to generate reports in more than one language|Stakeholder Feedback (Pre-iteration 1)|--|
 | CON-13 | Ingredients, allergens and nutrition data for meals are to be accessible without the need for authentication |Pre-iteration 4|--|
-| CON-14 | This application must be developed by the school’s technical sta and should be available in nine months |Pre-iteration 4|--|
+| CON-14 | This application must be developed by the schoolï¿½s technical sta and should be available in nine months |Pre-iteration 4|--|
 | CON-15 | Within four weeks queries related to the number of available items for specific meals,but also adding and removing new items to inventory (microservices) should be demonstrated to many stakeholders |Pre-iteration 4|--|
 | CON-16 | Aware of these dificulties, this very initial prototype does not need to use service discov-ery registries, but local method calls need to be replaced by synchronous remote calls,or better options. |Pre-iteration 4|--|
 | CON-17 | Direct dependencies in the database are to be eliminated depending on the adopted data management strategies |Pre-iteration 4|--|

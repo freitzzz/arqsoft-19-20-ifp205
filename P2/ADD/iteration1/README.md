@@ -76,11 +76,33 @@ Alternatives:
 |Change Data Capture|With change data capture, rather than trying to intercept and act on calls made into the monolith, we react to changes made in a datastore. For change data capture to work, the underlying capture system has to be coupled to the monolith’s datastore.|
 
 
+
 **Step 6**
 
 - Goal: Sketch views and record design decisions
 
 #### Business Capabilities Decomposition: 
+
+Considering each Use Case a business function it's possible to describe business capabilities. Those are organized in the following table according the supplied information:
+
+| Use Cases | Business Capability |
+|--------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| UC7 - Generate Management Reports UC8 - View User Logs/Activities | Report management |
+| UC9 - Edit Meal UC4 - Create new Meal Descriptor UC6 - Create Meal UC13 - Add Ingredients UC12 - Add Meal Types UC11 - Add Allergens | Meal Management |
+| UC2 - Register Item to Inventory UC3 - Remove existing Item from Inventory UC10 - Edit Item Quantity | Inventory Management |
+| UC1 - Register Item Purchase UC19 - Query Item quantity availability UC8 - View User Logs/Activities | PoS Handling |
+| UC18 - Transfer Item between PoS UC17 - Specify New PoS UCXX - Specify Downtimes | PoS Management |
+| UC14 - Consult Meal Allergens UC15 - Consult Meal Ingredients UC16 - Consult Meal Nutritional Data | Informational Data |
+
+Justifications:
+
+It's possible to decompose in at least 6 services. Starting from Report Management, it exists to supply the Administrator with the required reports from the sold Items, that's why Use Case 8 is in both Report Management and Pos Handling Business Capability.
+
+The Use Case 18 was placed as a responsibility of PoS Management given that the Items are being transferred between PoS, implying it should be management of PoS.
+
+It was thought a seventh service, Sales, to register the purchases triggered by PoS, but since it's not a real focus of the application it is not considered and the responsibility was given to the PoS Handling. While not including it, it would be useful, in the future, to possibly have a service with that responsibility, for hypotetical scenarios like an online store or Item orders.
+
+Other Use Cases are only contained in one service only and comply with Single Responsibility and Common Closure Principle (CCP).
 
    **Business Capabilities Decomposition Diagram**
 
