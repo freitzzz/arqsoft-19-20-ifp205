@@ -67,6 +67,7 @@ To satisfy the structure of the chosen design concepts, the following elements a
 |Shared Database|In this solution services share a common database; a service publishes its data, and other services can consume it when required. The Shared Database option could be viable only if the integration complexity or related challenges of Database per Service-based services become too difficult to handle; also, operating a single Shared Database is simpler.|
 
 Alternatives: 
+
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
 |Database Per Service|Keep each microservice's persistence data private to the service and acessible only via its API. The service’s database is not accessible directly by other services.|
@@ -109,6 +110,17 @@ Other Use Cases are only contained in one service only and comply with Single Re
   ![BusinessCapabilities](../diagrams/businessCapabilities.png)
 
 #### Sub-Domain Decomposition:
+
+Taking into account the monolith's domain, we were able to split it into 5 separate sub-domains, namely: **Meal Management**, **Item Management**, **PoS Handling**, **Report Management** and **User Management**.
+
+Most of the bounded contexts will have an Upstream/Downstream relationship since the downstream end of the relationship depends on data or behavior of the upstream end. Meaning that the upstream end will influence the downstream context.
+
+An Item's purchase will be registered by the **PoS Handling** bounded context since it is a simple enough operation, which doesn't justify creating a new service.
+
+Since the **User Management** bounded context is restricted to the usage of the user directory server provided by the school, any relationship this service might have will be a Conformist relationship, since this bounded context does not provide to the downstream bouded context's needs.
+
+The **Report Management** bounded context will be responsible for creating the various reports regarding user activities. For this feature, we need to know not only the User, but also the type of Activity (read or write) and the referenced Object (either a Meal or an Item the User interacted with.
+
 
    **Sub-Domain Decomposition Diagram**
 
