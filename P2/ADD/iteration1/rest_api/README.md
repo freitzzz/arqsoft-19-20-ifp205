@@ -1,6 +1,6 @@
 # Entrypoint
 
-GFAB REST API entrypoint is located at the following URI `/api`
+REST API entrypoint is located at the following URI `/api`
 
 
 ## Functionalities
@@ -13,11 +13,13 @@ Produced functionalities can be found in the table below. Consumers can interact
 |----|---|-----------|
 |GET|[/meals](meals/available_meals.md)|Retrieves available meals|
 |GET|[/meals/:id](meals/detailed_meal_information.md)|Retrieves detailed information of a meal|
+|GET|[/meals/:id/allergens](meals/meal_allergens.md)|Retrieves meal allergens|
+|GET|[/meals/:id/descriptors](meals/meal_descriptors.md)|Retrieves meal descriptors|
+|GET|[/meals/:id/ingredients](meals/meal_ingredients.md)|Retrieves meal ingredients|
 |POST|[/meals](meals/create_meal.md)|Creates a meal|
 |GET|[/items](items/available_items.md)|Retrieves available items|
 |POST|[/items](items/add_item.md)|Add item to inventory|
 |DELETE|[/items/:id](items/remove_item.md)|Remove item from inventory|
-|DELETE|[/items/:id?userType](items/purchase_item.md)|Register an item purchase|
 |GET|[/allergens](allergens/available_allergens.md)|Retrieves available allergens that a meal may contain|
 |POST|[/allergens](allergens/create_allergen.md)|Creates an allergen|
 |GET|[/ingredients](ingredients/available_ingredients.md)|Retrieves available ingredients that can be composed by a meal|
@@ -28,6 +30,11 @@ Produced functionalities can be found in the table below. Consumers can interact
 |POST|[/mealtypes](mealtypes/create_mealtype.md)|Creates a meal type|
 |GET|[/logs](logs/all_logs.md)|Retrieves all user activity logs|
 |GET|[/logs/:id](logs/detailed_log_information.md)|Retrieves detailed information of a log|
+|POST|[/pos](pos/create_pos.md)|Creates a PoS|
+|POST|[/pos/:id/items](pos/register_item_handle.md)|Registers that an item needs to be handled by the PoS|
+|GET|[/pos/:id/items](pos/available_items.md)|Retrieves available items which the PoS handles|
+|DELETE|[/pos/:id/items/:id](pos/deregister_item_handle.md)|Deregisters the handle of an item|
+|DELETE|[/pos/:id/items/:id?userType](pos/purchase_item.md)|Register an item purchase|
 
 ## Generic CRUD behaviour within the GFAB component
 
