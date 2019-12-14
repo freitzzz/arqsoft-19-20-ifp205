@@ -86,13 +86,13 @@ Alternatives:
 Considering each Use Case a business function it's possible to describe business capabilities. Those are organized in the following table according the supplied information:
 
 | Use Cases | Business Capability |
-|-|-|
-| UC7 - Generate Management Reports <br> UC8 - View User Logs/Activities | Report management |
-| UC9 - Edit Meal <br> UC4 - Create new Meal Descriptor <br> UC6 - Create Meal <br> UC13 - Add Ingredients <br> UC12 - Add Meal Types <br> UC11 - Add Allergens | Meal Management |
-|  UC2 - Register Item to Inventory <br> UC3 - Remove existing Item from Inventory <br> UC10 - Edit Item Quantity | Inventory Management |
-| UC1 - Register Item Purchase <br> UC19 - Query Item quantity availability <br> UC8 - View User Logs/Activities | PoS Handling |
-| UC18 - Transfer Item between PoS <br> UC17 - Specify New PoS <br> UCXX - Specify Downtimes | PoS Management |
-| UC14 - Consult Meal Allergens <br> UC15 - Consult Meal Ingredients <br> UC16 - Consult Meal Nutritional Data | Informational Data |
+|--------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| UC7 - Generate Management Reports UC8 - View User Logs/Activities | Report management |
+| UC9 - Edit Meal UC4 - Create new Meal Descriptor UC6 - Create Meal UC13 - Add Ingredients UC12 - Add Meal Types UC11 - Add Allergens | Meal Management |
+| UC2 - Register Item to Inventory UC3 - Remove existing Item from Inventory UC10 - Edit Item Quantity | Inventory Management |
+| UC1 - Register Item Purchase UC19 - Query Item quantity availability UC8 - View User Logs/Activities | PoS Handling |
+| UC18 - Transfer Item between PoS UC17 - Specify New PoS UCXX - Specify Downtimes | PoS Management |
+| UC14 - Consult Meal Allergens UC15 - Consult Meal Ingredients UC16 - Consult Meal Nutritional Data | Informational Data |
 
 Justifications:
 
