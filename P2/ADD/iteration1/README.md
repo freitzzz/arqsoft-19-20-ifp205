@@ -132,7 +132,7 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
    **Service Cutter Decomposition Diagram**
 
-   ![BoundedContexts](../../ServiceCutter_resources/generatedImages/Newman_UseCases_Dependencies_5.png)
+   ![ServiceCutter](../../ServiceCutter_resources/generatedImages/Newman_UseCases_Dependencies_5.png)
 
 
 #### Component-and-connector View : 
@@ -144,27 +144,53 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
    **Deployment Diagram**
 
-![Deployment Diagram](../diagrams/deploymentDiagram.png)
+  ![Deployment Diagram](../diagrams/deploymentDiagram.png)
 
 #### Module View:
 
   **Domain Model**
 
+  ![DomainModelDiagram](../diagrams/DomainModel.png)
 
   **Model Objects Class Diagram**
 
+  ![ModelObjectsDiagramDiagram](../diagrams/ModelObjects.png)
 
   **Aggregate Roots Diagram**
 
+  ![AggregateRootsDiagram](../diagrams/AggregateRoots.png)
 
   **Packages Diagram**
 
+  **Meal Management Packages Diagram**
+
+  ![MealManagementPackages](../diagrams/MealManagementPackages.png)
+
+  **Item Management Packages Diagram**
+
+  ![ItemManagementPackages](../diagrams/ItemManagementPackages.png)
+
+  **PoS Handling Packages Diagram**
+
+  ![PoSHandlingPackages](../diagrams/PoSHandlingPackages.png)
+
+  **User Management Packages Diagram**
+
+  ![UserManagementsPackages](../diagrams/UserManagementsPackages.png)
+
+  **Report Management Packages Diagram**
+
+  ![ReportManagementPackages](../diagrams/ReportManagementPackages.png)
 
 #### Allocation View :
 
   **Use Case Diagram**
 
+  ![UseCaseDiagram](../diagrams/UseCaseDiagram.png)
+
   **Domain Objects for Use Cases**
+
+  ![DomainObjectsDiagram](../diagrams/DomainObjectsDiagram.png)
 
 
 **Step 7**
