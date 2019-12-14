@@ -119,7 +119,9 @@ An Item's purchase will be registered by the **PoS Handling** bounded context si
 
 Since the **User Management** bounded context is restricted to the usage of the user directory server provided by the school, any relationship this service might have will be a Conformist relationship, since this bounded context does not provide to the downstream bouded context's needs.
 
-The **Report Management** bounded context will be responsible for creating the various reports regarding user activities. For this feature, we need to know not only the User, but also the type of Activity (read or write) and the referenced Object (either a Meal or an Item the User interacted with.
+The **Report Management** bounded context will be responsible for creating the various reports regarding user activities. For this feature, we need to know not only the User, but also the type of Activity (read or write) and the referenced Object (either a Meal or an Item the User interacted with. 
+
+Also, the relationship between the **Report Management** service and the **Meal Management** and **Item Management** services represents a Customer-Supplier relationship since both the **Meal** and **Item** (Suppliers) services know they must provide the **Report** (Customer) service with the information needed to generate reports on the operations the User might make. For this effect, the **Meal** and **Item** services should meet the expectations set by the **Report** service and warn this service whenever a operation takes place so the reports reflect all user interactions with these services.
 
 
    **Sub-Domain Decomposition Diagram**
