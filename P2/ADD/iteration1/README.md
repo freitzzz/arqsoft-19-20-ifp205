@@ -164,23 +164,23 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
   **Meal Management Packages Diagram**
 
-  ![MealManagementPackages](../diagrams/MealManagementPackages.png)
+  ![MealManagementPackages](../diagrams/MealManagementPackages.PNG)
 
   **Item Management Packages Diagram**
 
-  ![ItemManagementPackages](../diagrams/ItemManagementPackages.png)
+  ![ItemManagementPackages](../diagrams/ItemManagementPackages.PNG)
 
   **PoS Handling Packages Diagram**
 
-  ![PoSHandlingPackages](../diagrams/PoSHandlingPackages.png)
+  ![PoSHandlingPackages](../diagrams/PoSHandlingPackages.PNG)
 
   **User Management Packages Diagram**
 
-  ![UserManagementsPackages](../diagrams/UserManagementsPackages.png)
+  ![UserManagementsPackages](../diagrams/UserManagementsPackages.PNG)
 
   **Report Management Packages Diagram**
 
-  ![ReportManagementPackages](../diagrams/ReportManagementPackages.png)
+  ![ReportManagementPackages](../diagrams/ReportManagementPackages.PNG)
 
 #### Allocation View :
 
