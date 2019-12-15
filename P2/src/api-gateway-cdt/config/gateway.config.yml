@@ -2,34 +2,34 @@ http:
   port: ${PORT}
 admin:
   port: 9876
-  host: localhost
+  host: ${HOST}
 apiEndpoints:
   api:
-    host: localhost
+    host: ${HOST}
     paths: '/ip'
   meals:
-    host: localhost
+    host: ${HOST}
     paths: '/api/meals*'
   items:
-    host: localhost
+    host: ${HOST}
     paths: '/api/items*'
   allergens:
-    host: localhost
+    host: ${HOST}
     paths: '/api/allergens*'
   ingredients:
-    host: localhost
+    host: ${HOST}
     paths: '/api/ingredients*'
   descriptors:
-    host: localhost
+    host: ${HOST}
     paths: '/api/descriptors*'
   mealtypes:
-    host: localhost
+    host: ${HOST}
     paths: '/api/mealtypes*'
   logs:
-    host: localhost
+    host: ${HOST}
     paths: '/api/logs*'
   pos:
-    host: localhost
+    host: ${HOST}
     paths: '/api/pos*'
 serviceEndpoints:
   httpbin:
