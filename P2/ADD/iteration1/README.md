@@ -132,40 +132,93 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
    **Service Cutter Decomposition Diagram**
 
-   ![BoundedContexts](../../ServiceCutter_resources/generatedImages/Newman_UseCases_Dependencies_5.png)
+   ![ServiceCutter](../../ServiceCutter_resources/generatedImages/Newman_UseCases_Dependencies_5.png)
+
+
+#### Module View:
+
+  **Domain Model**
+
+  ![DomainModelDiagram](../diagrams/DomainModel.png)
+
+  **Model Objects Class Diagram**
+
+  ![ModelObjectsDiagramDiagram](../diagrams/ModelObjects.png)
+
+  **Aggregate Roots Diagram**
+
+  ![AggregateRootsDiagram](../diagrams/AggregateRoots.png)
+
+  **Packages Diagram**
+
+  **Meal Management Packages Diagram**
+
+  ![MealManagementPackages](../diagrams/MealManagementPackages.PNG)
+
+  **Item Management Packages Diagram**
+
+  ![ItemManagementPackages](../diagrams/ItemManagementPackages.PNG)
+
+  **PoS Handling Packages Diagram**
+
+  ![PoSHandlingPackages](../diagrams/PoSHandlingPackages.PNG)
+
+  **User Management Packages Diagram**
+
+  ![UserManagementsPackages](../diagrams/UserManagementsPackages.PNG)
+
+  **Report Management Packages Diagram**
+
+  ![ReportManagementPackages](../diagrams/ReportManagementPackages.PNG)
 
 
 #### Component-and-connector View : 
 
    **Component Diagram**
 
+   ![Component_Diagram](../diagrams/GorgeousFoodComponentDiagram.png)
+
 
 #### Allocation View :
 
    **Deployment Diagram**
 
-![Deployment Diagram](../diagrams/deploymentDiagram.png)
-
-#### Module View:
-
-  **Domain Model**
-
-
-  **Model Objects Class Diagram**
-
-
-  **Aggregate Roots Diagram**
-
-
-  **Packages Diagram**
-
-
-#### Allocation View :
+  ![Deployment Diagram](../diagrams/deploymentDiagram.png)
 
   **Use Case Diagram**
 
+  ![UseCaseDiagram](../diagrams/UseCaseDiagram.png)
+
   **Domain Objects for Use Cases**
 
+  ![DomainObjectsDiagram](../diagrams/DomainObjectsDiagram.png)
+
+|Element|Responsibility|
+|-------|--------------|
+|HTTP Controller|Produces controllers that handle all REST API requests|
+|Repository|Produce interfaces (and their implementations) for aggregate roots objects management functionalities (Store, Update, Find and Delete)|
+|Meal (View)|Explicits all model views that are related to `meal` collection produced by the REST API|
+|Item (View)|Explicits all model views that are related to `item` collection produced by the REST API|
+|Allergen (View)|Explicits all model views that are related to `allergens` collection produced by the REST API|
+|Ingredient (View)|Explicits all model views that are related to `ingredients` collection produced by the REST API|
+|Descriptor (View)|Explicits all model views that are related to `descriptors` collection produced by the REST API|
+|Meal Type (View)|Explicits all model views that are related to `mealtypes` collection produced by the REST API|
+|PoS (View)|Explicits all model views that are related to `PoS` collection produced by the REST API|
+|User (View)|Explicits all model views that are related to `user` collection produced by the REST API|
+|ActivityType (View)|Explicits all model views that are related to `activityType` collection produced by the REST API|
+|Meal (Model)|Produces models and functionalities related to `meal` aggregate root|
+|Item (Model)|Produces models and functionalities related to `item` aggregate root|
+|PoS (Model)|Produces models and functionalities related to `PoS` aggregate root|
+|Services (Model)|Produces domain services used by model objects|
+|Purchase (Model)|Produces models and functionalities related to `item purchase` aggregate root|
+|User (Model)|Produces models and functionalities related to the users supplied by the school's user directory|
+|ActivityType (Model)|Produces models and functionalities related to the User's logged activities within the application|
+|Model (GF Services)|Produces an interface that explicits model objects functionalities|
+|View (GF Services)|Produces an interface that explicits model views represented in the REST API|
+|Controller (GF Services)|Handles REST API requests and external components communication|
+|Model (GF Services)|Produces an interface that explicits model objects|
+|View (GF Services)|Produces an interface that explicits the presentation that the user consumes and handles any user interaction|
+|Controller (GF Services)|Handles external components communication|
 
 **Step 7**
 
