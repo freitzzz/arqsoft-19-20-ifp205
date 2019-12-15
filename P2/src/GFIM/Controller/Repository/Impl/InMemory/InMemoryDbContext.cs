@@ -19,40 +19,21 @@ namespace GFAB.Controllers
     public DbSet<Meal> Meals { get; set; }
 
     public DbSet<Item> Items { get; set; }
-
-    public DbSet<ItemPurchase> ItemPurchases {get ; set;}
-
+    
     protected override void OnModelCreating(ModelBuilder builder)
     {
       base.OnModelCreating(builder);
 
-      builder.Entity<Meal>().HasKey(meal => meal.ID);
+      builder.Entity<Meal>().HasKey(meal => meal.MealId);
 
       builder.Entity<Meal>().OwnsOne(meal => meal.Designation);
-
-      builder.Entity<Meal>().OwnsOne(meal => meal.Type);
-
-      builder.Entity<Meal>().OwnsMany(meal => meal.Allergens);
-
-      builder.Entity<Meal>().OwnsMany(meal => meal.Descriptors);
-
-      builder.Entity<Meal>().OwnsMany(meal => meal.Ingredients);
 
 
       builder.Entity<Item>().OwnsOne(item => item.LivenessPeriod);
 
       builder.Entity<Item>().OwnsOne(item => item.MealId);
 
-      builder.Entity<Item>().OwnsOne(item => item.Location);
-
       builder.Entity<Item>().OwnsOne(item => item.ItemId);
-
-      
-      builder.Entity<ItemPurchase>().HasKey(itemPurchase => itemPurchase.ID);
-
-      builder.Entity<ItemPurchase>().OwnsOne(itemPurchase => itemPurchase.ItemID);
-
-      builder.Entity<ItemPurchase>().OwnsOne(itemPurchase => itemPurchase.PurchaseID);
     }
 
   }
