@@ -18,8 +18,6 @@ namespace GFAB.View
 
       public string MealId {get; set;}
 
-      public string Location {get;set;}
-
       public string AvailableToServeUntil {get;set;}
 
       public string ProductionDate {get;set;}
@@ -40,8 +38,6 @@ namespace GFAB.View
         element.IdentificationNumber = item.IdentificationNumber;
 
         element.MealId = item.MealId.Id;
-
-        element.Location = item.Location.Name;
 
         element.AvailableToServeUntil = item.LivenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'ddTHH':'mm':'ss");
 
