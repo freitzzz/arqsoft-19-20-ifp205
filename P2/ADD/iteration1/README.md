@@ -271,22 +271,22 @@ The [REST API](rest_api/README.md) specification was refined to include support 
 - Goal: Perform analysis of current design and review iteration goal and achivements of design purposes
 
 As the first step for this iteration, the domain model was refined in order to meet the stakeholder's new expectations.
-Afterwards, the GFAB monolith was decomposed by following the Bounded Context (Sub-Domain) approach, which allowed the team to obtain a better understanding of the GFAB's main business capabilities, and each of the responsibilities of the newly created services.
+Afterwards, the GFAB monolith was decomposed by following the Bounded Context (Sub-Domain) approach, which allowed the team to obtain a better understanding of the GFAB's main business capabilities, and each of the responsibilities of the newly created services. The existing REST API was updated in order to provide support for the new functionalities.
 
 The following table represents the update of the kanban board after the iteration:
 
 | Not Addressed | Partially Addressed | Addressed |
 |---------------|---------------------|-----------|
-|UC-14|||
-|UC-15|||
-|UC-16|||
-||UC-17||
-||UC-18||
-|UC-19|||
-||CON-13||
-|CON-14|||
-|CON-15|||
-|CON-16|||
+|||UC-14|
+|||UC-15|
+|||UC-16|
+|||UC-17|
+|||UC-18|
+|||UC-19|
+|||CON-13|
+|||CON-14|
+|||CON-15|
+|||CON-16|
 ||CON-17||
 |||CON-18|
 |QA-4|||
