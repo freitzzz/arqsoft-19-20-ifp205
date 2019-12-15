@@ -135,17 +135,6 @@ Also, the relationship between the **Report Management** service and the **Meal 
    ![ServiceCutter](../../ServiceCutter_resources/generatedImages/Newman_UseCases_Dependencies_5.png)
 
 
-#### Component-and-connector View : 
-
-   **Component Diagram**
-
-
-#### Allocation View :
-
-   **Deployment Diagram**
-
-  ![Deployment Diagram](../diagrams/deploymentDiagram.png)
-
 #### Module View:
 
   **Domain Model**
@@ -182,7 +171,17 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
   ![ReportManagementPackages](../diagrams/ReportManagementPackages.PNG)
 
+
+#### Component-and-connector View : 
+
+   **Component Diagram**
+
+
 #### Allocation View :
+
+   **Deployment Diagram**
+
+  ![Deployment Diagram](../diagrams/deploymentDiagram.png)
 
   **Use Case Diagram**
 
