@@ -11,7 +11,6 @@ Verb: `POST`
 The following fields are required in order to create a item:
 
 - `mealId` The meal which the item corresponds to
-- `location` The item location
 - `productionDate` The item production date (YYYY-MM-DD format)
 - `expirationDate` The item expiration date (YYYY-MM-DD format)
 

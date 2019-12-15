@@ -52,9 +52,21 @@ Given the iteration goal selected drivers in Step 2, it is necessary to define w
 
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
-|Decompose the existing monolithic application by Business Capabilities|It is necessary to distinguish the GFAB business processes, and create a service to support each of its main functionalities|
-|Decompose the existing monolithic application by its Subdomains (Bounded Contexts)|For this approach we must split the GFAB domain into multiple smaller domains, each corresponding to a different business area.|
+|Decompose the existing monolithic application by using business capability pattern|It is necessary to distinguish the GFAB business processes, and create a service to support each of its main functionalities|
+|Decompose the existing monolithic application by using Sub-Domain pattern (Bounded Contexts)|For this approach we must split the GFAB domain into multiple smaller domains, each corresponding to a different business area.|
 |Decompose the existing monolithic application with a supporting tool|For this approach we supply an external tool with the GFAB main concerns as input. The tool then outputs a possible decomposition into various services.|
+|Apply microservices pattern to the output of monolith decomposition|It is obligatory to migrate the existing solution to microservices, so microservices pattern should be applied|
+|Database Per Service|Keep each microservice's persistence data private to the service and acessible only via its API. The service’s database is not accessible directly by other services.|
+|API Composition|The application performs the join rather than the database. For example, a service (or the API gateway) could retrieve a customer and their orders by first retrieving the customer from the customer service and then querying the order service to return the customer’s most recent orders.|
+
+Alternatives: 
+
+|Design Decisions and Location|Rationale|
+|-----------------------------|---------|
+|Command Query Responsibility Segregation (CQRS)|By following this design pattern, we can separate data-update versus data-querying capabilities into separate models. Maintaining one or more materialized views that contain data from multiple services. The views are kept by services that subscribe to events that each services publishes when it updates its data.|
+|Shared Database|In this solution services share a common database; a service publishes its data, and other services can consume it when required. The Shared Database option could be viable only if the integration complexity or related challenges of Database per Service-based services become too difficult to handle; also, operating a single Shared Database is simpler.|
+|Database View|With a view, a service can be presented with a schema that is a limited projection from an underlying schema- we limit the data that is visible to the service. It gives us control over what is shared, and what is hidden.|
+|Change Data Capture|With change data capture, rather than trying to intercept and act on calls made into the monolith, we react to changes made in a datastore. For change data capture to work, the underlying capture system has to be coupled to the monolith’s datastore.|
 
 **Step 5**
 
@@ -64,17 +76,13 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
-|Database Per Service|Keep each microservice's persistence data private to the service and acessible only via its API. The service’s database is not accessible directly by other services.|
-
-Alternatives: 
-
-|Design Decisions and Location|Rationale|
-|-----------------------------|---------|
-|API Composition|The application performs the join rather than the database. For example, a service (or the API gateway) could retrieve a customer and their orders by first retrieving the customer from the customer service and then querying the order service to return the customer’s most recent orders.|
-|Command Query Responsibility Segregation (CQRS)|By following this design pattern, we can separate data-update versus data-querying capabilities into separate models. Maintaining one or more materialized views that contain data from multiple services. The views are kept by services that subscribe to events that each services publishes when it updates its data.|
-|Shared Database|In this solution services share a common database; a service publishes its data, and other services can consume it when required. The Shared Database option could be viable only if the integration complexity or related challenges of Database per Service-based services become too difficult to handle; also, operating a single Shared Database is simpler.|
-|Database View|With a view, a service can be presented with a schema that is a limited projection from an underlying schema- we limit the data that is visible to the service. It gives us control over what is shared, and what is hidden.|
-|Change Data Capture|With change data capture, rather than trying to intercept and act on calls made into the monolith, we react to changes made in a datastore. For change data capture to work, the underlying capture system has to be coupled to the monolith’s datastore.|
+|Elaborate refined domain model|In order to comprehend the new domain concepts of the iteration, it is necessary to establish a refined domain model with these concepts|
+|Map use cases by actors|To establish actors and their responbilities it is necessary to map the use cases being addressed by their actors.|
+|Map use cases to domain objects|Domain objects of use cases help in identifying the dependencies existent for each use case|
+|Map system elements to logical components|As the monolith solution is being decomposed in new components it is necessary to map these as logical components in order to understand which interfaces are being produced and consumed by the components|
+|Map system elements to physical components|As the monolith solution is being decomposed in new components it is necessary to map these as physical components in order to understand which communication protocols are being used in component communication|
+|Structure packages of new components|By doing so, developers will have a better insight of the architecture and responsibilities of each component|
+|Refine GFAB REST API|It is necessary to update the existing REST API to include new functionalities|
 
 
 
@@ -196,6 +204,27 @@ Also, the relationship between the **Report Management** service and the **Meal 
   **Domain Objects for Use Cases**
 
   ![DomainObjectsDiagram](../diagrams/DomainObjectsDiagram.png)
+
+
+#### REST API
+
+The [REST API](rest_api/README.md) specification was refined to include support for drivers UC14, UC15, UC16, UC17, UC18, UC19. The following table illustrates which collections are handled by the microservices components.
+
+|Collection|Microservice|
+|----------|------------|
+|`meals`|GFMM|
+|`items`|GFIM|
+|`allergens`|GFMM|
+|`ingredients`|GFMM|
+|`descriptors`|GFMM|
+|`mealtypes`|GFMM|
+|`logs`|GFRM|
+|`pos`|GFPH|
+|`users`|GFUM|
+|`usertypes`|GFUM|
+
+
+#### Responsibilities Table
 
 |Element|Responsibility|
 |-------|--------------|
