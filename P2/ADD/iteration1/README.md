@@ -205,6 +205,27 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
   ![DomainObjectsDiagram](../diagrams/DomainObjectsDiagram.png)
 
+
+#### REST API
+
+The [REST API](rest_api/README.md) specification was refined to include support for drivers UC14, UC15, UC16, UC17, UC18, UC19. The following table illustrates which collections are handled by the microservices components.
+
+|Collection|Microservice|
+|----------|------------|
+|`meals`|GFMM|
+|`items`|GFIM|
+|`allergens`|GFMM|
+|`ingredients`|GFMM|
+|`descriptors`|GFMM|
+|`mealtypes`|GFMM|
+|`logs`|GFRM|
+|`pos`|GFPH|
+|`users`|GFUM|
+|`usertypes`|GFUM|
+
+
+#### Responsibilities Table
+
 |Element|Responsibility|
 |-------|--------------|
 |GFMM (Gorgeous Food Meal Management)|Service responsible for providing the functionalities related to `meal` aggregate root|
