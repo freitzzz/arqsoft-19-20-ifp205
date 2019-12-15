@@ -38,13 +38,6 @@ export default function AlertDialog(props) {
         setBaseMeal(event.target.value);
     };
 
-    //Selected Location state
-    const [selectedLocation, setSelectedLocation] = React.useState('ISEP');
-
-    const handleLocationChange = event => {
-        setSelectedLocation(event.target.value);
-    };
-
     //Production Date state
     const [selectedProdDate, setSelectedProdDate] = React.useState();
 
@@ -60,7 +53,7 @@ export default function AlertDialog(props) {
     };
 
     const handleNewItemCreation = event => {
-        var itemData = { mealId: baseMeal, location: selectedLocation, productionDate: selectedProdDate, expirationDate: selectedExpDate }
+        var itemData = { mealId: baseMeal, productionDate: selectedProdDate, expirationDate: selectedExpDate }
 
 
         console.log(JSON.stringify(itemData));
@@ -101,10 +94,6 @@ export default function AlertDialog(props) {
                                 <MenuItem value={row.id}>{row.designation}</MenuItem>
                             ))}
                         </Select>
-                    </FormControl>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel htmlFor="component-simple">Location</InputLabel>
-                        <Input id="component-simple" value={selectedLocation} onChange={handleLocationChange} />
                     </FormControl>
                 </DialogContent>
                 <DialogContent>
