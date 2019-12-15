@@ -128,6 +128,10 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
    ![BoundedContexts](../diagrams/BoundedContext_v2.png)
 
+   **Sub-Domain Communications Diagram**
+
+   ![ServiceCommunicationDiagram](../diagrams/ServiceCommunicationDiagram.png)
+
 #### Service Cutter Decomposition:
 
    **Service Cutter Decomposition Diagram**
