@@ -7,9 +7,37 @@ apiEndpoints:
   api:
     host: localhost
     paths: '/ip'
+  meals:
+    host: localhost
+    paths: '/api/meals*'
+  items:
+    host: localhost
+    paths: '/api/items*'
+  allergens:
+    host: localhost
+    paths: '/api/allergens*'
+  ingredients:
+    host: localhost
+    paths: '/api/ingredients*'
+  descriptors:
+    host: localhost
+    paths: '/api/descriptors*'
+  mealtypes:
+    host: localhost
+    paths: '/api/mealtypes*'
+  logs:
+    host: localhost
+    paths: '/api/logs*'
+  pos:
+    host: localhost
+    paths: '/api/pos*'
 serviceEndpoints:
   httpbin:
     url: 'https://httpbin.org'
+  gfab_heroku:
+    url: 'https://gfab.herokuapp.com'
+  gfim_heroku:
+    url: 'https://gfim.herokuapp.com'
 policies:
   - basic-auth
   - cors
@@ -29,4 +57,84 @@ pipelines:
       - proxy:
           - action:
               serviceEndpoint: httpbin 
+              changeOrigin: true
+  meals:
+    apiEndpoints:
+      - meals
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfab_heroku 
+              changeOrigin: true
+  items:
+    apiEndpoints:
+      - items
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfim_heroku 
+              changeOrigin: true
+  allergens:
+    apiEndpoints:
+      - allergens
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfab_heroku 
+              changeOrigin: true
+  ingredients:
+    apiEndpoints:
+      - ingredients
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfab_heroku 
+              changeOrigin: true
+  descriptors:
+    apiEndpoints:
+      - descriptors
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfab_heroku 
+              changeOrigin: true
+  mealtypes:
+    apiEndpoints:
+      - mealtypes
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfab_heroku 
+              changeOrigin: true
+  logs:
+    apiEndpoints:
+      - logs
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfab_heroku 
+              changeOrigin: true
+  pos:
+    apiEndpoints:
+      - pos
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gfab_heroku 
               changeOrigin: true
