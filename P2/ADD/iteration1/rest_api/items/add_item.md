@@ -21,7 +21,6 @@ Example:
 
 {
     "mealId":1,
-    "location":"ISEP",
     "productionDate":"2019-10-31",
     "expirationDate":"2020-01-31"
 }
@@ -40,8 +39,6 @@ Example:
     "id":1,
     "mealId":1
     "identificationNumber:942895
-    "label":"Stone-Soup::0942895::2019-10-31::2020-01-31",
-    "location":"ISEP",
     "availableToServeUntil":"2019-11-01T13:43:31"
     "productionDate":"2019-10-31",
     "expirationDate":"2020-01-31",
