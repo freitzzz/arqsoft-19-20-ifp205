@@ -14,7 +14,7 @@ namespace GFAB.View {
         /// The identification number of the meal associated to the new item
         /// </summary>
         /// <value></value>
-        public int mealId {get; set;}
+        public long mealId {get; set;}
 
         /// <summary>
         /// ProductionDate defined for the item 
