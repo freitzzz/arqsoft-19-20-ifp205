@@ -13,20 +13,10 @@ The software being developed is a brownfield system, so it is proposed the follo
 - Description: In this iteration it is intended that the design of the previously developed software architecture is refined to include new architectural drivers
 
 - Design Concepts:
-  - Choose Deployment Patterns
-  - Choose Externally Developed Components (e.g. Frameworks)
+  - Refine the Domain Model
+  - Decompose the monolithic GFAB into a microservice-based application
 
 **Iteration 2**
-
-- Goal: Support primary functionality (fine-grain architectural view)
-
-- Description: In this iteration it is intended that the design of the functional requirements and restrictions is settled in a fine-grain architectural view 
-
-- Design Concepts:
-  - Choose Architectural Patterns
-  - Relate Externaly Developed Components with chosen Architectural Patterns
-
-**Iteration 3**
 
 - Goal: Support quality attribute scenarios and concerns
 
