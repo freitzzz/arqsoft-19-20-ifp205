@@ -9,21 +9,18 @@ import Title from '../Title/Title';
 
 export function QueryItem() {
     
-    const [mealList, setMealList] = useState([]);
-    const [mealInfoList, setMealInfoList] = useState([{id: 1, name: 'Stone Soup', quantity: 5}, {id: 2, name: 'Kidney Stone Soup', quantity: 2}]);
-    const header = ['Meal Name', "Quantity"].map((title) => { return (<TableCell>{title}</TableCell>) });;
+    const [mealInfoList, setMealInfoList] = useState([]);
+    const header = ['Meal Name', 'Quantity'].map((title) => { return (<TableCell>{title}</TableCell>) });;
 
     useEffect(() => {
-        getData('meals').then(value => setMealList(value));
-    });
-
-    useEffect((mealList, mealInfoList) => {
-        if (mealList && mealList.length) {
-            for (const meal of mealList) {
-                getData(`items?mealId=${meal.id}`).then(value => setMealInfoList([...mealInfoList,{id: meal.id, name: meal.designation, quantity: value}]));
-            }
-        }
-    }, [mealList]);
+        getData('meals').then(function(meals){
+            meals.forEach(function (meal) {
+                getData('items?mealId=' + meal.id).then(function(quantity){
+                    setMealInfoList(mealInfoList => [...mealInfoList,{id: meal.id, name: meal.designation, quantity: quantity.length}]);
+                });
+            });
+        });
+    }, []);
 
     return (
         <React.Fragment>
