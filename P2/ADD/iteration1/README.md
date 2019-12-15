@@ -176,6 +176,8 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
    **Component Diagram**
 
+   ![Component_Diagram](../diagrams/GorgeousFoodComponentDiagram.png)
+
 
 #### Allocation View :
 
