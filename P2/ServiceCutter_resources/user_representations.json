@@ -18,22 +18,22 @@
         {
             "name" : "Create new Meal Descriptor",
             "nanoentitiesRead" : [],
-            "nanoentitiesWritten" : ["Meal.Descriptor"]
+            "nanoentitiesWritten" : ["Meal.Descriptor, Meal.MeasureUnit", "Designation"]
         },
         {
             "name" : "View Meal Details",
-            "nanoentitiesRead" : ["Meal.MealID","Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor"],
+            "nanoentitiesRead" : ["Meal.MealID","Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor", "Meal.Designation", "Meal.MeasureUnit"],
             "nanoentitiesWritten" : []
         },
         {
             "name" : "Create Meal",
             "nanoentitiesRead" : [],
-            "nanoentitiesWritten" : ["Meal.MealID", "Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor"]
+            "nanoentitiesWritten" : ["Meal.Designation", "Meal.MeasureUnit","Meal.MealID", "Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor"]
         },
         {
             "name" : "Edit Meal",
             "nanoentitiesRead" : ["Meal.MealID"],
-            "nanoentitiesWritten" : ["Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor"]
+            "nanoentitiesWritten" : ["Meal.MealType", "Meal.Ingredient", "Meal.Allergen", "Meal.Descriptor", "Meal.Designation", "Meal.MeasureUnit"]
         },
         {
             "name" : "Edit Item Quantity",
@@ -67,7 +67,7 @@
         },
         {
             "name" : "Consult meal nutritional data",
-            "nanoentitiesRead" : ["Meal.MealID", "Meal.Descriptor"],
+            "nanoentitiesRead" : ["Meal.MealID", "Meal.Descriptor", "Meal.Designation", "Meal.MeasureUnit"],
             "nanoentitiesWritten" : []
         },
         {
@@ -82,7 +82,7 @@
         },
         {
             "name" : "Query item quantity availability",
-            "nanoentitiesRead" : ["Meal.MealID"],
+            "nanoentitiesRead" : ["Meal.MealID", "Item.ItemID"],
             "nanoentitiesWritten" : []
         }
     ]
