@@ -35,6 +35,8 @@ Produced functionalities can be found in the table below. Consumers can interact
 |GET|[/pos/:id/items](pos/available_items.md)|Retrieves available items which the PoS handles|
 |DELETE|[/pos/:id/items/:id](pos/deregister_item_handle.md)|Deregisters the handle of an item|
 |DELETE|[/pos/:id/items/:id?userType](pos/purchase_item.md)|Register an item purchase|
+|GET|[/users](users/available_users.md)|Retrieves existing users|
+|GET|[/usertypes](usertypes/available_usertypes.md)|Retrieves existing types of user|
 
 ## Generic CRUD behaviour within the GFAB component
 
