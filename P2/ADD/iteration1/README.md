@@ -204,8 +204,14 @@ Also, the relationship between the **Report Management** service and the **Meal 
 |GFPH (Gorgeous Food PoS Handling)|Service responsible for providing the functionalities related to the `PoS` and `PurchaseDetails` aggregate roots|
 |GFUM (Gorgeous Food User Management)|Service responsible for providing the functionalities related to the Users supplied by the school's user directory|
 |GFRM (Gorgeous Food Report Management)|Service responsible for logging a User's activities within the application|
+|GFMMDB (Gorgeous Food Meal Management Database)|Database responsible for storing the information managed by the GFMM Service|
+|GFIMDB (Gorgeous Food Item Management Database)|Database responsible for storing the information managed by the GFIM Service|
+|GFPHDB (Gorgeous Food PoS Handling Database)|Database responsible for storing the information managed by the GFPH Service|
+|User Directory|Database of Users supplied by the school|
+|GFRMDB (Gorgeous Food Report Management Database)|Database responsible for storing the information managed by the GFRM Service|
 |Open Host Service (OHS)|Defines an open protocol that gives access to a system as a set of services. The services offered by the API are well documented and easy to use|
 |Published Language (PL)|The translation between the models of two Bounded Contexts requires a common language. By defining a well-documented shared laguage, we are able to easily translate into and out of that language|
+|API Gateway|This layer enables communication with remote services. It is responsible for managing requests and responses to and from objects of the domain|
 |HTTP Controller|Produces controllers that handle all REST API requests|
 |Repository|Produce interfaces (and their implementations) for aggregate roots objects management functionalities (Store, Update, Find and Delete)|
 |Meal (View)|Explicits all model views that are related to `meal` collection produced by the REST API|
