@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +12,9 @@ using GFAB.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using System.IO;
 using GFAB.View;
+using GFAB.Model;
 
 namespace GFAB
 {
@@ -40,10 +46,10 @@ namespace GFAB
 
       services.Configure<ApiBehaviorOptions>(options =>
       {
-        options.InvalidModelStateResponseFactory = context =>
-        {
-          return new BadRequestObjectResult(new ErrorModelView("request body not formatted"));
-        };
+          options.InvalidModelStateResponseFactory = context =>
+          {
+            return new BadRequestObjectResult(new ErrorModelView("request body not formatted"));
+          };
       });
 
       // services.AddDbContext<SQLite3DbContext>(
@@ -68,10 +74,17 @@ namespace GFAB
 
       };
 
-      services.AddHttpClient("gfmm", c =>
-        {
-          c.BaseAddress = new Uri(Environment.GetEnvironmentVariable("GFMM_URL"));
-        });
+      var jsonString = File.ReadAllText("existingdata.json");
+
+      ExistingDataModelView modelview = JsonSerializer.Deserialize<ExistingDataModelView>(jsonString, jsonOptions);
+
+      ExistingAllergensService.InjectAllergens(modelview.Allergens);
+
+      ExistingIngredientsService.InjectIngredients(modelview.Ingredients);
+
+      ExistingMealTypesService.InjectMealTypes(modelview.MealTypes);
+
+      ExistingDescriptorsService.InjectDescriptors(modelview.Descriptors);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

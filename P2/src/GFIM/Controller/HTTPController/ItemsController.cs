@@ -3,6 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using GFAB.View;
 using GFAB.Model;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net;
+using System.Text.Json;
+using GFIM.View;
+using System.Linq;
 
 namespace GFAB.Controllers
 {
@@ -12,20 +18,52 @@ namespace GFAB.Controllers
 
   public class ItemsController : ControllerBase //TODO: Create a technical logger to write in a .txt file locally on the server
   {
-    private RepositoryFactory factory;
+    private RepositoryFactory repositoryFactory;
 
-    public ItemsController(RepositoryFactory repositoryFactory)
+    private IHttpClientFactory clientFactory;
+
+    public ItemsController(RepositoryFactory repositoryFactory, IHttpClientFactory clientFactory)
     {
-      factory = repositoryFactory;
+      this.repositoryFactory = repositoryFactory;
+      this.clientFactory = clientFactory;
     }
 
 
     [HttpGet]
-    public IActionResult AvailableItems()
+    public async Task<IActionResult> AvailableItems([FromQuery] string mealId)
     {
       try
       {
-        List<Item> items = factory.ItemRepository().All();
+        List<Item> items = null;
+
+        if (mealId == null)
+        {
+          items = repositoryFactory.ItemRepository().All();
+        }
+        else
+        {
+
+          var request = new HttpRequestMessage(HttpMethod.Get, $"meals/${mealId}");
+
+          var client = clientFactory.CreateClient("gfmm");
+
+          var clientResponse = await client.SendAsync(request);
+
+          if (clientResponse.StatusCode == HttpStatusCode.NotFound)
+          {
+
+            return NotFound(null);
+
+          }
+
+          var responsePayload = await clientResponse.Content.ReadAsStreamAsync();
+
+          GetDetailedMealInformationModelView meal = await JsonSerializer.DeserializeAsync<GetDetailedMealInformationModelView>(responsePayload);
+
+          MealID mealIdVO = MealID.ValueOf(mealId);
+
+          items = repositoryFactory.ItemRepository().All().Where((item) => item.MealId.Equals(mealIdVO)).ToList();
+        }
 
         if (items.Count == 0)
         {
@@ -46,7 +84,7 @@ namespace GFAB.Controllers
 
     //POST: /items
     [HttpPost]
-    public IActionResult RegisterItem(AddItemModelView itemToAdd)
+    public async Task<IActionResult> RegisterItem(AddItemModelView itemToAdd)
     {
 
       if (!ModelState.IsValid || itemToAdd == null)
@@ -57,15 +95,29 @@ namespace GFAB.Controllers
       try
       {
 
-        Meal meal = this.factory.MealRepository().Find(itemToAdd.mealId);
+        var request = new HttpRequestMessage(HttpMethod.Get, $"meals/${itemToAdd.mealId}");
 
-        string location = itemToAdd.location;
+        var client = clientFactory.CreateClient("gfmm");
+
+        var clientResponse = await client.SendAsync(request);
+
+        if (clientResponse.StatusCode == HttpStatusCode.NotFound)
+        {
+
+          return BadRequest(new ErrorModelView($"no meal was found by the resource identifier '{itemToAdd.mealId}'"));
+
+        }
+
+        var responsePayload = await clientResponse.Content.ReadAsStreamAsync();
+
+        GetDetailedMealInformationModelView meal = await JsonSerializer.DeserializeAsync<GetDetailedMealInformationModelView>(responsePayload);
+
         DateTime expirationDate = DateTime.Parse(itemToAdd.expirationDate);
         DateTime productionDate = DateTime.Parse(itemToAdd.productionDate);
 
-        Item item = new Item(meal.Id(), location, productionDate, expirationDate);
+        Item item = new Item(MealID.ValueOf(meal.Designation), productionDate, expirationDate);
 
-        this.factory.ItemRepository().Save(item);
+        this.repositoryFactory.ItemRepository().Save(item);
 
         RegisterItemModelView response = new RegisterItemModelView(item);
 
@@ -97,20 +149,22 @@ namespace GFAB.Controllers
       }
     }
 
-    
+
+    [HttpDelete("{id}")]
     public IActionResult RemoveItem(long id)
     {
       try
       {
-        Item item = this.factory.ItemRepository().Find(id);
+        Item item = this.repositoryFactory.ItemRepository().Find(id);
 
         bool marked = item.markAsServed();
-        
-        if(!marked){
+
+        if (!marked)
+        {
           return NotFound(null);
         }
 
-        this.factory.ItemRepository().Update(item);
+        this.repositoryFactory.ItemRepository().Update(item);
 
         return NoContent();
       }
@@ -119,64 +173,6 @@ namespace GFAB.Controllers
 
         if (e is ArgumentException)
           return NotFound(null);
-
-        return StatusCode(500, null);
-      }
-
-    }
-
-    //Delete : /items:id
-    [HttpDelete("{id}")]
-    public IActionResult RegisterItemPurchase(long id, [FromQuery] string userType)
-    {
-
-      if(userType == null){
-        return RemoveItem(id);
-      }
-
-      try
-      {
-
-        UserType type;
-
-        try{
-          type = UserTypeConversionService.ToUserType(userType);
-        }catch(ArgumentException invalidUserType){
-          return BadRequest(new ErrorModelView(invalidUserType.Message));
-        }
-
-        Item item = this.factory.ItemRepository().Find(id);
-
-        bool marked = item.markAsServed();
-
-        if(!marked){
-          return BadRequest(new ErrorModelView("item was already served"));
-        }
-
-        this.factory.ItemRepository().Update(item);
-
-        try{
-          ItemPurchase purchasedItem = new ItemPurchase(type, item.ItemId);
-
-          this.factory.ItemPurchaseRepository().Save(purchasedItem);
-
-          return NoContent();
-
-        }catch(Exception exception){
-          
-          if(exception is ArgumentException || exception is InvalidOperationException){
-            return BadRequest(new ErrorModelView(exception.Message));
-          }else{
-            return StatusCode(500, null);
-          }
-
-        }
-      }
-      catch (Exception e)
-      {
-
-        if (e is ArgumentException)
-          return NotFound();
 
         return StatusCode(500, null);
       }

@@ -1,0 +1,1714 @@
+{
+	"info": {
+		"_postman_id": "62ad570f-7b58-4042-a606-1fe96d94157f",
+		"name": "Bootstrap Item",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Stone Soup Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy Copy Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stone Soup Item Copy Copy Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":1,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spanish Coadfish Item Copy Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":2,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Green Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":3,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Red Apple Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":4,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duck Rice Item Copy Copy Copy Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mealId\":5,\n    \"location\":\"ISEP\",\n    \"productionDate\":\"2019-10-31\",\n    \"expirationDate\":\"2020-01-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

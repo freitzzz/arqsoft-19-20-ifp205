@@ -6,8 +6,11 @@ namespace GFAB.Controllers
   /// </summary>
   public interface RepositoryFactory
   {
+    MealRepository MealRepository();
 
     ItemRepository ItemRepository();
+
+    ItemPurchaseRepository ItemPurchaseRepository();
 
   }
 

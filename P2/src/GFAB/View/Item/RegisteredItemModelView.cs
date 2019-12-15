@@ -1,6 +1,6 @@
 using GFAB.Model;
 
-namespace GFIM.View
+namespace GFAB.View
 {
 
   /// <summary>
@@ -35,6 +35,12 @@ namespace GFIM.View
     public string label { get; set; }
 
     /// <summary>
+    /// The specific location that the registered item is going to be stored
+    /// </summary>
+    /// <value></value>
+    public string location { get; set; }
+
+    /// <summary>
     /// The date that represents how long the item will be served for
     /// </summary>
     /// <value></value>
@@ -62,6 +68,8 @@ namespace GFIM.View
       identificationNumber = item.IdentificationNumber;
 
       label = item.Id().Id;
+
+      location = item.Location.Name;
 
       availableToServeUntil = item.LivenessPeriod.EndDateTime.ToString("yyyy'-'MM'-'ddTHH':'mm':'ss");
 

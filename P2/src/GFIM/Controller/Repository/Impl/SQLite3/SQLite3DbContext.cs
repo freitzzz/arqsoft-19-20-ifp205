@@ -26,20 +26,10 @@ namespace GFAB.Controllers
 
       builder.Entity<Meal>().OwnsOne(meal => meal.Designation);
 
-      builder.Entity<Meal>().OwnsOne(meal => meal.Type);
-
-      builder.Entity<Meal>().OwnsMany(meal => meal.Allergens);
-
-      builder.Entity<Meal>().OwnsMany(meal => meal.Descriptors);
-
-      builder.Entity<Meal>().OwnsMany(meal => meal.Ingredients);
-
 
       builder.Entity<Item>().OwnsOne(item => item.LivenessPeriod);
 
       builder.Entity<Item>().OwnsOne(item => item.MealId);
-
-      builder.Entity<Item>().OwnsOne(item => item.Location);
 
       builder.Entity<Item>().OwnsOne(item => item.ItemId);
     }

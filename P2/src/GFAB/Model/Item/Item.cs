@@ -17,13 +17,17 @@ namespace GFAB.Model
     /// <summary>
     /// A generated number that identifies an item
     /// </summary>
-    public long IdentificationNumber { get; protected set; }
+    public long IdentificationNumber {get; protected set;}
 
     ///<summary>
     /// Identifies a certain item in inventory. This is unique for each item
     ///</summary>
     [Key]
     public ItemID ItemId { get; set; }
+    ///<summary>
+    /// Represents the current location within the kitchen for a single item
+    ///</summary>
+    public Location Location { get; set; }
     ///<summary>
     ///Represents the date which the item was produced
     ///</summary>
@@ -46,11 +50,11 @@ namespace GFAB.Model
     ///</summary>
     public MealID MealId { get; set; }
 
-    public Item(MealID mealId, DateTime productionDate, DateTime expirationDate)
+    public Item(MealID mealId, string location, DateTime productionDate, DateTime expirationDate)
     {
 
       DateTime timeNow = DateTime.Now;
-
+      
       grantMealIdCannotBeNull(mealId);
 
 
@@ -67,6 +71,8 @@ namespace GFAB.Model
 
       this.MealId = mealId;
 
+      this.Location = Location.ValueOf(location);
+
       this.LivenessPeriod = TimePeriod.ValueOf(timeNow, timeNow.AddDays(1));
 
       this.ExpirationDate = expirationDate;
@@ -77,7 +83,7 @@ namespace GFAB.Model
 
       this.IdentificationNumber = identificationNumber;
 
-      this.ItemId = ItemID.ValueOf(this.MealId.Id, identificationNumber, this.ProductionDate, this.ExpirationDate);
+      this.ItemId = ItemID.ValueOf(this.MealId.Id, identificationNumber , this.ProductionDate, this.ExpirationDate);
     }
 
     // For the ORM
@@ -92,13 +98,11 @@ namespace GFAB.Model
     public bool Available()
     {
 
-      if (DateTime.Now > LivenessPeriod.EndDateTime)
-      {
+      if(DateTime.Now > LivenessPeriod.EndDateTime){
         return false;
       }
 
-      if (DateTime.Now > ExpirationDate)
-      {
+      if(DateTime.Now > ExpirationDate){
         return false;
       }
 
@@ -126,8 +130,7 @@ namespace GFAB.Model
 
     private void grantMealIdCannotBeNull(MealID mealId)
     {
-      if (mealId == null)
-      {
+      if(mealId == null){
 
         throw new ArgumentNullException("item meal id cannot be null");
 
@@ -136,8 +139,7 @@ namespace GFAB.Model
 
     private void grantProductionDateIsNotAfterExpirationDate(DateTime productionDate, DateTime expirationDate)
     {
-      if (productionDate > expirationDate)
-      {
+      if(productionDate > expirationDate){
 
         throw new ArgumentException("item production date cannot be after expiration date");
 
@@ -146,8 +148,7 @@ namespace GFAB.Model
 
     private void grantExpirationDateIsNotBeforeTodaysDate(DateTime expirationDate)
     {
-      if (expirationDate < DateTime.Now)
-      {
+      if(expirationDate < DateTime.Now){
 
         throw new ArgumentException("item expiration date cannot be before todays date");
 
@@ -156,8 +157,7 @@ namespace GFAB.Model
 
     private void grantProductionDateIsNotAfterTodaysDate(DateTime productionDate)
     {
-      if (productionDate > DateTime.Now)
-      {
+      if(productionDate > DateTime.Now){
 
         throw new ArgumentException("item production date cannot be after todays date");
 
@@ -166,8 +166,7 @@ namespace GFAB.Model
 
     private void grantProductionDateCannotBeNull(DateTime productionDate)
     {
-      if (productionDate == null)
-      {
+      if(productionDate == null){
 
         throw new ArgumentNullException("item production date cannot be null");
 
@@ -177,8 +176,7 @@ namespace GFAB.Model
     private void grantExpirationDateCannotBeNull(DateTime expirationDate)
     {
 
-      if (expirationDate == null)
-      {
+      if(expirationDate == null){
 
         throw new ArgumentNullException("item expiration date cannot be null");
 
