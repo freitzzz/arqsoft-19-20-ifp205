@@ -1,0 +1,1 @@
+export const API_URL = process.env.REACT_APP_GFAB_API_URL;
