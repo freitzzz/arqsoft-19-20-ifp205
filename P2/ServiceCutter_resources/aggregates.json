@@ -8,7 +8,9 @@
                 "MealType",
                 "Ingredient",
                 "Allergen",
-                "Descriptor"
+                "Descriptor",
+                "MeasureUnit",
+                "Designation"
             ]
         },
         {
@@ -22,9 +24,9 @@
             "name" : "PoS",
             "nanoentities" : [
                 "PoSID",
-                "StartOfDownTime",
-                "EndOfDownTime",
-                "Building",
+                "DownTime",
+                "TimePeriod",
+                "School Building",
                 "Floor",
                 "Room",
                 "ItemTransfer"

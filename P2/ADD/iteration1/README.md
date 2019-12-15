@@ -64,15 +64,15 @@ To satisfy the structure of the chosen design concepts, the following elements a
 
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
-|Shared Database|In this solution services share a common database; a service publishes its data, and other services can consume it when required. The Shared Database option could be viable only if the integration complexity or related challenges of Database per Service-based services become too difficult to handle; also, operating a single Shared Database is simpler.|
+|Database Per Service|Keep each microservice's persistence data private to the service and acessible only via its API. The service’s database is not accessible directly by other services.|
 
 Alternatives: 
 
 |Design Decisions and Location|Rationale|
 |-----------------------------|---------|
-|Database Per Service|Keep each microservice's persistence data private to the service and acessible only via its API. The service’s database is not accessible directly by other services.|
 |API Composition|The application performs the join rather than the database. For example, a service (or the API gateway) could retrieve a customer and their orders by first retrieving the customer from the customer service and then querying the order service to return the customer’s most recent orders.|
 |Command Query Responsibility Segregation (CQRS)|By following this design pattern, we can separate data-update versus data-querying capabilities into separate models. Maintaining one or more materialized views that contain data from multiple services. The views are kept by services that subscribe to events that each services publishes when it updates its data.|
+|Shared Database|In this solution services share a common database; a service publishes its data, and other services can consume it when required. The Shared Database option could be viable only if the integration complexity or related challenges of Database per Service-based services become too difficult to handle; also, operating a single Shared Database is simpler.|
 |Database View|With a view, a service can be presented with a schema that is a limited projection from an underlying schema- we limit the data that is visible to the service. It gives us control over what is shared, and what is hidden.|
 |Change Data Capture|With change data capture, rather than trying to intercept and act on calls made into the monolith, we react to changes made in a datastore. For change data capture to work, the underlying capture system has to be coupled to the monolith’s datastore.|
 
@@ -127,6 +127,10 @@ Also, the relationship between the **Report Management** service and the **Meal 
    **Sub-Domain Decomposition Diagram**
 
    ![BoundedContexts](../diagrams/BoundedContext_v2.png)
+
+   **Sub-Domain Communications Diagram**
+
+   ![ServiceCommunicationDiagram](../diagrams/ServiceCommunicationDiagram.png)
 
 #### Service Cutter Decomposition:
 
@@ -195,6 +199,13 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
 |Element|Responsibility|
 |-------|--------------|
+|GFMM (Gorgeous Food Meal Management)|Service responsible for providing the functionalities related to `meal` aggregate root|
+|GFIM (Gorgeous Food Item Management)|Service responsible for providing the functionalities related to `item` aggregate root|
+|GFPH (Gorgeous Food PoS Handling)|Service responsible for providing the functionalities related to the `PoS` and `PurchaseDetails` aggregate roots|
+|GFUM (Gorgeous Food User Management)|Service responsible for providing the functionalities related to the Users supplied by the school's user directory|
+|GFRM (Gorgeous Food Report Management)|Service responsible for logging a User's activities within the application|
+|Open Host Service (OHS)|Defines an open protocol that gives access to a system as a set of services. The services offered by the API are well documented and easy to use|
+|Published Language (PL)|The translation between the models of two Bounded Contexts requires a common language. By defining a well-documented shared laguage, we are able to easily translate into and out of that language|
 |HTTP Controller|Produces controllers that handle all REST API requests|
 |Repository|Produce interfaces (and their implementations) for aggregate roots objects management functionalities (Store, Update, Find and Delete)|
 |Meal (View)|Explicits all model views that are related to `meal` collection produced by the REST API|
@@ -224,3 +235,23 @@ Also, the relationship between the **Report Management** service and the **Meal 
 
 - Goal: Perform analysis of current design and review iteration goal and achivements of design purposes
 
+As the first step for this iteration, the domain model was refined in order to meet the stakeholder's new expectations.
+Afterwards, the GFAB monolith was decomposed by following the Bounded Context (Sub-Domain) approach, which allowed the team to obtain a better understanding of the GFAB's main business capabilities, and each of the responsibilities of the newly created services.
+
+The following table represents the update of the kanban board after the iteration:
+
+| Not Addressed | Partially Addressed | Addressed |
+|---------------|---------------------|-----------|
+|UC-14|||
+|UC-15|||
+|UC-16|||
+||UC-17||
+||UC-18||
+|UC-19|||
+||CON-13||
+|CON-14|||
+|CON-15|||
+|CON-16|||
+||CON-17||
+|||CON-18|
+|QA-4|||
